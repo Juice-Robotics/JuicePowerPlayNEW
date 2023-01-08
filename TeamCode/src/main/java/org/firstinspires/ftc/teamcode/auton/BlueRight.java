@@ -108,8 +108,43 @@ public class BlueRight extends LinearOpMode {
                 .addTemporalMarker(1.5, ()->{
                     robot.slides.runToPosition(-280);
                 })
+                .addTemporalMarker(1.8,()->{
+                    robot.claw.setClawOpen();
+                })
                 .waitSeconds(0.5)
                 .build();
+
+        TrajectorySequence poleToStackTrajectory2 = drive.trajectorySequenceBuilder(stackToHighTrajectory1.end())
+                .setReversed(false)
+                .addTemporalMarker(0, ()->{
+                    robot.autoLow(true);
+                })
+                .waitSeconds(1)
+                .setReversed(false)
+                .splineTo(new Vector2d(56,8.5), 0)
+                .addTemporalMarker(2.3, ()->{
+                    robot.claw.setClawClose();
+                })
+                .waitSeconds(0.5)
+                .addTemporalMarker(2.8, ()->{
+                    robot.slides.runToPreset(Levels.HIGH);
+                })
+                .waitSeconds(1)
+                .build();
+
+        TrajectorySequence stackToHighTrajectory2 = drive.trajectorySequenceBuilder(poleToStackTrajectory2.end())
+                .setReversed(true)
+                .splineTo(new Vector2d(32,7), 179.8)
+                .addTemporalMarker(1, ()->{
+                    robot.autoHigh(true);
+                })
+                .waitSeconds(0.5)
+                .addTemporalMarker(1.5, ()->{
+                    robot.slides.runToPosition(-240);
+                })
+                .waitSeconds(0.5)
+                .build();
+
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         camera = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
@@ -218,6 +253,8 @@ public class BlueRight extends LinearOpMode {
         drive.followTrajectorySequence(preloadTrajectory);
         drive.followTrajectorySequence(poleToStackTrajectory1);
         drive.followTrajectorySequence(stackToHighTrajectory1);
+        drive.followTrajectorySequence(poleToStackTrajectory2);
+        drive.followTrajectorySequence(stackToHighTrajectory2);
         robot.claw.setClawOpen();
 //        drive.followTrajectorySequence(trajectory);
 //
