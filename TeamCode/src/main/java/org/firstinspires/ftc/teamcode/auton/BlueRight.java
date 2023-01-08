@@ -100,7 +100,7 @@ public class BlueRight extends LinearOpMode {
 
         TrajectorySequence stackToHighTrajectory1 = drive.trajectorySequenceBuilder(poleToStackTrajectory1.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(32,7), 179.8)
+                .splineTo(new Vector2d(34,6), 179.8)
                 .addTemporalMarker(1, ()->{
                     robot.autoHigh(true);
                 })
@@ -134,7 +134,7 @@ public class BlueRight extends LinearOpMode {
 
         TrajectorySequence stackToHighTrajectory2 = drive.trajectorySequenceBuilder(poleToStackTrajectory2.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(32,7), 179.8)
+                .splineTo(new Vector2d(34,6), 179.8)
                 .addTemporalMarker(1, ()->{
                     robot.autoHigh(true);
                 })
