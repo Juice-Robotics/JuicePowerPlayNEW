@@ -14,7 +14,7 @@ public class V4B {
     public double groundTarget = 3;
     public double lowTarget = 135;
     public double midTarget = 122;
-    public double highTarget = 165;
+    public double highTarget = 160;
     public double autoInit = 210;
 
     public V4B(StepperServo servo1, StepperServo servo2) {
