@@ -103,7 +103,7 @@ public class BlueRight extends LinearOpMode {
                     robot.autoHigh(true);
                 })
                 .waitSeconds(0.5)
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.slides.runToPosition(-280);
                 })
                 .addTemporalMarker(1.9,()->{
@@ -134,7 +134,7 @@ public class BlueRight extends LinearOpMode {
                     robot.autoHigh(true);
                 })
                 .waitSeconds(0.5)
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.slides.runToPosition(-230);
                 })
                 .addTemporalMarker(1.9,()->{
@@ -164,7 +164,7 @@ public class BlueRight extends LinearOpMode {
                     robot.autoHigh(true);
                 })
                 .waitSeconds(0.5)
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.slides.runToPosition(-180);
                 })
                 .addTemporalMarker(1.9,()->{
@@ -195,7 +195,7 @@ public class BlueRight extends LinearOpMode {
                     robot.autoHigh(true);
                 })
                 .waitSeconds(0.5)
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.slides.runToPosition(0);
                 })
                 .addTemporalMarker(1.9,()->{
@@ -226,7 +226,7 @@ public class BlueRight extends LinearOpMode {
                     robot.autoHigh(true);
                 })
                 .waitSeconds(0.5)
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.slides.runToPosition(0);
                 })
                 .addTemporalMarker(1.9,()->{
