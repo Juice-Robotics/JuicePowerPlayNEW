@@ -85,9 +85,9 @@ public class BlueRight extends LinearOpMode {
                 .addTemporalMarker(0, ()->{
                     robot.autoLow(true);
                 })
-                .waitSeconds(1)
+                .waitSeconds(0.5)
                 .setReversed(false)
-                .splineTo(new Vector2d(56,8.5), 0)
+                .splineTo(new Vector2d(56.5,8.5), 0)
                 .addDisplacementMarker(25.5, ()->{
                     robot.claw.setClawClose();
                 })
@@ -95,10 +95,9 @@ public class BlueRight extends LinearOpMode {
                 .addTemporalMarker(2.5, ()->{
                     robot.slides.runToPreset(Levels.HIGH);
                 })
-                .waitSeconds(1)
                 .build();
-
         TrajectorySequence stackToHighTrajectory1 = drive.trajectorySequenceBuilder(poleToStackTrajectory1.end())
+                .waitSeconds(0.4)
                 .setReversed(true)
                 .splineTo(new Vector2d(34,6), 179.8)
                 .addTemporalMarker(1, ()->{
