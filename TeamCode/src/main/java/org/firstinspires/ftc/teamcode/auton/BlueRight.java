@@ -103,13 +103,13 @@ public class BlueRight extends LinearOpMode {
                     robot.autoHigh(true);
                 })
                 .waitSeconds(0.5)
-                .addTemporalMarker(1.5, ()->{
+                .addTemporalMarker(1.3, ()->{
                     robot.slides.runToPosition(-280);
                 })
-                .addTemporalMarker(1.9,()->{
+                .addTemporalMarker(1.7,()->{
                     robot.claw.setClawOpen();
                 })
-                .waitSeconds(0.5)
+                .waitSeconds(0.2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory2 = drive.trajectorySequenceBuilder(stackToHighTrajectory1.end())
@@ -134,13 +134,13 @@ public class BlueRight extends LinearOpMode {
                     robot.autoHigh(true);
                 })
                 .waitSeconds(0.5)
-                .addTemporalMarker(1.5, ()->{
+                .addTemporalMarker(1.3, ()->{
                     robot.slides.runToPosition(-230);
                 })
-                .addTemporalMarker(1.9,()->{
+                .addTemporalMarker(1.7,()->{
                     robot.claw.setClawOpen();
                 })
-                .waitSeconds(0.5)
+                .waitSeconds(0.2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory3 = drive.trajectorySequenceBuilder(stackToHighTrajectory2.end())
@@ -164,13 +164,13 @@ public class BlueRight extends LinearOpMode {
                     robot.autoHigh(true);
                 })
                 .waitSeconds(0.5)
-                .addTemporalMarker(1.5, ()->{
+                .addTemporalMarker(1.3, ()->{
                     robot.slides.runToPosition(-180);
                 })
-                .addTemporalMarker(1.9,()->{
+                .addTemporalMarker(1.7,()->{
                     robot.claw.setClawOpen();
                 })
-                .waitSeconds(0.5)
+                .waitSeconds(0.2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory4 = drive.trajectorySequenceBuilder(stackToHighTrajectory3.end())
@@ -195,13 +195,13 @@ public class BlueRight extends LinearOpMode {
                     robot.autoHigh(true);
                 })
                 .waitSeconds(0.5)
-                .addTemporalMarker(1.5, ()->{
+                .addTemporalMarker(1.3, ()->{
                     robot.slides.runToPosition(0);
                 })
-                .addTemporalMarker(1.9,()->{
+                .addTemporalMarker(1.7,()->{
                     robot.claw.setClawOpen();
                 })
-                .waitSeconds(0.5)
+                .waitSeconds(0.2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory5 = drive.trajectorySequenceBuilder(stackToHighTrajectory4.end())
@@ -226,13 +226,13 @@ public class BlueRight extends LinearOpMode {
                     robot.autoHigh(true);
                 })
                 .waitSeconds(0.5)
-                .addTemporalMarker(1.5, ()->{
+                .addTemporalMarker(1.3, ()->{
                     robot.slides.runToPosition(0);
                 })
-                .addTemporalMarker(1.9,()->{
+                .addTemporalMarker(1.7,()->{
                     robot.claw.setClawOpen();
                 })
-                .waitSeconds(0.5)
+                .waitSeconds(0.2)
                 .build();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
