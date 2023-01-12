@@ -15,8 +15,8 @@ public class V4B {
     private MotionProfile profile;
     public MotionState curState;
     private ElapsedTime timer;
-    double maxvel = 10;
-    double maxaccel = 10;
+    double maxvel = 50;
+    double maxaccel = 50;
 
     public double currentAngle;
 
@@ -31,6 +31,8 @@ public class V4B {
     public V4B(StepperServo servo1, StepperServo servo2) {
         this.v4b1 = servo1;
         this.v4b2 = servo2;
+        timer = new ElapsedTime();
+        profile = MotionProfileGenerator.generateSimpleMotionProfile(new MotionState(1, 0), new MotionState(0, 0), maxvel, maxaccel);
 //        v4b1.servo.setDirection(Servo.Direction.REVERSE);
     }
 
