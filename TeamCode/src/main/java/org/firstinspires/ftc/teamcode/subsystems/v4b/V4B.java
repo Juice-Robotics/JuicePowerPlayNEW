@@ -2,10 +2,21 @@ package org.firstinspires.ftc.teamcode.subsystems.v4b;
 
 import org.firstinspires.ftc.teamcode.lib.Levels;
 import org.firstinspires.ftc.teamcode.lib.StepperServo;
+import com.acmerobotics.roadrunner.profile.MotionProfile;
+import com.acmerobotics.roadrunner.profile.MotionProfileGenerator;
+import com.acmerobotics.roadrunner.profile.MotionState;
+import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.util.Range;
 
 public class V4B {
     public StepperServo v4b1;
     public StepperServo v4b2;
+
+    private MotionProfile profile;
+    public MotionState curState;
+    private ElapsedTime timer;
+    double maxvel = 10;
+    double maxaccel = 10;
 
     public double currentAngle;
 
@@ -47,15 +58,20 @@ public class V4B {
 //                this.setAngle(highTarget);
 //        }
         if (level == Levels.ZERO) {
-            this.setAngle(zeroTarget);
+            profile = MotionProfileGenerator.generateSimpleMotionProfile(new MotionState(v4b1.getAngle(), 0), new MotionState(zeroTarget, 0), maxvel, maxaccel);
+            timer.reset();
         } else if (level == Levels.GROUND) {
-            this.setAngle(groundTarget);
+            profile = MotionProfileGenerator.generateSimpleMotionProfile(new MotionState(v4b1.getAngle(), 0), new MotionState(groundTarget, 0), maxvel, maxaccel);
+            timer.reset();
         } else if (level == Levels.LOW) {
-            this.setAngle(lowTarget);
+            profile = MotionProfileGenerator.generateSimpleMotionProfile(new MotionState(v4b1.getAngle(), 0), new MotionState(lowTarget, 0), maxvel, maxaccel);
+            timer.reset();
         } else if (level == Levels.MEDIUM) {
-            this.setAngle(midTarget);
+            profile = MotionProfileGenerator.generateSimpleMotionProfile(new MotionState(v4b1.getAngle(), 0), new MotionState(midTarget, 0), maxvel, maxaccel);
+            timer.reset();
         } else if (level == Levels.HIGH) {
-            this.setAngle(highTarget);
+            profile = MotionProfileGenerator.generateSimpleMotionProfile(new MotionState(v4b1.getAngle(), 0), new MotionState(highTarget, 0), maxvel, maxaccel);
+            timer.reset();
         } else if (level == Levels.AUTOINIT) {
             this.setAngle(autoInit);
         }
