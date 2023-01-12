@@ -350,33 +350,35 @@ public class BlueRight extends LinearOpMode {
         drive.followTrajectorySequence(stackToHighTrajectory4);
         drive.followTrajectorySequence(poleToStackTrajectory5);
         drive.followTrajectorySequence(stackToHighTrajectory5);
-//        drive.followTrajectorySequence(trajectory);
-//
-//        TrajectorySequence parkTrajectory = null;
-//        /* Actually do something useful */
-//        if (tagOfInterest == null || tagOfInterest.id == LEFT) {
-//            // insert trajectory code
-//            parkTrajectory = robot.drive.trajectorySequenceBuilder(trajectory.end())
-//                    .setReversed(false)
-//                    .splineTo(new Vector2d(35,13), 0)
-//                    .forward(22)
-//                    .build();
-//        } else if (tagOfInterest.id == MIDDLE) {
-//            // insert trajectory code
-//            parkTrajectory = robot.drive.trajectorySequenceBuilder(trajectory.end())
-//                    .setReversed(false)
-//                    .splineTo(new Vector2d(35,13), 0)
-//                    .build();
-//        } else if (tagOfInterest.id == RIGHT) {
-//            // insert trajectory code
-//            parkTrajectory = robot.drive.trajectorySequenceBuilder(trajectory.end())
-//                    .setReversed(false)
-//                    .splineTo(new Vector2d(35,13), 0)
-//                    .back(22)
-//                    .build();
-//        }
 
-//        robot.drive.followTrajectorySequence(parkTrajectory);
+        TrajectorySequence parkTrajectory = null;
+        /* Actually do something useful */
+        if (tagOfInterest == null || tagOfInterest.id == LEFT) {
+            // insert trajectory code
+            parkTrajectory = robot.drive.trajectorySequenceBuilder(stackToHighTrajectory5.end())
+                    .waitSeconds(0.5)
+                    .setReversed(false)
+                    .splineTo(new Vector2d(60,9), 0)
+                    .build();
+        } else if (tagOfInterest.id == MIDDLE) {
+            // insert trajectory code
+            parkTrajectory = robot.drive.trajectorySequenceBuilder(stackToHighTrajectory5.end())
+                    .waitSeconds(0.5)
+                    .setReversed(false)
+                    .splineTo(new Vector2d(34,6), 179.8)
+                    .build();
+        } else if (tagOfInterest.id == RIGHT) {
+            // insert trajectory code
+            parkTrajectory = robot.drive.trajectorySequenceBuilder(stackToHighTrajectory5.end())
+                    .waitSeconds(0.5)
+                    .setReversed(false)
+                    .splineTo(new Vector2d(35,13), 0)
+                    .back(22)
+                    .build();
+        }
+
+        drive.followTrajectorySequence(parkTrajectory);
+        robot.guide.setGuideUp();
 
         robot.slides.destroyThreads(telemetry);
         while (!isStopRequested() && opModeIsActive()) ;

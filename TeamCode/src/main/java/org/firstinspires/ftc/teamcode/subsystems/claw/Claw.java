@@ -1,15 +1,21 @@
 package org.firstinspires.ftc.teamcode.subsystems.claw;
 
+import android.graphics.Color;
+
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.lib.StepperServo;
 import org.firstinspires.ftc.teamcode.lib.Axis;
+import com.qualcomm.robotcore.hardware.ColorSensor;
+
 
 public class Claw {
     public StepperServo claw;
     public StepperServo clawX1;
     public StepperServo clawX2;
     public StepperServo clawY;
+    public ClawSensor sensor;
+
 
     public boolean isOpen = false; // if open, true
 
