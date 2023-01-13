@@ -96,6 +96,7 @@ public class TeleOpMain extends LinearOpMode {
             previousRetractState = isPressed2;
 
             robot.slides.update();
+            robot.v4b.update();
             telemetry.addData("v4b position target: ", robot.v4b.getAngle());
             telemetry.addData("v4b1 position: ", robot.v4b.v4b1.servo.getPosition());
             telemetry.addData("v4b2 position: ", robot.v4b.v4b2.servo.getPosition());

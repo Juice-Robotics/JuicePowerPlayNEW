@@ -4,6 +4,7 @@ import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.lib.*;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.VoltageSensor;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 
 // IMPORT SUBSYSTEMS
 import org.firstinspires.ftc.teamcode.subsystems.claw.Claw;
@@ -81,7 +82,7 @@ public class Robot {
         VoltageSensor voltageSensor = map.voltageSensor.iterator().next();
 
         // INIT SUBSYSTEMS
-        this.claw = new Claw((StepperServo) components[11], (StepperServo) components[8], (StepperServo) components[9], (StepperServo) components[10]);
+        this.claw = new Claw((StepperServo) components[11], (StepperServo) components[8], (StepperServo) components[9], (StepperServo) components[10], map.colorSensor.get("colorSensor"));
         this.slides = new Slides((Motor) components[4], (Motor) components[5], voltageSensor);
         this.v4b = new V4B((StepperServo) components[6], (StepperServo) components[7]);
         this.guide = new Guide((StepperServo) components[13]);
@@ -125,6 +126,7 @@ public class Robot {
 
     public void update() {
         slides.update();
+        v4b.update();
     }
 
 
