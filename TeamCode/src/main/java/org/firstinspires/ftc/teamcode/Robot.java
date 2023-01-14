@@ -145,14 +145,14 @@ public class Robot {
         this.slides.runToPreset(Levels.LOW);
         this.v4b.runToPreset(Levels.LOW);
         this.claw.setYRotation(142);
-        this.claw.setXRotation(126);
+        this.claw.setXRotation(166);
     }
 
     public void mediumPreset(boolean pad_right) {
         this.slides.runToPreset(Levels.MEDIUM);
         this.v4b.runToPreset(Levels.MEDIUM);
         this.claw.setYRotation(142);
-        this.claw.setXRotation(126);
+        this.claw.setXRotation(166);
     }
 
     public void highPreset(boolean pad_up) {
@@ -162,6 +162,16 @@ public class Robot {
         } catch (Exception e) {}
         this.v4b.runToPreset(Levels.HIGH);
         this.claw.setYRotation(142);
+        this.claw.setXRotation(166);
+    }
+
+    public void sidewaysPickup(boolean pad_up) {
+        this.slides.runToPreset(Levels.HIGH);
+        try {
+            Thread.sleep(100);
+        } catch (Exception e) {}
+        this.v4b.runToPreset(Levels.HIGH);
+        this.claw.setYRotation(62);
         this.claw.setXRotation(166);
     }
 

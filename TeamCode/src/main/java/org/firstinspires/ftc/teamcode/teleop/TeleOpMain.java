@@ -64,6 +64,8 @@ public class TeleOpMain extends LinearOpMode {
                 robot.mediumPreset(gamepad1.dpad_right);
             if (gamepad1.left_bumper)
                 robot.highPreset(gamepad1.left_bumper);
+            if (gamepad1.dpad_down)
+                robot.sidewaysPickup(gamepad1.dpad_down);
 
             //CLAW
             boolean isPressed = gamepad1.cross;
@@ -98,11 +100,7 @@ public class TeleOpMain extends LinearOpMode {
             robot.slides.update();
             robot.v4b.update();
             telemetry.addData("v4b position target: ", robot.v4b.getAngle());
-            telemetry.addData("v4b1 position: ", robot.v4b.v4b1.servo.getPosition());
-            telemetry.addData("v4b2 position: ", robot.v4b.v4b2.servo.getPosition());
-            telemetry.addData("x pressed?", gamepad1.cross);
-            telemetry.addData("claw: ", robot.claw.claw.servo.getPosition());
-            telemetry.addData("d left? ", gamepad1.dpad_left);
+            telemetry.addData("v4b1 position: ", (robot.v4b.v4b1.servo.getPosition()*180));
             telemetry.addData("slides target: ", robot.slides.target);
             telemetry.addData("slides pos: ", robot.slides.slides1.motor.getCurrentPosition());
             telemetry.addData("slides power", robot.slides.power1);
