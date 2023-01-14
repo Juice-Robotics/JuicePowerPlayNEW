@@ -179,7 +179,7 @@ public class Slides {
         slides2.resetEncoder();
     }
 
-    private int getPos() {
+    public int getPos() {
         return slides1.motor.getCurrentPosition();
     }
 

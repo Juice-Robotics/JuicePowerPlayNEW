@@ -9,6 +9,7 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Robot;
+import org.firstinspires.ftc.teamcode.lib.AllianceColor;
 
 @TeleOp(group = "competition")
 public class TeleOpMain extends LinearOpMode {
@@ -20,6 +21,9 @@ public class TeleOpMain extends LinearOpMode {
         double x;
         double y;
         double rx;
+
+        boolean previousClawSensorState = false;
+        ElapsedTime clawSensorTimeout = new ElapsedTime();
 
         Gamepad previousGamepad1 = new Gamepad();
         Gamepad previousGamepad2 = new Gamepad();
@@ -44,7 +48,7 @@ public class TeleOpMain extends LinearOpMode {
 
             //DRIVE
             if (gamepad1.right_trigger > 0.1){
-                x = gamepad1.left_stick_x*(1-0.66*gamepad1.right_trigger);
+                x = -gamepad1.left_stick_x*(1-0.66*gamepad1.right_trigger);
                 y = -gamepad1.left_stick_y*(1-0.66*gamepad1.right_trigger);
                 rx = gamepad1.right_stick_x*(1-0.66*gamepad1.right_trigger);
 
@@ -74,6 +78,15 @@ public class TeleOpMain extends LinearOpMode {
             }
             previousClawState = isPressed;
 
+            if (!previousClawSensorState && robot.claw.sensor.conePresent(AllianceColor.BOTH) && clawSensorTimeout.time() >= 2000) {
+                gamepad1.rumble(500);
+                robot.claw.toggle();
+            }
+
+            if (previousClawSensorState && !robot.claw.sensor.conePresent(AllianceColor.BOTH)) {
+                clawSensorTimeout.reset();
+            }
+
             if (gamepad1.circle) {
                 robot.resetAllServos();
             }
@@ -99,6 +112,7 @@ public class TeleOpMain extends LinearOpMode {
 
             robot.slides.update();
             robot.v4b.update();
+            telemetry.addData("claw sensor: ", robot.claw.sensor.getRawARGB());
             telemetry.addData("v4b position target: ", robot.v4b.getAngle());
             telemetry.addData("v4b1 position: ", (robot.v4b.v4b1.servo.getPosition()*180));
             telemetry.addData("slides target: ", robot.slides.target);

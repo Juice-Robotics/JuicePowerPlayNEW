@@ -11,7 +11,7 @@ public class ClawSensor {
 
     // Constants of the cone colors
     int redColor = 0;
-    int blueColor = 0;
+    int blueColor = 800000000;
 
     DistanceUnit unit = DistanceUnit.CM;
 

@@ -108,7 +108,9 @@ public class Robot {
             this.claw.toggle();
         } else if (currentPosition != Levels.ZERO) {
             this.claw.toggle();
-//            sleep(500);
+            try {
+                Thread.sleep(300);
+            } catch (Exception e) {}
             groundPreset(false);
         }
     }
@@ -139,6 +141,7 @@ public class Robot {
         } catch (Exception e) {}
         this.v4b.runToPreset(Levels.GROUND);
         this.claw.setYRotation(2);
+        currentPosition = Levels.LOW;
     }
 
     public void lowPreset(boolean pad_left) {
@@ -146,6 +149,7 @@ public class Robot {
         this.v4b.runToPreset(Levels.LOW);
         this.claw.setYRotation(142);
         this.claw.setXRotation(166);
+        currentPosition = Levels.LOW;
     }
 
     public void mediumPreset(boolean pad_right) {
@@ -153,6 +157,7 @@ public class Robot {
         this.v4b.runToPreset(Levels.MEDIUM);
         this.claw.setYRotation(142);
         this.claw.setXRotation(166);
+        currentPosition = Levels.MEDIUM;
     }
 
     public void highPreset(boolean pad_up) {
@@ -163,6 +168,7 @@ public class Robot {
         this.v4b.runToPreset(Levels.HIGH);
         this.claw.setYRotation(142);
         this.claw.setXRotation(166);
+        currentPosition = Levels.HIGH;
     }
 
     public void sidewaysPickup(boolean pad_up) {
@@ -173,6 +179,7 @@ public class Robot {
         this.v4b.runToPreset(Levels.HIGH);
         this.claw.setYRotation(62);
         this.claw.setXRotation(166);
+        currentPosition = Levels.HIGH;
     }
 
     public void starterStack1(boolean pad_left) {
