@@ -31,6 +31,8 @@ public class TeleOpMain extends LinearOpMode {
         ElapsedTime timer;
         timer = new ElapsedTime();
 
+        boolean autoCloseEnabled = true;
+        boolean autoClosePreviousState = false;
         boolean previousClawState = false;
         boolean previousGuideState = false;
         boolean previousRetractState = false;
@@ -72,6 +74,10 @@ public class TeleOpMain extends LinearOpMode {
                 robot.sidewaysPickup(gamepad1.dpad_down);
 
             //CLAW
+            if (gamepad1.circle && !autoClosePreviousState) {
+                autoCloseEnabled = !autoCloseEnabled;
+            }
+
             boolean isPressed = gamepad1.cross;
             if (isPressed && !previousClawState) {
                 robot.advancedToggleClaw();
@@ -111,6 +117,7 @@ public class TeleOpMain extends LinearOpMode {
             previousRetractState = isPressed2;
 
             previousClawSensorState = robot.claw.sensor.conePresent();
+            autoClosePreviousState = gamepad1.circle;
             robot.slides.update();
             telemetry.addData("claw sensor: ", robot.claw.sensor.getRange());
             telemetry.addData("v4b position target: ", robot.v4b.getAngle());
