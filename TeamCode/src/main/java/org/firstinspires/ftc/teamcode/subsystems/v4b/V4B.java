@@ -10,8 +10,8 @@ public class V4B {
     public double currentAngle;
 
     // TARGETS
-    public double zeroTarget = 3;
-    public double groundTarget = 3;
+    public double zeroTarget = 7;
+    public double groundTarget = 7;
     public double lowTarget = 160;
     public double midTarget = 160;
     public double highTarget = 160;
