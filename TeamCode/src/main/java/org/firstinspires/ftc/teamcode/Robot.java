@@ -131,9 +131,7 @@ public class Robot {
 
     public void update() {
         slides.update();
-        v4b.update();
     }
-
 
     // SLIDES + V4B + CLAW PRESETS
     public void groundPreset(boolean pad_down) {

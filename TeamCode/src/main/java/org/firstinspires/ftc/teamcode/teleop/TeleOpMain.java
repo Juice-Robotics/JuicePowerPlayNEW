@@ -112,7 +112,6 @@ public class TeleOpMain extends LinearOpMode {
 
             previousClawSensorState = robot.claw.sensor.conePresent();
             robot.slides.update();
-            robot.v4b.update();
             telemetry.addData("claw sensor: ", robot.claw.sensor.getRange());
             telemetry.addData("v4b position target: ", robot.v4b.getAngle());
             telemetry.addData("v4b1 position: ", (robot.v4b.v4b1.servo.getPosition()*180));

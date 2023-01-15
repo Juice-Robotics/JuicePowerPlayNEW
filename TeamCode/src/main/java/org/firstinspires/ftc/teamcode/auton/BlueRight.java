@@ -59,8 +59,6 @@ public class BlueRight extends LinearOpMode {
         robot = new Robot(hardwareMap, true);
         Pose2d startPose = new Pose2d(in(92), in(160), rad(90));
         drive.setPoseEstimate(startPose);
-        robot.slides.launchAsThread(telemetry);
-        robot.v4b.launchAsThread(telemetry);
         robot.claw.setPositionClaw(0.8);
         robot.autoInit(true);
 
@@ -247,7 +245,7 @@ public class BlueRight extends LinearOpMode {
             @Override
             public void onOpened()
             {
-                camera.startStreaming(1280,720, OpenCvCameraRotation.SIDEWAYS_RIGHT);
+                camera.startStreaming(1280,720, OpenCvCameraRotation.UPRIGHT);
             }
 
             @Override
@@ -283,7 +281,6 @@ public class BlueRight extends LinearOpMode {
                 if(tagFound)
                 {
                     telemetry.addLine("Tag of interest is in sight!\n\nLocation data:");
-                    telemetry.addData("Location: ", tagOfInterest.id);
                 }
                 else
                 {
@@ -340,6 +337,7 @@ public class BlueRight extends LinearOpMode {
 
         if (isStopRequested()) return;
 
+        robot.slides.launchAsThread(telemetry);
         robot.guide.setGuideDown();
         drive.followTrajectorySequence(preloadTrajectory);
         drive.followTrajectorySequence(poleToStackTrajectory1);
@@ -374,6 +372,8 @@ public class BlueRight extends LinearOpMode {
             parkTrajectory = robot.drive.trajectorySequenceBuilder(stackToHighTrajectory5.end())
                     .waitSeconds(0.5)
                     .setReversed(false)
+                    .splineTo(new Vector2d(35,13), 0)
+                    .back(22)
                     .build();
         }
 
@@ -381,7 +381,6 @@ public class BlueRight extends LinearOpMode {
         robot.guide.setGuideUp();
 
         robot.slides.destroyThreads(telemetry);
-        robot.v4b.destroyThreads(telemetry);
         while (!isStopRequested() && opModeIsActive()) ;
     }
 
