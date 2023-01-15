@@ -92,10 +92,10 @@ public class TeleOpMain extends LinearOpMode {
             if (previousClawSensorState && !robot.claw.sensor.conePresent() && clawSensorTimeout.milliseconds() >= 50) {
                 clawSensorTimeout.reset();
             }
-
-            if (gamepad1.circle) {
-                robot.resetAllServos();
-            }
+//
+//            if (gamepad1.circle) {
+//                robot.resetAllServos();
+//            }
 
             if (gamepad2.right_stick_x > 0.2) {
                 robot.startClawY(true);
