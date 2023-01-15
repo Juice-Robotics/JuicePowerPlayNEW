@@ -78,12 +78,12 @@ public class TeleOpMain extends LinearOpMode {
             }
             previousClawState = isPressed;
 
-            if (!previousClawSensorState && robot.claw.sensor.conePresent(AllianceColor.BOTH) && clawSensorTimeout.time() >= 2000) {
+            if (!previousClawSensorState && robot.claw.sensor.conePresent() && clawSensorTimeout.milliseconds() >= 50) {
                 gamepad1.rumble(500);
                 robot.claw.toggle();
             }
 
-            if (previousClawSensorState && !robot.claw.sensor.conePresent(AllianceColor.BOTH)) {
+            if (previousClawSensorState && !robot.claw.sensor.conePresent() && clawSensorTimeout.milliseconds() >= 50) {
                 clawSensorTimeout.reset();
             }
 
@@ -110,9 +110,10 @@ public class TeleOpMain extends LinearOpMode {
             }
             previousRetractState = isPressed2;
 
+            previousClawSensorState = robot.claw.sensor.conePresent();
             robot.slides.update();
             robot.v4b.update();
-            telemetry.addData("claw sensor: ", robot.claw.sensor.getRawARGB());
+            telemetry.addData("claw sensor: ", robot.claw.sensor.getRange());
             telemetry.addData("v4b position target: ", robot.v4b.getAngle());
             telemetry.addData("v4b1 position: ", (robot.v4b.v4b1.servo.getPosition()*180));
             telemetry.addData("slides target: ", robot.slides.target);

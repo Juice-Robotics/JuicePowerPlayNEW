@@ -59,6 +59,8 @@ public class BlueRight extends LinearOpMode {
         robot = new Robot(hardwareMap, true);
         Pose2d startPose = new Pose2d(in(92), in(160), rad(90));
         drive.setPoseEstimate(startPose);
+        robot.slides.launchAsThread(telemetry);
+        robot.v4b.launchAsThread(telemetry);
         robot.claw.setPositionClaw(0.8);
         robot.autoInit(true);
 
@@ -338,8 +340,6 @@ public class BlueRight extends LinearOpMode {
 
         if (isStopRequested()) return;
 
-        robot.slides.launchAsThread(telemetry);
-        robot.v4b.launchAsThread(telemetry);
         robot.guide.setGuideDown();
         drive.followTrajectorySequence(preloadTrajectory);
         drive.followTrajectorySequence(poleToStackTrajectory1);

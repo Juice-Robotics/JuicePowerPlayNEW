@@ -5,6 +5,7 @@ import org.firstinspires.ftc.teamcode.lib.*;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.VoltageSensor;
 import com.qualcomm.robotcore.hardware.ColorSensor;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 // IMPORT SUBSYSTEMS
 import org.firstinspires.ftc.teamcode.subsystems.claw.Claw;
@@ -105,13 +106,15 @@ public class Robot {
     //CLAW
     public void advancedToggleClaw() {
         if (currentPosition == Levels.GROUND) {
+            guide.setGuideUp();
             this.claw.toggle();
-        } else if (currentPosition != Levels.ZERO) {
+        } else {
+            this.slides.runToPosition(this.slides.slides1.motor.getCurrentPosition() + 600);
+            guide.setGuideUp();
+//            try {
+//                Thread.sleep(100);
+//            } catch (Exception e) {}
             this.claw.toggle();
-            try {
-                Thread.sleep(300);
-            } catch (Exception e) {}
-            groundPreset(false);
         }
     }
     public void startClawX(boolean direction) {
@@ -141,7 +144,7 @@ public class Robot {
         } catch (Exception e) {}
         this.v4b.runToPreset(Levels.GROUND);
         this.claw.setYRotation(2);
-        currentPosition = Levels.LOW;
+        currentPosition = Levels.GROUND;
     }
 
     public void lowPreset(boolean pad_left) {
