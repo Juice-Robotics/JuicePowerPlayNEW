@@ -153,6 +153,7 @@ public class Robot {
         this.claw.setYRotation(142);
         this.claw.setXRotation(166);
         currentPosition = Levels.LOW;
+        this.guide.setGuideDown();
     }
 
     public void mediumPreset(boolean pad_right) {
@@ -161,6 +162,7 @@ public class Robot {
         this.claw.setYRotation(142);
         this.claw.setXRotation(166);
         currentPosition = Levels.MEDIUM;
+        this.guide.setGuideDown();
     }
 
     public void highPreset(boolean pad_up) {
@@ -172,6 +174,7 @@ public class Robot {
         this.claw.setYRotation(142);
         this.claw.setXRotation(166);
         currentPosition = Levels.HIGH;
+        this.guide.setGuideDown();
     }
 
     public void sidewaysPickup(boolean pad_up) {

@@ -19,8 +19,8 @@ public class V4B {
 
     private MotionProfile profile;
     private ElapsedTime timer;
-    double maxvel = 900;
-    double maxaccel = 800;
+    double maxvel = 600;
+    double maxaccel = 600;
 
     // TARGETS
     public double zeroTarget = 2;
@@ -28,12 +28,13 @@ public class V4B {
     public double lowTarget = 160;
     public double midTarget = 160;
     public double highTarget = 160;
+    public double autoInit = 210;
 
     public V4B(StepperServo servo1, StepperServo servo2) {
         this.v4b1 = servo1;
         this.v4b2 = servo2;
         timer = new ElapsedTime();
-        profile = MotionProfileGenerator.generateSimpleMotionProfile(new MotionState(this.v4b1.servo.getPosition()*255, 0), new MotionState(0, 0), maxvel, maxaccel);
+        profile = MotionProfileGenerator.generateSimpleMotionProfile(new MotionState(this.v4b1.servo.getPosition()*255, 0), new MotionState(this.v4b1.servo.getPosition()*255, 0), maxvel, maxaccel);
     }
 
     public void setAngle(double angle) {
@@ -60,6 +61,8 @@ public class V4B {
             this.setAngle(midTarget);
         } else if (level == Levels.HIGH) {
             this.setAngle(highTarget);
+        } else if (level == Levels.AUTOINIT) {
+            this.setAngle(autoInit);
         }
     }
 

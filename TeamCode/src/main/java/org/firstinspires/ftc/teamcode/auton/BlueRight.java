@@ -374,8 +374,6 @@ public class BlueRight extends LinearOpMode {
             parkTrajectory = robot.drive.trajectorySequenceBuilder(stackToHighTrajectory5.end())
                     .waitSeconds(0.5)
                     .setReversed(false)
-                    .splineTo(new Vector2d(35,13), 0)
-                    .back(22)
                     .build();
         }
 
