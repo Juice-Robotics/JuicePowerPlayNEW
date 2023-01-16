@@ -245,7 +245,7 @@ public class BlueRight extends LinearOpMode {
             @Override
             public void onOpened()
             {
-                camera.startStreaming(1280,720, OpenCvCameraRotation.SIDEWAYS_LEFT);
+                camera.startStreaming(1280,720, OpenCvCameraRotation.SIDEWAYS_RIGHT);
             }
 
             @Override
