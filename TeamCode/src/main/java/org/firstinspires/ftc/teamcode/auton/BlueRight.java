@@ -104,7 +104,7 @@ public class BlueRight extends LinearOpMode {
                 })
                 .waitSeconds(0.5)
                 .addTemporalMarker(1.3, ()->{
-                    robot.slides.runToPosition(-280);
+                    robot.slides.runToPosition(-240);
                 })
                 .addTemporalMarker(1.7,()->{
                     robot.claw.setClawOpen();
@@ -135,7 +135,7 @@ public class BlueRight extends LinearOpMode {
                 })
                 .waitSeconds(0.5)
                 .addTemporalMarker(1.3, ()->{
-                    robot.slides.runToPosition(-230);
+                    robot.slides.runToPosition(-170);
                 })
                 .addTemporalMarker(1.7,()->{
                     robot.claw.setClawOpen();
@@ -165,7 +165,7 @@ public class BlueRight extends LinearOpMode {
                 })
                 .waitSeconds(0.5)
                 .addTemporalMarker(1.3, ()->{
-                    robot.slides.runToPosition(-180);
+                    robot.slides.runToPosition(-40);
                 })
                 .addTemporalMarker(1.7,()->{
                     robot.claw.setClawOpen();
@@ -245,7 +245,7 @@ public class BlueRight extends LinearOpMode {
             @Override
             public void onOpened()
             {
-                camera.startStreaming(1280,720, OpenCvCameraRotation.UPRIGHT);
+                camera.startStreaming(1280,720, OpenCvCameraRotation.SIDEWAYS_LEFT);
             }
 
             @Override
