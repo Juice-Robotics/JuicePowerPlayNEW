@@ -109,7 +109,7 @@ public class Robot {
             guide.setGuideUp();
             this.claw.toggle();
         } else {
-            this.slides.runToPosition(this.slides.slides1.motor.getCurrentPosition() + 600);
+            this.slides.runToPosition(this.slides.slides1.motor.getCurrentPosition() + 800);
             guide.setGuideUp();
 //            try {
 //                Thread.sleep(100);
