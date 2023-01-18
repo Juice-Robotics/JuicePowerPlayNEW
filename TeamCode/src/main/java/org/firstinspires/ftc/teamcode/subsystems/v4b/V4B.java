@@ -10,11 +10,12 @@ public class V4B {
     public double currentAngle;
 
     // TARGETS
-    public double zeroTarget = 7;
-    public double groundTarget = 7;
-    public double lowTarget = 160;
+    public double zeroTarget = 10;
+    public double groundTarget = 10;
+    public double lowTarget = 170;
     public double midTarget = 160;
     public double highTarget = 160; //145 auton
+    public double autoHigh = 157;
     public double autoInit = 210;
 
     public V4B(StepperServo servo1, StepperServo servo2) {
@@ -58,6 +59,8 @@ public class V4B {
             this.setAngle(highTarget);
         } else if (level == Levels.AUTOINIT) {
             this.setAngle(autoInit);
+        } else if (level == Levels.AUTOHIGH) {
+            this.setAngle(autoHigh);
         }
     }
 }

@@ -149,7 +149,7 @@ public class Robot {
         this.slides.runToPreset(Levels.LOW);
         this.v4b.runToPreset(Levels.LOW);
         this.claw.setYRotation(142);
-        this.claw.setXRotation(166);
+        this.claw.setXRotation(156);
         currentPosition = Levels.LOW;
         this.guide.setGuideDown();
     }
@@ -158,7 +158,7 @@ public class Robot {
         this.slides.runToPreset(Levels.MEDIUM);
         this.v4b.runToPreset(Levels.MEDIUM);
         this.claw.setYRotation(142);
-        this.claw.setXRotation(166);
+        this.claw.setXRotation(156);
         currentPosition = Levels.MEDIUM;
         this.guide.setGuideDown();
     }
@@ -170,7 +170,7 @@ public class Robot {
         } catch (Exception e) {}
         this.v4b.runToPreset(Levels.HIGH);
         this.claw.setYRotation(142);
-        this.claw.setXRotation(166);
+        this.claw.setXRotation(156);
         currentPosition = Levels.HIGH;
         this.guide.setGuideDown();
     }
@@ -198,7 +198,7 @@ public class Robot {
     }
 
     public void autoHigh(boolean pad_up) {
-        this.v4b.runToPreset(Levels.HIGH);
+        this.v4b.runToPreset(Levels.AUTOHIGH);
         this.claw.setYRotation(142);
         this.claw.setXRotation(166);
     }

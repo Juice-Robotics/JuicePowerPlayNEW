@@ -70,7 +70,7 @@ public class BlueRight extends LinearOpMode {
                 })
                 .setReversed(true)
                 .addDisplacementMarker(32, ()-> {
-                    robot.slides.runToPreset(Levels.HIGH);
+                    robot.slides.runToPreset(Levels.AUTOHIGH);
                 })
                 .splineTo(new Vector2d(30.5,7), 179.8)
                 .addDisplacementMarker(54,()->{
@@ -92,13 +92,13 @@ public class BlueRight extends LinearOpMode {
                     robot.claw.setClawClose();
                 })
                 .addTemporalMarker(2.6, ()->{
-                    robot.slides.runToPreset(Levels.HIGH);
+                    robot.slides.runToPreset(Levels.AUTOHIGH);
                 })
                 .build();
 
         TrajectorySequence stackToHighTrajectory1 = drive.trajectorySequenceBuilder(poleToStackTrajectory1.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(32,5), 179.8)
+                .splineTo(new Vector2d(34,6), 179.85)
                 .addTemporalMarker(1, ()->{
                     robot.autoHigh(true);
                 })
@@ -109,7 +109,7 @@ public class BlueRight extends LinearOpMode {
                 .addTemporalMarker(1.7,()->{
                     robot.claw.setClawOpen();
                 })
-                .addTemporalMarker(1.65, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.guide.setGuideUp();
                 })
                 .waitSeconds(0.2)
@@ -129,13 +129,13 @@ public class BlueRight extends LinearOpMode {
                     robot.claw.setClawClose();
                 })
                 .addTemporalMarker(2.6, ()->{
-                    robot.slides.runToPreset(Levels.HIGH);
+                    robot.slides.runToPreset(Levels.AUTOHIGH);
                 })
                 .build();
 
         TrajectorySequence stackToHighTrajectory2 = drive.trajectorySequenceBuilder(poleToStackTrajectory2.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(32,5), 179.8)
+                .splineTo(new Vector2d(34,6), 179.85)
                 .addTemporalMarker(1, ()->{
                     robot.autoHigh(true);
                 })
@@ -146,7 +146,7 @@ public class BlueRight extends LinearOpMode {
                 .addTemporalMarker(1.7,()->{
                     robot.claw.setClawOpen();
                 })
-                .addTemporalMarker(1.65, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.guide.setGuideUp();
                 })
                 .waitSeconds(0.2)
@@ -166,12 +166,12 @@ public class BlueRight extends LinearOpMode {
                     robot.claw.setClawClose();
                 })
                 .addTemporalMarker(2.6, ()->{
-                    robot.slides.runToPreset(Levels.HIGH);
+                    robot.slides.runToPreset(Levels.AUTOHIGH);
                 })
                 .build();
         TrajectorySequence stackToHighTrajectory3 = drive.trajectorySequenceBuilder(poleToStackTrajectory3.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(32,5), 179.8)
+                .splineTo(new Vector2d(34,6), 179.85)
                 .addTemporalMarker(1, ()->{
                     robot.autoHigh(true);
                 })
@@ -182,7 +182,7 @@ public class BlueRight extends LinearOpMode {
                 .addTemporalMarker(1.7,()->{
                     robot.claw.setClawOpen();
                 })
-                .addTemporalMarker(1.65, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.guide.setGuideUp();
                 })
                 .waitSeconds(0.2)
@@ -202,13 +202,13 @@ public class BlueRight extends LinearOpMode {
                     robot.claw.setClawClose();
                 })
                 .addTemporalMarker(2.6, ()->{
-                    robot.slides.runToPreset(Levels.HIGH);
+                    robot.slides.runToPreset(Levels.AUTOHIGH);
                 })
                 .build();
 
         TrajectorySequence stackToHighTrajectory4 = drive.trajectorySequenceBuilder(poleToStackTrajectory4.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(32,5), 179.8)
+                .splineTo(new Vector2d(34,6), 179.85)
                 .addTemporalMarker(1, ()->{
                     robot.autoHigh(true);
                 })
@@ -219,7 +219,7 @@ public class BlueRight extends LinearOpMode {
                 .addTemporalMarker(1.7,()->{
                     robot.claw.setClawOpen();
                 })
-                .addTemporalMarker(1.65, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.guide.setGuideUp();
                 })
                 .waitSeconds(0.2)
@@ -239,13 +239,13 @@ public class BlueRight extends LinearOpMode {
                     robot.claw.setClawClose();
                 })
                 .addTemporalMarker(2.6, ()->{
-                    robot.slides.runToPreset(Levels.HIGH);
+                    robot.slides.runToPreset(Levels.AUTOHIGH);
                 })
                 .build();
 
         TrajectorySequence stackToHighTrajectory5 = drive.trajectorySequenceBuilder(poleToStackTrajectory5.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(32,5), 179.8)
+                .splineTo(new Vector2d(34,6), 179.85)
                 .addTemporalMarker(1, ()->{
                     robot.autoHigh(true);
                 })
@@ -256,7 +256,7 @@ public class BlueRight extends LinearOpMode {
                 .addTemporalMarker(1.7,()->{
                     robot.claw.setClawOpen();
                 })
-                .addTemporalMarker(1.65, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.guide.setGuideUp();
                 })
                 .waitSeconds(0.2)
@@ -308,6 +308,7 @@ public class BlueRight extends LinearOpMode {
                 if(tagFound)
                 {
                     telemetry.addLine("Tag of interest is in sight!\n\nLocation data:");
+                    telemetry.addData("Location: ", tagOfInterest.id);
                 }
                 else
                 {

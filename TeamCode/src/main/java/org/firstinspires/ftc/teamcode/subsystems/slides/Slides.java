@@ -46,9 +46,10 @@ public class Slides {
     // TARGETS IN NEGATIVE
     public int zeroTarget = -10;
     public int groundTarget = -10;
-    public int lowTarget = -100;
+    public int lowTarget = -10;
     public int midTarget = -550;
-    public int highTarget = -1400;
+    public int highTarget = -1200;
+    public int highAuto = -1400;
     public int starterStack1 = -360;
 
     private boolean threadState = false;
@@ -147,7 +148,12 @@ public class Slides {
             profile = MotionProfileGenerator.generateSimpleMotionProfile(new MotionState(getPos(), 0), new MotionState(starterStack1, 0), maxvel, maxaccel);
             timer.reset();
             currentLevel = level;
-        }
+    } else if (level == Levels.AUTOHIGH) {
+//            target = highTarget;
+        profile = MotionProfileGenerator.generateSimpleMotionProfile(new MotionState(getPos(), 0), new MotionState(highAuto, 0), maxvel, maxaccel);
+        timer.reset();
+        currentLevel = level;
+    }
     }
 
     public void launchAsThread(Telemetry telemetry) {
