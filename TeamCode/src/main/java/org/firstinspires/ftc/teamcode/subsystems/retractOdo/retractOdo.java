@@ -22,6 +22,15 @@ public class retractOdo {
         this.retractServo.setAngle(rotation);
     }
 
+    public void setRetractDown() {
+        this.retractServo.servo.setPosition(servoDown);
+    }
+
+    public void setRetractUp() {
+        this.retractServo.servo.setPosition(servoUp);
+    }
+
+
     public void toggle() {
         // Guide Down
         if (this.state) {

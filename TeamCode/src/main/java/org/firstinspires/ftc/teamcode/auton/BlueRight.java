@@ -61,6 +61,7 @@ public class BlueRight extends LinearOpMode {
         drive.setPoseEstimate(startPose);
         robot.claw.setPositionClaw(0.8);
         robot.autoInit(true);
+        robot.retractodo.setRetractUp();
 
         TrajectorySequence preloadTrajectory = drive.trajectorySequenceBuilder(startPose)
                 .back(50)

@@ -87,7 +87,7 @@ public class BlueLeft extends LinearOpMode {
                 })
                 .waitSeconds(0.5)
                 .setReversed(false)
-                .splineTo(new Vector2d(-57,8.3), 0)
+                .splineTo(new Vector2d(-57,8.3), 180)
                 .addTemporalMarker(1.4, ()->{
                     robot.claw.setClawClose();
                 })
@@ -124,7 +124,7 @@ public class BlueLeft extends LinearOpMode {
                 })
                 .waitSeconds(0.5)
                 .setReversed(false)
-                .splineTo(new Vector2d(-57,8.3), 0)
+                .splineTo(new Vector2d(-57,8.3), 180)
                 .addTemporalMarker(1.4, ()->{
                     robot.claw.setClawClose();
                 })
@@ -161,7 +161,7 @@ public class BlueLeft extends LinearOpMode {
                 })
                 .waitSeconds(0.5)
                 .setReversed(false)
-                .splineTo(new Vector2d(-57,8.3), 0)
+                .splineTo(new Vector2d(-57,8.3), 180)
                 .addTemporalMarker(1.4, ()->{
                     robot.claw.setClawClose();
                 })
@@ -197,7 +197,7 @@ public class BlueLeft extends LinearOpMode {
                 })
                 .waitSeconds(0.5)
                 .setReversed(false)
-                .splineTo(new Vector2d(-57,8.3), 0)
+                .splineTo(new Vector2d(-57,8.3), 180)
                 .addTemporalMarker(1.4, ()->{
                     robot.claw.setClawClose();
                 })
@@ -234,7 +234,7 @@ public class BlueLeft extends LinearOpMode {
                 })
                 .waitSeconds(0.5)
                 .setReversed(false)
-                .splineTo(new Vector2d(-57,8.3), 0)
+                .splineTo(new Vector2d(-57,8.3), 180)
                 .addTemporalMarker(1.4, ()->{
                     robot.claw.setClawClose();
                 })

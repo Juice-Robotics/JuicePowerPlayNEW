@@ -179,7 +179,19 @@ public class Slides {
         threadState = false;
     }
 
+    public void launchAsThreadBasic() {
+        threadState = true;
+        Thread t1 = new Thread(() -> {
+            while (threadState == true) {
+                update();
+            }
+        });
+        t1.start();
+    }
 
+    public void destroyThreadsBasic() {
+        threadState = false;
+    }
     public void resetAllEncoders(){
         slides1.resetEncoder();
         slides2.resetEncoder();
