@@ -61,7 +61,6 @@ public class BlueRight extends LinearOpMode {
         drive.setPoseEstimate(startPose);
         robot.claw.setPositionClaw(0.8);
         robot.autoInit(true);
-        robot.retractodo.setRetractUp();
 
         TrajectorySequence preloadTrajectory = drive.trajectorySequenceBuilder(startPose)
                 .back(50)
@@ -394,7 +393,7 @@ public class BlueRight extends LinearOpMode {
             parkTrajectory = robot.drive.trajectorySequenceBuilder(stackToHighTrajectory5.end())
                     .waitSeconds(0.5)
                     .setReversed(false)
-                    .splineTo(new Vector2d(36,12), 0)
+                    .splineTo(new Vector2d(34,6), 179.8)
                     .build();
         } else if (tagOfInterest.id == RIGHT) {
             // insert trajectory code

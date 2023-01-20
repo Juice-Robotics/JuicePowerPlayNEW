@@ -109,24 +109,12 @@ public class Robot {
             guide.setGuideUp();
             this.claw.toggle();
         } else {
-            this.slides.runToPreset(Levels.GROUND);
+            this.slides.runToPosition(this.slides.slides1.motor.getCurrentPosition() + 800);
             guide.setGuideUp();
-            this.claw.toggle();
 //            try {
-//                this.slides.launchAsThreadBasic();
-//                Thread.sleep(400);
-//                this.slides.destroyThreadsBasic();
+//                Thread.sleep(100);
 //            } catch (Exception e) {}
-//            autoLow(true);
-            Thread thread = new Thread(new Runnable() {
-                public void run() {
-                    try {
-                        Thread.sleep(400);
-                    } catch (Exception e) {
-                    }
-                    autoLow(true);
-                }});
-            thread.start();
+            this.claw.toggle();
         }
     }
     public void startClawX(boolean direction) {
