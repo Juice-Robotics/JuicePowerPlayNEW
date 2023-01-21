@@ -85,7 +85,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .waitSeconds(0.5)
                 .setReversed(false)
-                .splineTo(new Vector2d(56,8.6), Math.toRadians(0))
+                .splineTo(new Vector2d(58.5,8.6), Math.toRadians(0))
                 .addTemporalMarker(1.4, ()->{
                     robot.claw.setClawClose();
                 })
@@ -122,7 +122,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .waitSeconds(0.5)
                 .setReversed(false)
-                .splineTo(new Vector2d(56,8.6), Math.toRadians(0))
+                .splineTo(new Vector2d(58.5,8.6), Math.toRadians(0))
                 .addTemporalMarker(1.4, ()->{
                     robot.claw.setClawClose();
                 })
@@ -159,7 +159,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .waitSeconds(0.5)
                 .setReversed(false)
-                .splineTo(new Vector2d(56,8.6), Math.toRadians(0))
+                .splineTo(new Vector2d(58.5,8.6), Math.toRadians(0))
                 .addTemporalMarker(1.4, ()->{
                     robot.claw.setClawClose();
                 })
@@ -195,7 +195,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .waitSeconds(0.5)
                 .setReversed(false)
-                .splineTo(new Vector2d(56,8.6), Math.toRadians(0))
+                .splineTo(new Vector2d(58.5,8.6), Math.toRadians(0))
                 .addTemporalMarker(1.4, ()->{
                     robot.claw.setClawClose();
                 })
@@ -232,7 +232,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .waitSeconds(0.5)
                 .setReversed(false)
-                .splineTo(new Vector2d(56,8.6), Math.toRadians(0))
+                .splineTo(new Vector2d(58.5,8.6), Math.toRadians(0))
                 .addTemporalMarker(1.4, ()->{
                     robot.claw.setClawClose();
                 })
