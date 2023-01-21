@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @Config
 @Autonomous(group = "drive")
 
-public class LeftStack extends LinearOpMode {
+public class LeftStackCONSISTENT extends LinearOpMode {
 
     Robot robot;
     OpenCvCamera camera;
