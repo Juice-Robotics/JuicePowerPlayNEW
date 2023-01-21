@@ -14,7 +14,7 @@ public class V4B {
     public double groundTarget = 10;
     public double lowTarget = 170;
     public double midTarget = 160;
-    public double highTarget = 160; //145 auton
+    public double highTarget = 163; //145 auton
     public double autoHigh = 159.5;
     public double autoInit = 210;
 
