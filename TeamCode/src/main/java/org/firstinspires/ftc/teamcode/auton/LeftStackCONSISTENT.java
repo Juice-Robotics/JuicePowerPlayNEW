@@ -72,7 +72,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .splineTo(new Vector2d(30.5,7), Math.toRadians(221.780999988))
                 .addDisplacementMarker(54,()->{
-                    robot.slides.runToPosition(-330);
+                    robot.slides.runToPosition(-310);
                 })
                 .addTemporalMarker(2.3, ()->{
                     robot.claw.setClawOpen();
@@ -102,7 +102,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .waitSeconds(0.5)
                 .addTemporalMarker(1.3, ()->{
-                    robot.slides.runToPosition(-240);
+                    robot.slides.runToPosition(-220);
                 })
                 .addTemporalMarker(1.7,()->{
                     robot.claw.setClawOpen();
@@ -139,7 +139,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .waitSeconds(0.5)
                 .addTemporalMarker(1.3, ()->{
-                    robot.slides.runToPosition(-150);
+                    robot.slides.runToPosition(-140);
                 })
                 .addTemporalMarker(1.7,()->{
                     robot.claw.setClawOpen();
@@ -175,7 +175,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .waitSeconds(0.5)
                 .addTemporalMarker(1.3, ()->{
-                    robot.slides.runToPosition(-40);
+                    robot.slides.runToPosition(-20);
                 })
                 .addTemporalMarker(1.7,()->{
                     robot.claw.setClawOpen();
