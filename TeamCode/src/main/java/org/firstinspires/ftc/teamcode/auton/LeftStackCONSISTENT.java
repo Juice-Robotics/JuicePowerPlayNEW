@@ -60,6 +60,10 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         robot.autoInit(true);
         robot.retractodo.setRetractUp();
 
+        TrajectorySequence waitTrajectory = drive.trajectorySequenceBuilder(startPose)
+                .waitSeconds(4)
+                .build();
+
         TrajectorySequence preloadTrajectory = drive.trajectorySequenceBuilder(startPose)
                 .back(50)
                 .addDisplacementMarker(1, ()-> {
@@ -365,6 +369,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
 
         robot.slides.launchAsThread(telemetry);
         robot.guide.setGuideDown();
+        drive.followTrajectorySequence(waitTrajectory);
         drive.followTrajectorySequence(preloadTrajectory);
         drive.followTrajectorySequence(poleToStackTrajectory1);
         drive.followTrajectorySequence(stackToHighTrajectory1);
@@ -374,8 +379,6 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         drive.followTrajectorySequence(stackToHighTrajectory3);
         drive.followTrajectorySequence(poleToStackTrajectory4);
         drive.followTrajectorySequence(stackToHighTrajectory4);
-        drive.followTrajectorySequence(poleToStackTrajectory5);
-        drive.followTrajectorySequence(stackToHighTrajectory5);
 
         TrajectorySequence parkTrajectory = null;
         /* Actually do something useful */
