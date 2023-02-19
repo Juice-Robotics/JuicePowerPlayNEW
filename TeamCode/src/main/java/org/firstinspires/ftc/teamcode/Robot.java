@@ -2,14 +2,13 @@ package org.firstinspires.ftc.teamcode;
 
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.lib.*;
-
-import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.VoltageSensor;
+import com.qualcomm.robotcore.hardware.ColorSensor;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 // IMPORT SUBSYSTEMS
 import org.firstinspires.ftc.teamcode.subsystems.claw.Claw;
-import org.firstinspires.ftc.teamcode.subsystems.relocalization.Relocalization;
 import org.firstinspires.ftc.teamcode.subsystems.retractOdo.retractOdo;
 import org.firstinspires.ftc.teamcode.subsystems.slides.Slides;
 import org.firstinspires.ftc.teamcode.subsystems.v4b.V4B;
@@ -23,8 +22,6 @@ public class Robot {
     public Slides slides;
     public V4B v4b;
     public retractOdo retractodo;
-    public Relocalization relocalizer;
-
 
     // STATE VARS
     // example: clawToggled = false;
@@ -68,24 +65,20 @@ public class Robot {
                 new StepperServo(0, "v4bServo1", map),        //6
                 new StepperServo(1, "v4bServo2", map),        //7
 
-                new StepperServo(0, "clawXServo1", map),      //8
-                new StepperServo(1, "clawXServo2", map),      //9
+                new StepperServo(0, "clawYServo", map),       //8
 
-                new StepperServo(0, "clawYServo", map),       //10
+                new StepperServo(1, "clawServo", map),        //9
 
-                new StepperServo(1, "clawServo", map),        //11
-
-                new StepperServo(1, "retractOdo", map),       //12
+                new StepperServo(1, "retractOdo", map),       //10
         };
 
         VoltageSensor voltageSensor = map.voltageSensor.iterator().next();
 
         // INIT SUBSYSTEMS
-        this.claw = new Claw((StepperServo) components[11], (StepperServo) components[8], (StepperServo) components[9], (StepperServo) components[10], map.colorSensor.get("colorSensor"));
+        this.claw = new Claw((StepperServo) components[11], (StepperServo) components[10], map.colorSensor.get("colorSensor"));
         this.slides = new Slides((Motor) components[4], (Motor) components[5], voltageSensor);
         this.v4b = new V4B((StepperServo) components[6], (StepperServo) components[7]);
         this.retractodo = new retractOdo((StepperServo) components[12]);
-        this.relocalizer = new Relocalization(map, false);
     }
 
 
@@ -178,24 +171,12 @@ public class Robot {
         currentPosition = Levels.HIGH;
     }
 
-    public void starterStack1(boolean pad_left) {
-        this.slides.runToPreset(Levels.STARTSTACK1);
-        try {
-            Thread.sleep(100);
-        } catch (Exception e) {}
-        this.v4b.runToPreset(Levels.GROUND);
-        this.claw.setYRotation(0);
-    }
-
     public void autoHigh(boolean pad_up) {
         this.v4b.runToPreset(Levels.AUTOHIGH);
         this.claw.setYRotation(142);
     }
 
     public void autoLow(boolean pad_down) {
-        try {
-            Thread.sleep(100);
-        } catch (Exception ignored) {}
         this.v4b.runToPreset(Levels.GROUND);
         this.claw.setYRotation(2);
     }
@@ -254,17 +235,5 @@ public class Robot {
         frontRight.setSpeed((float)powerFrontRight);
         backLeft.setSpeed(-(float)powerBackLeft);
         backRight.setSpeed(-(float)powerBackRight);
-    }
-
-    public void relocalize() {
-        Pose2d newPoseEstimate = relocalizer.relocalize();
-        drive.setPoseEstimate(newPoseEstimate);
-    }
-
-    public void safeRelocalize() {
-        Pose2d newPoseEstimate = relocalizer.relocalize();
-        if (Math.abs((newPoseEstimate.getX() - drive.getPoseEstimate().getX())) < 5 || Math.abs((newPoseEstimate.getY() - drive.getPoseEstimate().getY())) < 5 || Math.abs((newPoseEstimate.getHeading() - drive.getPoseEstimate().getHeading())) < Math.toRadians(10)) {
-            drive.setPoseEstimate(newPoseEstimate);
-        }
     }
 }
