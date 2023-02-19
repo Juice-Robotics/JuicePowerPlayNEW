@@ -4,7 +4,6 @@ import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.outoftheboxrobotics.photoncore.PhotonCore;
-import com.qualcomm.hardware.lynx.LynxModule;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -29,8 +28,6 @@ public class TeleOpMain extends LinearOpMode {
         Robot robot = new Robot(hardwareMap,false);
         SampleMecanumDriveCancelable autonDrive = new SampleMecanumDriveCancelable(hardwareMap);
         MODE mode = MODE.DRIVER;
-        PhotonCore.CONTROL_HUB.setBulkCachingMode(LynxModule.BulkCachingMode.MANUAL);
-        PhotonCore.experimental.setMaximumParallelCommands(8);
         PhotonCore.enable();
         autonDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         Pose2d startPose = new Pose2d(0, 0, 0);
@@ -211,8 +208,6 @@ public class TeleOpMain extends LinearOpMode {
             telemetry.addData("retractpos", robot.retractodo.state);
             telemetry.update();
 
-            PhotonCore.CONTROL_HUB.clearBulkCache();
-            PhotonCore.EXPANSION_HUB.clearBulkCache();
         }
     }
 }
