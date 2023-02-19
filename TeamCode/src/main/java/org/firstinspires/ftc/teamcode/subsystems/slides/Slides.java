@@ -26,10 +26,10 @@ public class Slides {
     private MotionProfile profile;
     public MotionState curState;
     private ElapsedTime timer;
-    double maxvel = 5000;
-    double maxaccel = 2700;
+    double maxvel = 0;
+    double maxaccel = 0;
 
-    public double p = 0.012, i = 0.00, d = 0.00;
+    public double p = 0.00, i = 0.00, d = 0.00;
     public double f = 0;
     double voltageCompensation;
 
@@ -85,8 +85,8 @@ public class Slides {
 //        power2 = pid2 + ff;
 
         if (target == groundTarget){
-            slides1.motor.setPower(power1*0.3);
-            slides2.motor.setPower(-power1*0.3);
+            slides1.motor.setPower(power1);
+            slides2.motor.setPower(-power1); //was at *0.3 pre push
         }
         else {
             slides1.motor.setPower(power1);
