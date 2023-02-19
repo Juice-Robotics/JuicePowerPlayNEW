@@ -60,15 +60,8 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         robot.autoInit(true);
         robot.retractodo.setRetractUp();
 
-        TrajectorySequence waitTrajectory = drive.trajectorySequenceBuilder(startPose)
-                .waitSeconds(4)
-                .build();
-
         TrajectorySequence preloadTrajectory = drive.trajectorySequenceBuilder(startPose)
                 .back(50)
-                .addDisplacementMarker(1, ()-> {
-                    robot.autoHigh(true);
-                })
                 .setReversed(true)
                 .addDisplacementMarker(32, ()-> {
                     robot.slides.runToPreset(Levels.AUTOHIGH);
@@ -90,6 +83,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .setReversed(false)
                 .splineTo(new Vector2d(56.5,8.3), Math.toRadians(0))
                 .addTemporalMarker(1.4, ()->{
+                    robot.safeRelocalize();
                     robot.claw.setClawClose();
                 })
                 .addTemporalMarker(2.6, ()->{
@@ -121,6 +115,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .setReversed(false)
                 .splineTo(new Vector2d(56.5,8.3), Math.toRadians(0))
                 .addTemporalMarker(1.4, ()->{
+                    robot.safeRelocalize();
                     robot.claw.setClawClose();
                 })
                 .addTemporalMarker(2.6, ()->{
@@ -152,6 +147,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .setReversed(false)
                 .splineTo(new Vector2d(56.5,8.3), Math.toRadians(0))
                 .addTemporalMarker(1.4, ()->{
+                    robot.safeRelocalize();
                     robot.claw.setClawClose();
                 })
                 .addTemporalMarker(2.6, ()->{
@@ -182,6 +178,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .setReversed(false)
                 .splineTo(new Vector2d(56.5,8.3), Math.toRadians(0))
                 .addTemporalMarker(1.4, ()->{
+                    robot.safeRelocalize();
                     robot.claw.setClawClose();
                 })
                 .addTemporalMarker(2.6, ()->{
@@ -213,6 +210,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .setReversed(false)
                 .splineTo(new Vector2d(56.5,8.3), Math.toRadians(0))
                 .addTemporalMarker(1.4, ()->{
+                    robot.safeRelocalize();
                     robot.claw.setClawClose();
                 })
                 .addTemporalMarker(2.6, ()->{
@@ -340,7 +338,6 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         if (isStopRequested()) return;
 
         robot.slides.launchAsThread(telemetry);
-        drive.followTrajectorySequence(waitTrajectory);
         drive.followTrajectorySequence(preloadTrajectory);
         drive.followTrajectorySequence(poleToStackTrajectory1);
         drive.followTrajectorySequence(stackToHighTrajectory1);
@@ -350,6 +347,8 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         drive.followTrajectorySequence(stackToHighTrajectory3);
         drive.followTrajectorySequence(poleToStackTrajectory4);
         drive.followTrajectorySequence(stackToHighTrajectory4);
+        drive.followTrajectorySequence(poleToStackTrajectory5);
+        drive.followTrajectorySequence(stackToHighTrajectory5);
 
         TrajectorySequence parkTrajectory = null;
         /* Actually do something useful */
@@ -380,7 +379,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         drive.followTrajectorySequence(parkTrajectory);
 
         robot.slides.destroyThreads(telemetry);
-        while (!isStopRequested() && opModeIsActive()) ;
+        while (!isStopRequested() && opModeIsActive()) {};
     }
 
     public static double rad(double degrees) {
