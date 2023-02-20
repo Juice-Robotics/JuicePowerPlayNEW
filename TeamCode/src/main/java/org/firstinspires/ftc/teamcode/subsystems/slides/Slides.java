@@ -26,8 +26,8 @@ public class Slides {
     private MotionProfile profile;
     public MotionState curState;
     private ElapsedTime timer;
-    double maxvel = 3000;
-    double maxaccel = 3000;
+    double maxvel = 7500;
+    double maxaccel = 7500;
 
     public double p = 0.0135, i = 0.00, d = 0.0001;
     public double f = 0;
