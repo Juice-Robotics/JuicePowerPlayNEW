@@ -26,10 +26,10 @@ public class Slides {
     private MotionProfile profile;
     public MotionState curState;
     private ElapsedTime timer;
-    double maxvel = 0;
-    double maxaccel = 0;
+    double maxvel = 3000;
+    double maxaccel = 3000;
 
-    public double p = 0.00, i = 0.00, d = 0.00;
+    public double p = 0.0135, i = 0.00, d = 0.0001;
     public double f = 0;
     double voltageCompensation;
 
@@ -47,10 +47,10 @@ public class Slides {
     public int zeroTarget = -10;
     public int groundTarget = -10;
     public int lowTarget = -10;
-    public int midTarget = -550;
-    public int highTarget = -1200;
-    public int highAuto = -1400;
-    public int starterStack1 = -360;
+    public int midTarget = -600;
+    public int highTarget = -1500;
+    public int highAuto = -1500;
+    public int starterStack1 = -400;
 
     private boolean threadState = false;
 
