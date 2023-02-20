@@ -30,6 +30,11 @@ public class V4B {
         this.currentAngle = angle;
     }
 
+    public void setZeroServo() {
+        this.v4b1.setAngle(0);
+        this.v4b2.setAngle(0);
+    }
+
     public double getAngle() {
         return currentAngle;
     }
