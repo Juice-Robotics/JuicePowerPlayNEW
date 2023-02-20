@@ -2,7 +2,9 @@ package org.firstinspires.ftc.teamcode.teleop;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
+import com.qualcomm.hardware.lynx.LynxModule;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.outoftheboxrobotics.photoncore.PhotonCore;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.exception.RobotCoreException;
 import com.qualcomm.robotcore.hardware.Gamepad;
@@ -28,13 +30,17 @@ public class TeleOpMain extends LinearOpMode {
         Gamepad previousGamepad1 = new Gamepad();
         Gamepad previousGamepad2 = new Gamepad();
 
+        PhotonCore.CONTROL_HUB.setBulkCachingMode(LynxModule.BulkCachingMode.MANUAL);
+        PhotonCore.EXPANSION_HUB.setBulkCachingMode(LynxModule.BulkCachingMode.MANUAL);
+        PhotonCore.experimental.setMaximumParallelCommands(8);
+        PhotonCore.enable();
+
         ElapsedTime timer;
         timer = new ElapsedTime();
 
         boolean autoCloseEnabled = true;
         boolean autoClosePreviousState = false;
         boolean previousClawState = false;
-        boolean previousGuideState = false;
         boolean previousRetractState = false;
 
         telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
@@ -90,12 +96,6 @@ public class TeleOpMain extends LinearOpMode {
                 robot.v4b.setAngle(robot.v4b.currentAngle + 1);
             }
 
-            if (gamepad2.dpad_up) {
-                robot.claw.setXRotation((float) (robot.claw.clawX1.getAngle() + 1));
-            } else if (gamepad2.dpad_down) {
-                robot.claw.setXRotation((float) (robot.claw.clawX1.getAngle() - 1));
-            }
-
             if (gamepad2.dpad_right) {
                 robot.claw.clawY.setAngle((float) (robot.claw.clawY.getAngle() + 1));
             } else if (gamepad2.dpad_right) {
@@ -127,13 +127,6 @@ public class TeleOpMain extends LinearOpMode {
                 robot.startClawY(false);
             }
 
-            //GUIDE AND RETRACT
-            boolean isPressed1 = gamepad1.triangle;
-            if (gamepad1.triangle && !previousGuideState) {
-                robot.toggleGuide();
-            }
-            previousGuideState = isPressed1;
-
             boolean isPressed2 = gamepad1.square;
             if (gamepad1.square && !previousRetractState) {
                 robot.toggleRetract();
@@ -152,9 +145,11 @@ public class TeleOpMain extends LinearOpMode {
             telemetry.addData("slides level: ", robot.slides.currentLevel);
             telemetry.addData("voltage: ", robot.slides.voltageSensor.getVoltage());
             telemetry.addData("retractpos", robot.retractodo.state);
-            telemetry.addData("guidepos", robot.guide.state);
             telemetry.update();
+
+            PhotonCore.CONTROL_HUB.clearBulkCache();
+            PhotonCore.EXPANSION_HUB.clearBulkCache();
 
         }
     }
-}
+} //test
