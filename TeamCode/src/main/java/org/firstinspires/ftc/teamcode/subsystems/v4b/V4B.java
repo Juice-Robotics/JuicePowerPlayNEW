@@ -10,12 +10,12 @@ public class V4B {
     public double currentAngle;
 
     // TARGETS
-    public double zeroTarget = 10;
-    public double groundTarget = 10;
-    public double lowTarget = 170;
-    public double midTarget = 160;
-    public double highTarget = 163; //145 auton
-    public double autoHigh = 159.5;
+    public double zeroTarget = 95;
+    public double groundTarget = 95;
+    public double lowTarget = 198;
+    public double midTarget = 204;
+    public double highTarget = 204; //145 auton
+    public double autoHigh = 200;
     public double autoInit = 210;
 
     public V4B(StepperServo servo1, StepperServo servo2) {

@@ -46,10 +46,10 @@ public class Slides {
     // TARGETS IN NEGATIVE
     public int zeroTarget = -10;
     public int groundTarget = -10;
-    public int lowTarget = -10;
+    public int lowTarget = -300;
     public int midTarget = -600;
-    public int highTarget = -1500;
-    public int highAuto = -1500;
+    public int highTarget = -1540;
+    public int highAuto = -1540;
     public int starterStack1 = -400;
 
     private boolean threadState = false;

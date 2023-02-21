@@ -32,7 +32,7 @@ public class TeleOpMain extends LinearOpMode {
 
         PhotonCore.CONTROL_HUB.setBulkCachingMode(LynxModule.BulkCachingMode.MANUAL);
         PhotonCore.EXPANSION_HUB.setBulkCachingMode(LynxModule.BulkCachingMode.MANUAL);
-        PhotonCore.experimental.setMaximumParallelCommands(8);
+        PhotonCore.experimental.setMaximumParallelCommands(4);
         PhotonCore.enable();
 
         ElapsedTime timer;

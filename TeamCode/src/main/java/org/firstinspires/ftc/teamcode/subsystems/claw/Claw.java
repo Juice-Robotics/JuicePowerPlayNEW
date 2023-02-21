@@ -14,12 +14,11 @@ public class Claw {
     public StepperServo clawY;
     public ClawSensor sensor;
 
-
     public boolean isOpen = false; // if open, true
 
     // CONSTANTS
-    public double clawOpen = 0.4;
-    public double clawClose = 0.9;
+    public double clawOpen = 0.1;
+    public double clawClose = 0.5;
     public float clawYReset = 0;
     public double clawYStep = 0.1;
 

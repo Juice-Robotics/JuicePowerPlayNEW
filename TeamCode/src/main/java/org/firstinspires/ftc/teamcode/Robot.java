@@ -75,7 +75,7 @@ public class Robot {
         VoltageSensor voltageSensor = map.voltageSensor.iterator().next();
 
         // INIT SUBSYSTEMS
-        this.claw = new Claw((StepperServo) components[9], (StepperServo) components[9], map.colorSensor.get("colorSensor"));
+        this.claw = new Claw((StepperServo) components[9], (StepperServo) components[8], map.colorSensor.get("colorSensor"));
         this.slides = new Slides((Motor) components[4], (Motor) components[5], voltageSensor);
         this.v4b = new V4B((StepperServo) components[6], (StepperServo) components[7]);
         this.retractodo = new retractOdo((StepperServo) components[10]);
@@ -132,8 +132,8 @@ public class Robot {
         try {
             Thread.sleep(100);
         } catch (Exception e) {}
-        this.v4b.runToPreset(Levels.GROUND);
         this.claw.setYRotation(2);
+        this.v4b.runToPreset(Levels.GROUND);
         currentPosition = Levels.GROUND;
     }
 
@@ -153,11 +153,8 @@ public class Robot {
 
     public void highPreset(boolean pad_up) {
         this.slides.runToPreset(Levels.HIGH);
-        try {
-            Thread.sleep(100);
-        } catch (Exception e) {}
-        this.v4b.runToPreset(Levels.HIGH);
         this.claw.setYRotation(142);
+        this.v4b.runToPreset(Levels.HIGH);
         currentPosition = Levels.HIGH;
     }
 
