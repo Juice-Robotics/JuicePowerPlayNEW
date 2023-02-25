@@ -129,11 +129,11 @@ public class Robot {
     // SLIDES + V4B + CLAW PRESETS
     public void groundPreset(boolean pad_down) {
         this.slides.runToPreset(Levels.GROUND);
+        this.v4b.runToPreset(Levels.GROUND);
         try {
-            Thread.sleep(100);
+            Thread.sleep(400);
         } catch (Exception e) {}
         this.claw.setYRotation(2);
-        this.v4b.runToPreset(Levels.GROUND);
         currentPosition = Levels.GROUND;
     }
 
@@ -153,8 +153,11 @@ public class Robot {
 
     public void highPreset(boolean pad_up) {
         this.slides.runToPreset(Levels.HIGH);
-        this.claw.setYRotation(142);
         this.v4b.runToPreset(Levels.HIGH);
+        try {
+            Thread.sleep(400);
+        } catch (Exception e) {}
+        this.claw.setYRotation(142);
         currentPosition = Levels.HIGH;
     }
 
@@ -180,7 +183,7 @@ public class Robot {
 
     public void autoInit(boolean pad_left) {
         this.v4b.runToPreset(Levels.AUTOINIT);
-        this.claw.setYRotation(142);
+        this.claw.setYRotation(2);
     }
 
 

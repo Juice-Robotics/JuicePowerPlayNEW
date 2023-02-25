@@ -16,7 +16,7 @@ public class V4B {
     public double midTarget = 204;
     public double highTarget = 204; //145 auton
     public double autoHigh = 200;
-    public double autoInit = 210;
+    public double autoInit = 100;
 
     public V4B(StepperServo servo1, StepperServo servo2) {
         this.v4b1 = servo1;
