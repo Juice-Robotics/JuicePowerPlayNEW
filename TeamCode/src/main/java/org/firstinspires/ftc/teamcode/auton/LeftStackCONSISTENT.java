@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode.auton;
 import com.acmerobotics.dashboard.config.Config;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.geometry.Vector2d;
+import com.outoftheboxrobotics.photoncore.PhotonCore;
+import com.qualcomm.hardware.lynx.LynxModule;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
@@ -56,6 +58,8 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         robot = new Robot(hardwareMap, true);
         Pose2d startPose = new Pose2d(in(92), in(165), rad(90));
         drive.setPoseEstimate(startPose);
+        PhotonCore.experimental.setMaximumParallelCommands(8);
+        PhotonCore.enable();
 //        robot.claw.setPositionClaw(0.8);
 //        robot.autoInit(true);
 //        robot.retractodo.setRetractUp();
@@ -229,6 +233,8 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         drive.followTrajectorySequence(stackToHighTrajectory3);
         drive.followTrajectorySequence(poleToStackTrajectory4);
         drive.followTrajectorySequence(stackToHighTrajectory4);
+        drive.followTrajectorySequence(poleToStackTrajectory5);
+        drive.followTrajectorySequence(stackToHighTrajectory5);
 
         TrajectorySequence parkTrajectory = null;
         /* Actually do something useful */
