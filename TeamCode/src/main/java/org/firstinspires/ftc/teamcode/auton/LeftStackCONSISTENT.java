@@ -54,186 +54,66 @@ public class LeftStackCONSISTENT extends LinearOpMode {
 
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
         robot = new Robot(hardwareMap, true);
-        Pose2d startPose = new Pose2d(in(92), in(160), rad(90));
+        Pose2d startPose = new Pose2d(in(92), in(165), rad(90));
         drive.setPoseEstimate(startPose);
-        robot.claw.setPositionClaw(0.8);
-        robot.autoInit(true);
-        robot.retractodo.setRetractUp();
-
-        TrajectorySequence waitTrajectory = drive.trajectorySequenceBuilder(startPose)
-                .waitSeconds(4)
-                .build();
+//        robot.claw.setPositionClaw(0.8);
+//        robot.autoInit(true);
+//        robot.retractodo.setRetractUp();
 
         TrajectorySequence preloadTrajectory = drive.trajectorySequenceBuilder(startPose)
-                .back(50)
-                .addDisplacementMarker(1, ()-> {
-                    robot.autoHigh(true);
-                })
                 .setReversed(true)
-                .addDisplacementMarker(32, ()-> {
-                    robot.slides.runToPreset(Levels.AUTOHIGH);
-                })
-                .splineTo(new Vector2d(30.5,7), Math.toRadians(221.780999988))
-                .addDisplacementMarker(54,()->{
-                    robot.slides.runToPosition(-310);
-                })
-                .addTemporalMarker(2.3, ()->{
-                    robot.claw.setClawOpen();
-                })
+                .back(30)
+                .splineTo(new Vector2d(30.5,7), Math.toRadians(225))
                 .build();
 
         TrajectorySequence poleToStackTrajectory1 = drive.trajectorySequenceBuilder(preloadTrajectory.end())
-                .addTemporalMarker(0, ()->{
-                    robot.autoLow(true);
-                })
-                .waitSeconds(0.5)
                 .setReversed(false)
-                .splineTo(new Vector2d(56.5,8.3), Math.toRadians(0))
-                .addTemporalMarker(1.4, ()->{
-                    robot.claw.setClawClose();
-                })
-                .addTemporalMarker(2.6, ()->{
-                    robot.slides.runToPreset(Levels.AUTOHIGH);
-                })
+                .splineTo(new Vector2d(56.5,12), Math.toRadians(0))
                 .build();
 
         TrajectorySequence stackToHighTrajectory1 = drive.trajectorySequenceBuilder(poleToStackTrajectory1.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(31,6), Math.toRadians(221.780999988))
-                .addTemporalMarker(1, ()->{
-                    robot.autoHigh(true);
-                })
-                .waitSeconds(0.5)
-                .addTemporalMarker(1.3, ()->{
-                    robot.slides.runToPosition(-220);
-                })
-                .addTemporalMarker(1.7,()->{
-                    robot.claw.setClawOpen();
-                })
-                .waitSeconds(0.2)
+                .splineTo(new Vector2d(31,6), Math.toRadians(225))
                 .build();
 
         TrajectorySequence poleToStackTrajectory2 = drive.trajectorySequenceBuilder(stackToHighTrajectory1.end())
-                .addTemporalMarker(0, ()->{
-                    robot.autoLow(true);
-                })
-                .waitSeconds(0.5)
                 .setReversed(false)
-                .splineTo(new Vector2d(56.5,8.3), Math.toRadians(0))
-                .addTemporalMarker(1.4, ()->{
-                    robot.claw.setClawClose();
-                })
-                .addTemporalMarker(2.6, ()->{
-                    robot.slides.runToPreset(Levels.AUTOHIGH);
-                })
+                .splineTo(new Vector2d(56.5,12), Math.toRadians(0))
                 .build();
 
         TrajectorySequence stackToHighTrajectory2 = drive.trajectorySequenceBuilder(poleToStackTrajectory2.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(31,6), Math.toRadians(221.780999988))
-                .addTemporalMarker(1, ()->{
-                    robot.autoHigh(true);
-                })
-                .waitSeconds(0.5)
-                .addTemporalMarker(1.3, ()->{
-                    robot.slides.runToPosition(-140);
-                })
-                .addTemporalMarker(1.7,()->{
-                    robot.claw.setClawOpen();
-                })
-                .waitSeconds(0.2)
+                .splineTo(new Vector2d(31,6), Math.toRadians(225))
                 .build();
 
         TrajectorySequence poleToStackTrajectory3 = drive.trajectorySequenceBuilder(stackToHighTrajectory2.end())
-                .addTemporalMarker(0, ()->{
-                    robot.autoLow(true);
-                })
-                .waitSeconds(0.5)
                 .setReversed(false)
-                .splineTo(new Vector2d(56.5,8.3), Math.toRadians(0))
-                .addTemporalMarker(1.4, ()->{
-                    robot.claw.setClawClose();
-                })
-                .addTemporalMarker(2.6, ()->{
-                    robot.slides.runToPreset(Levels.AUTOHIGH);
-                })
+                .splineTo(new Vector2d(56.5,12), Math.toRadians(0))
                 .build();
+
         TrajectorySequence stackToHighTrajectory3 = drive.trajectorySequenceBuilder(poleToStackTrajectory3.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(31,6), Math.toRadians(221.780999988))
-                .addTemporalMarker(1, ()->{
-                    robot.autoHigh(true);
-                })
-                .waitSeconds(0.5)
-                .addTemporalMarker(1.3, ()->{
-                    robot.slides.runToPosition(-20);
-                })
-                .addTemporalMarker(1.7,()->{
-                    robot.claw.setClawOpen();
-                })
-                .waitSeconds(0.2)
+                .splineTo(new Vector2d(31,6), Math.toRadians(225))
                 .build();
 
         TrajectorySequence poleToStackTrajectory4 = drive.trajectorySequenceBuilder(stackToHighTrajectory3.end())
-                .addTemporalMarker(0, ()->{
-                    robot.autoLow(true);
-                })
-                .waitSeconds(0.5)
                 .setReversed(false)
-                .splineTo(new Vector2d(56.5,8.3), Math.toRadians(0))
-                .addTemporalMarker(1.4, ()->{
-                    robot.claw.setClawClose();
-                })
-                .addTemporalMarker(2.6, ()->{
-                    robot.slides.runToPreset(Levels.AUTOHIGH);
-                })
+                .splineTo(new Vector2d(56.5,12), Math.toRadians(0))
                 .build();
 
         TrajectorySequence stackToHighTrajectory4 = drive.trajectorySequenceBuilder(poleToStackTrajectory4.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(31,6), Math.toRadians(221.780999988))
-                .addTemporalMarker(1, ()->{
-                    robot.autoHigh(true);
-                })
-                .waitSeconds(0.5)
-                .addTemporalMarker(1.3, ()->{
-                    robot.slides.runToPosition(0);
-                })
-                .addTemporalMarker(1.7,()->{
-                    robot.claw.setClawOpen();
-                })
-                .waitSeconds(0.2)
+                .splineTo(new Vector2d(31,6), Math.toRadians(225))
                 .build();
 
         TrajectorySequence poleToStackTrajectory5 = drive.trajectorySequenceBuilder(stackToHighTrajectory4.end())
-                .addTemporalMarker(0, ()->{
-                    robot.autoLow(true);
-                })
-                .waitSeconds(0.5)
                 .setReversed(false)
-                .splineTo(new Vector2d(56.5,8.3), Math.toRadians(0))
-                .addTemporalMarker(1.4, ()->{
-                    robot.claw.setClawClose();
-                })
-                .addTemporalMarker(2.6, ()->{
-                    robot.slides.runToPreset(Levels.AUTOHIGH);
-                })
+                .splineTo(new Vector2d(56.5,12), Math.toRadians(0))
                 .build();
 
         TrajectorySequence stackToHighTrajectory5 = drive.trajectorySequenceBuilder(poleToStackTrajectory5.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(31,6), Math.toRadians(221.780999988))
-                .addTemporalMarker(1, ()->{
-                    robot.autoHigh(true);
-                })
-                .waitSeconds(0.5)
-                .addTemporalMarker(1.3, ()->{
-                    robot.slides.runToPosition(0);
-                })
-                .addTemporalMarker(1.7,()->{
-                    robot.claw.setClawOpen();
-                })
-                .waitSeconds(0.2)
+                .splineTo(new Vector2d(31,6), Math.toRadians(225))
                 .build();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
@@ -340,7 +220,6 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         if (isStopRequested()) return;
 
         robot.slides.launchAsThread(telemetry);
-        drive.followTrajectorySequence(waitTrajectory);
         drive.followTrajectorySequence(preloadTrajectory);
         drive.followTrajectorySequence(poleToStackTrajectory1);
         drive.followTrajectorySequence(stackToHighTrajectory1);
