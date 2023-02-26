@@ -9,5 +9,6 @@ public enum Levels {
     STARTSTACK1,
     AUTOHIGH,
     AUTOLOW,
-    AUTOINIT
+    AUTOINIT,
+    AUTODEPOSIT
 }
