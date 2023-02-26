@@ -99,7 +99,6 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .addTemporalMarker(2, ()->{
                     robot.autoInit(true);
-                    robot.claw.setYRotation(142);
                 })
                 .build();
 
@@ -132,7 +131,6 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .addTemporalMarker(2, ()->{
                     robot.autoInit(true);
-                    robot.claw.setYRotation(142);
                 })
                 .build();
 
@@ -165,7 +163,6 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .addTemporalMarker(2, ()->{
                     robot.autoInit(true);
-                    robot.claw.setYRotation(142);
                 })
                 .build();
 
@@ -198,7 +195,6 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .addTemporalMarker(2, ()->{
                     robot.autoInit(true);
-                    robot.claw.setYRotation(142);
                 })
                 .build();
 
@@ -231,7 +227,6 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .addTemporalMarker(2, ()->{
                     robot.autoInit(true);
-                    robot.claw.setYRotation(142);
                 })
                 .build();
 
