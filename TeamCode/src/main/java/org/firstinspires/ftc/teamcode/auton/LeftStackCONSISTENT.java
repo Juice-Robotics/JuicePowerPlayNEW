@@ -62,6 +62,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         PhotonCore.enable();
         robot.autoInit(true);
         robot.claw.setPositionClaw(0.5);
+        robot.claw.setYRotation(142);
 //        robot.autoInit(true);
 //        robot.retractodo.setRetractUp();
 
@@ -69,6 +70,9 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .setReversed(true)
                 .back(30)
                 .splineTo(new Vector2d(30,6.5), Math.toRadians(225))
+                .addTemporalMarker(0.5,()->{
+                    robot.claw.setYRotation(142);
+                })
                 .addTemporalMarker(1.3, ()->{
                     robot.highPreset(true);
                 })
@@ -95,6 +99,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .addTemporalMarker(2, ()->{
                     robot.autoInit(true);
+                    robot.claw.setYRotation(142);
                 })
                 .build();
 
@@ -127,6 +132,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .addTemporalMarker(2, ()->{
                     robot.autoInit(true);
+                    robot.claw.setYRotation(142);
                 })
                 .build();
 
@@ -159,6 +165,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .addTemporalMarker(2, ()->{
                     robot.autoInit(true);
+                    robot.claw.setYRotation(142);
                 })
                 .build();
 
@@ -191,6 +198,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .addTemporalMarker(2, ()->{
                     robot.autoInit(true);
+                    robot.claw.setYRotation(142);
                 })
                 .build();
 
@@ -223,18 +231,26 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .addTemporalMarker(2, ()->{
                     robot.autoInit(true);
+                    robot.claw.setYRotation(142);
                 })
                 .build();
 
         TrajectorySequence stackToHighTrajectory5 = drive.trajectorySequenceBuilder(poleToStackTrajectory5.end())
                 .setReversed(true)
-                .addTemporalMarker(0.5, ()->{
+                .addTemporalMarker(1.1, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(2, ()->{
-                    robot.groundPreset(true);
+                .addTemporalMarker(1.6, ()->{
+                    robot.slides.runToPosition(-10);
                 })
-                .splineTo(new Vector2d(31,6), Math.toRadians(225))
+                .addTemporalMarker(1.7, ()->{
+                    robot.autoDeposit(true);
+                })
+                .addTemporalMarker(2.1,()->{
+                    robot.claw.setClawClose();
+                })
+                .splineTo(new Vector2d(31,6.5), Math.toRadians(225))
+                .waitSeconds(0.7)
                 .build();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
