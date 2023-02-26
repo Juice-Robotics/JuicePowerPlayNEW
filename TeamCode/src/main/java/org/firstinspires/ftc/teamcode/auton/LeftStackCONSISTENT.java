@@ -103,10 +103,13 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1, ()->{
                     robot.highPreset(true);
                 })
+                .addTemporalMarker(1.85, ()->{
+                    robot.slides.runToPosition(-310);
+                })
                 .addTemporalMarker(1.95, ()->{
                     robot.autoDeposit(true);
                 })
-                .splineTo(new Vector2d(31,6), Math.toRadians(225))
+                .splineTo(new Vector2d(31,6.5), Math.toRadians(225))
                 .waitSeconds(0.5)
                 .build();
 
