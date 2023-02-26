@@ -175,7 +175,7 @@ public class Slides {
     public void destroyThreads(Telemetry telemetry) {
         telemetry.addData("Slides Threads State:", "STOPPING");
         telemetry.update();
-        target = 0;
+        target = -10;
         threadState = false;
     }
 
