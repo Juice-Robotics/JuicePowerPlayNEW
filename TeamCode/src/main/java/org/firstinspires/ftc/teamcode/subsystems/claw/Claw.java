@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 public class Claw {
     public StepperServo claw;
     public StepperServo clawY;
-    public ClawSensor sensor;
+    public ClawSensor sensor; //sensor
 
     public boolean isOpen = false; // if open, true
 
