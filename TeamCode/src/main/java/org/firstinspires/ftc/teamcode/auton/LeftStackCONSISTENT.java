@@ -76,16 +76,19 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1.3, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(2.1, ()->{
-                    robot.slides.runToPosition(-310);
+                .addTemporalMarker(2.2, ()->{
+                    robot.slides.runToPosition(-330);
                 })
                 .addTemporalMarker(2.25, ()->{
+                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
+                })
+                .addTemporalMarker(2.3, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(2.65,()->{
+                .addTemporalMarker(2.8,()->{
                     robot.claw.setClawClose();
                 })
-                .waitSeconds(0.6)
+                .waitSeconds(0.7)
                 .build();
 
         TrajectorySequence poleToStackTrajectory1 = drive.trajectorySequenceBuilder(preloadTrajectory.end())
@@ -107,17 +110,21 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1.1, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(1.6, ()->{
+                .addTemporalMarker(1.85, ()->{
                     robot.slides.runToPosition(-220);
                 })
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.9, ()->{
+                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
+                })
+                .addTemporalMarker(1.95, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(2.1,()->{
+
+                .addTemporalMarker(2.4,()->{
                     robot.claw.setClawClose();
                 })
                 .splineTo(new Vector2d(31,6.5), Math.toRadians(225))
-                .waitSeconds(0.7)
+                .waitSeconds(1)
                 .build();
 
         TrajectorySequence poleToStackTrajectory2 = drive.trajectorySequenceBuilder(stackToHighTrajectory1.end())
@@ -139,17 +146,20 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1.1, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(1.6, ()->{
+                .addTemporalMarker(1.85, ()->{
                     robot.slides.runToPosition(-130);
                 })
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.9, ()->{
+                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
+                })
+                .addTemporalMarker(1.95, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(2.1,()->{
+                .addTemporalMarker(2.4,()->{
                     robot.claw.setClawClose();
                 })
                 .splineTo(new Vector2d(31,6.5), Math.toRadians(225))
-                .waitSeconds(0.7)
+                .waitSeconds(1)
                 .build();
 
         TrajectorySequence poleToStackTrajectory3 = drive.trajectorySequenceBuilder(stackToHighTrajectory2.end())
@@ -171,17 +181,20 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1.1, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(1.6, ()->{
+                .addTemporalMarker(1.85, ()->{
                     robot.slides.runToPosition(-40);
                 })
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.9, ()->{
+                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
+                })
+                .addTemporalMarker(1.95, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(2.1,()->{
+                .addTemporalMarker(2.4,()->{
                     robot.claw.setClawClose();
                 })
                 .splineTo(new Vector2d(31,6.5), Math.toRadians(225))
-                .waitSeconds(0.7)
+                .waitSeconds(1)
                 .build();
 
         TrajectorySequence poleToStackTrajectory4 = drive.trajectorySequenceBuilder(stackToHighTrajectory3.end())
@@ -203,17 +216,20 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1.1, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(1.6, ()->{
+                .addTemporalMarker(1.85, ()->{
                     robot.slides.runToPosition(-10);
                 })
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.9, ()->{
+                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
+                })
+                .addTemporalMarker(1.95, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(2.1,()->{
+                .addTemporalMarker(2.4,()->{
                     robot.claw.setClawClose();
                 })
                 .splineTo(new Vector2d(31,6.5), Math.toRadians(225))
-                .waitSeconds(0.7)
+                .waitSeconds(1)
                 .build();
 
         TrajectorySequence poleToStackTrajectory5 = drive.trajectorySequenceBuilder(stackToHighTrajectory4.end())
@@ -235,17 +251,20 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1.1, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(1.6, ()->{
+                .addTemporalMarker(1.85, ()->{
                     robot.slides.runToPosition(-10);
                 })
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.9, ()->{
+                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
+                })
+                .addTemporalMarker(1.95, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(2.1,()->{
+                .addTemporalMarker(2.4,()->{
                     robot.claw.setClawClose();
                 })
                 .splineTo(new Vector2d(31,6.5), Math.toRadians(225))
-                .waitSeconds(0.7)
+                .waitSeconds(1)
                 .build();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());

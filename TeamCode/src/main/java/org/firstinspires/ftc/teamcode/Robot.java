@@ -178,7 +178,6 @@ public class Robot {
     }
 
     public void autoDeposit (boolean pad_down) {
-        this.v4b.runToPreset(Levels.AUTODEPOSIT);
         this.claw.setClawOpen();
     }
 
