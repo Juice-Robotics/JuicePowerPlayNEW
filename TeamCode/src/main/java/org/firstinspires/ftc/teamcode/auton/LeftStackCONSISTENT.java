@@ -211,7 +211,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
 
         TrajectorySequence stackToHighTrajectory4 = drive.trajectorySequenceBuilder(poleToStackTrajectory4.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(33,6), Math.toRadians(225))
+                .splineTo(new Vector2d(32.5,7), Math.toRadians(225))
                 .addTemporalMarker(1, ()->{
                     robot.highPreset(true);
                 })
@@ -246,7 +246,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
 
         TrajectorySequence stackToHighTrajectory5 = drive.trajectorySequenceBuilder(poleToStackTrajectory5.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(33,6), Math.toRadians(225))
+                .splineTo(new Vector2d(32.5,7), Math.toRadians(225))
                 .addTemporalMarker(1, ()->{
                     robot.highPreset(true);
                 })
@@ -377,6 +377,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         drive.followTrajectorySequence(stackToHighTrajectory4);
         drive.followTrajectorySequence(poleToStackTrajectory5);
         drive.followTrajectorySequence(stackToHighTrajectory5);
+        robot.groundPreset(true);
 
         TrajectorySequence parkTrajectory = null;
         /* Actually do something useful */
@@ -404,7 +405,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     .build();
         }
 
-//        drive.followTrajectorySequence(parkTrajectory);
+        drive.followTrajectorySequence(parkTrajectory);
 
         robot.slides.destroyThreads(telemetry);
         while (!isStopRequested() && opModeIsActive()) ;

@@ -135,6 +135,10 @@ public class Robot {
         this.claw.setClawClose();
         this.v4b.runToPreset(Levels.GROUND);
         this.claw.setYRotation(2);
+        try {
+            Thread.sleep(200);
+        } catch (Exception e) {}
+        this.claw.setClawOpen();
         currentPosition = Levels.GROUND;
     }
 
