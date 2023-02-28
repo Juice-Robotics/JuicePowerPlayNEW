@@ -104,7 +104,7 @@ public class TeleOpMain extends LinearOpMode {
 
             boolean isPressed = gamepad1.cross;
             if (isPressed && !previousClawState) {
-                robot.claw.toggle();
+                robot.advancedToggleClaw();
             }
             previousClawState = isPressed;
 

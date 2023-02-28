@@ -94,7 +94,7 @@ public class Robot {
         if (currentPosition == Levels.GROUND) {
             this.claw.toggle();
         } else {
-            this.slides.runToPreset(Levels.GROUND);
+            this.v4b.runToPreset(Levels.TELEDEPOSIT);
             this.claw.toggle();
 //            try {
 //                this.slides.launchAsThreadBasic();
@@ -108,7 +108,7 @@ public class Robot {
                         Thread.sleep(400);
                     } catch (Exception e) {
                     }
-                    autoLow(true);
+                    groundtelePreset(true);
                 }});
             thread.start();
         }
@@ -127,6 +127,17 @@ public class Robot {
     }
 
     // SLIDES + V4B + CLAW PRESETS
+    public void groundtelePreset(boolean pad_down) {
+        this.slides.runToPreset(Levels.GROUND);
+        try {
+            Thread.sleep(300);
+        } catch (Exception e) {}
+        this.claw.setClawClose();
+        this.v4b.runToPreset(Levels.GROUND);
+        this.claw.setYRotation(2);
+        currentPosition = Levels.GROUND;
+    }
+
     public void groundPreset(boolean pad_down) {
         this.claw.setClawClose();
         this.slides.runToPreset(Levels.GROUND);

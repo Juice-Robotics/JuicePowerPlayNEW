@@ -10,5 +10,6 @@ public enum Levels {
     AUTOHIGH,
     AUTOLOW,
     AUTOINIT,
-    AUTODEPOSIT
+    AUTODEPOSIT,
+    TELEDEPOSIT
 }
