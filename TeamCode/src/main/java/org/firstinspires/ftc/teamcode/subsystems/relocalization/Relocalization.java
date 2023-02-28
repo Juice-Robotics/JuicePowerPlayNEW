@@ -31,13 +31,13 @@ public class Relocalization {
     private double previousFrontRight;
     private double previousSide;
 
-    private DistanceUnit unit = DistanceUnit.CM;
+    private DistanceUnit unit = DistanceUnit.MM;
 
     // CONSTANTS
     private double DISTANCE_BETWEEN_FRONT = 325.848;
     private double FRONT_TO_ORIGIN_OFFSET = 0;
-    private double OFFSET_SIDE_X = 0;
-    private double OFFSET_SIDE_Y = 0;
+    private double OFFSET_SIDE_X = 194.175;
+    private double OFFSET_SIDE_Y = 62.621175;
 
     private double STARTER_STACK_WALL_X = 72;
     private double ADJACENT_WALL_Y = 72;
