@@ -175,6 +175,20 @@ public class Relocalization {
         return -1;
     }
 
+    public double getDistance(DistanceSensor sensor) {
+        switch (sensor) {
+            case FRONT_LEFT:
+                return frontLeftRaw;
+            case FRONT_RIGHT:
+                return frontRightRaw;
+            case LEFT:
+                return leftRaw;
+            case RIGHT:
+                return rightRaw;
+        }
+        return -1;
+    }
+
     private double lowPassFilter(double measurement, double previousEstimate) {
         return (a * previousEstimate) + (1 - a) * measurement;
     }

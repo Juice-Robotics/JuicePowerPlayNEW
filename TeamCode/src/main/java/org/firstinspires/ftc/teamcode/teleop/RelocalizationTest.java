@@ -38,10 +38,10 @@ public class RelocalizationTest extends LinearOpMode {
                 telemetry.addData("x", poseEstimate.getX());
                 telemetry.addData("y", poseEstimate.getY());
                 telemetry.addData("heading", poseEstimate.getHeading());
-//                telemetry.addData("sensorFrontLeft", relocalizer.getDistance(Relocalization.DistanceSensor.FRONT_LEFT));
-//                telemetry.addData("sensorFrontRight", relocalizer.getDistance(Relocalization.DistanceSensor.FRONT_RIGHT));
-//                telemetry.addData("sensorLeft", relocalizer.getDistance(Relocalization.DistanceSensor.LEFT));
-//                telemetry.addData("sensorRight", relocalizer.getDistance(Relocalization.DistanceSensor.RIGHT));
+                telemetry.addData("sensorFrontLeft", relocalizer.getDistance(Relocalization.DistanceSensor.FRONT_LEFT));
+                telemetry.addData("sensorFrontRight", relocalizer.getDistance(Relocalization.DistanceSensor.FRONT_RIGHT));
+                telemetry.addData("sensorLeft", relocalizer.getDistance(Relocalization.DistanceSensor.LEFT));
+                telemetry.addData("sensorRight", relocalizer.getDistance(Relocalization.DistanceSensor.RIGHT));
                 telemetry.update();
 
                 timer.reset();
