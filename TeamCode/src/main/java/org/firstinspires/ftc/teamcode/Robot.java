@@ -93,7 +93,7 @@ public class Robot {
     public void advancedToggleClaw() {
         if (currentPosition == Levels.GROUND) {
             this.claw.toggle();
-        } else {
+        } else if (currentPosition == Levels.LOW){
             this.v4b.runToPreset(Levels.TELEDEPOSIT);
             this.claw.toggle();
 //            try {
@@ -105,7 +105,32 @@ public class Robot {
             Thread thread = new Thread(new Runnable() {
                 public void run() {
                     try {
-                        Thread.sleep(600);
+                        Thread.sleep(500);
+                    } catch (Exception e) {
+                    }
+                    claw.setClawClose();
+                    try {
+                        Thread.sleep(300);
+                    } catch (Exception e) {
+                    }
+                    groundtelePreset(true);
+                }});
+            thread.start();
+
+        }
+        else {
+            this.v4b.runToPreset(Levels.TELEDEPOSIT);
+            this.claw.toggle();
+//            try {
+//                this.slides.launchAsThreadBasic();
+//                Thread.sleep(400);
+//                this.slides.destroyThreadsBasic();
+//            } catch (Exception e) {}
+//            autoLow(true);
+            Thread thread = new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        Thread.sleep(300);
                     } catch (Exception e) {
                     }
                     groundtelePreset(true);
