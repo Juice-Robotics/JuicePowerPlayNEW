@@ -92,10 +92,10 @@ public class Robot {
     //CLAW
     public void advancedToggleClaw() {
         if (currentPosition == Levels.GROUND) {
-            this.claw.toggle();
+            this.claw.toggleAdvanced();
         } else {
             this.v4b.runToPreset(Levels.TELEDEPOSIT);
-            this.claw.toggle();
+            this.claw.toggleAdvanced();
 //            try {
 //                this.slides.launchAsThreadBasic();
 //                Thread.sleep(400);
@@ -193,7 +193,7 @@ public class Robot {
     }
 
     public void autoDeposit (boolean pad_down) {
-        this.claw.setClawOpen();
+        this.claw.setClawDeposit();
     }
 
     public void autoLow(boolean pad_down) {

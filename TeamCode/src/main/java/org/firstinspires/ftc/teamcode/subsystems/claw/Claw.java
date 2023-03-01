@@ -19,6 +19,7 @@ public class Claw {
     // CONSTANTS
     public double clawOpen = 0.1;
     public double clawClose = 0.6;
+    public double clawDeposit = 0.35;
     public float clawYReset = 0;
     public double clawYStep = 0.1;
 
@@ -47,6 +48,19 @@ public class Claw {
         }
     }
 
+    public void toggleAdvanced() {
+        // Close Claw
+        if (this.isOpen) {
+            this.claw.servo.setPosition(clawClose);
+            this.isOpen = false;
+        }
+        // Open Claw
+        else {
+            this.claw.servo.setPosition(clawDeposit);
+            this.isOpen = true;
+        }
+    }
+
     public void setClawOpen() {
         this.claw.servo.setPosition(clawOpen);
     }
@@ -54,6 +68,11 @@ public class Claw {
     public void setClawClose() {
         this.claw.servo.setPosition(clawClose);
     }
+
+    public void setClawDeposit() {
+        this.claw.servo.setPosition(clawDeposit);
+    }
+
 
     public void setYRotation(float rotation) {
         this.clawY.setAngle(rotation);
