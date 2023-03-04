@@ -262,9 +262,6 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     robot.autoDeposit(true);
                 })
                 .addTemporalMarker(2, ()->{
-                    robot.autoInit(true);
-                })
-                .addTemporalMarker(2.2, ()->{
                     robot.groundPreset(true);
                 })
                 .waitSeconds(0.7)
