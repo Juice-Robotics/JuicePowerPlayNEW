@@ -248,7 +248,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
 
         TrajectorySequence stackToHighTrajectory5 = drive.trajectorySequenceBuilder(poleToStackTrajectory5.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(32,5.5), Math.toRadians(227))
+                .splineTo(new Vector2d(31,4), Math.toRadians(229))
                 .addTemporalMarker(1, ()->{
                     robot.highPreset(true);
                 })
