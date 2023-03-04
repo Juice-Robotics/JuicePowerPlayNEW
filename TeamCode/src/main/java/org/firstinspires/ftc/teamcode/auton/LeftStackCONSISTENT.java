@@ -67,21 +67,21 @@ public class LeftStackCONSISTENT extends LinearOpMode {
 
         TrajectorySequence preloadTrajectory = drive.trajectorySequenceBuilder(startPose)
                 .setReversed(true)
-                .back(47)
+                .back(48)
                 .splineTo(new Vector2d(30,5.5), Math.toRadians(226))
-                .addTemporalMarker(1.6, ()->{
+                .addTemporalMarker(1.7, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(2.4, ()->{
+                .addTemporalMarker(2.6, ()->{
                     robot.v4b.runToPreset(Levels.AUTODEPOSIT);
                 })
-                .addTemporalMarker(2.4, ()->{
+                .addTemporalMarker(2.6, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(2.5, ()->{
+                .addTemporalMarker(2.7, ()->{
                     robot.slides.runToPosition(-330);
                 })
-                .waitSeconds(1)
+                .waitSeconds(1.2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory1 = drive.trajectorySequenceBuilder(preloadTrajectory.end())
@@ -409,7 +409,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     .build();
         }
 
-//        drive.followTrajectorySequence(parkTrajectory);
+        drive.followTrajectorySequence(parkTrajectory);
 
         robot.slides.destroyThreads(telemetry);
         while (!isStopRequested() && opModeIsActive()) ;
