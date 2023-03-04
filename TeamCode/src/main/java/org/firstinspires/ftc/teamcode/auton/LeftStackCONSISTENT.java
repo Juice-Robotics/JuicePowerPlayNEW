@@ -78,10 +78,10 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(2.1, ()->{
                     robot.v4b.runToPreset(Levels.AUTODEPOSIT);
                 })
-                .addTemporalMarker(2.3, ()->{
+                .addTemporalMarker(2.25, ()->{
                     robot.slides.runToPosition(-330);
                 })
-                .addTemporalMarker(2.25, ()->{
+                .addTemporalMarker(2.3, ()->{
                     robot.autoDeposit(true);
                 })
                 .waitSeconds(1.1)
@@ -116,7 +116,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1.8, ()->{
                     robot.slides.runToPosition(-220);
                 })
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.8, ()->{
                     robot.autoDeposit(true);
                 })
                 .waitSeconds(0.9)
@@ -151,7 +151,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1.8, ()->{
                     robot.slides.runToPosition(-140);
                 })
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.8, ()->{
                     robot.autoDeposit(true);
                 })
                 .waitSeconds(0.9)
@@ -186,7 +186,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1.8, ()->{
                     robot.slides.runToPosition(-50);
                 })
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.8, ()->{
                     robot.autoDeposit(true);
                 })
                 .waitSeconds(0.9)
@@ -221,7 +221,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1.8, ()->{
                     robot.slides.runToPosition(-10);
                 })
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.8, ()->{
                     robot.autoDeposit(true);
                 })
                 .waitSeconds(0.9)
@@ -256,7 +256,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1.8, ()->{
                     robot.slides.runToPosition(-10);
                 })
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.8, ()->{
                     robot.autoDeposit(true);
                 })
                 .waitSeconds(0.9)
