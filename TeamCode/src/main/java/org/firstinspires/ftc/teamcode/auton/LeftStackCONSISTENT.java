@@ -75,16 +75,16 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1.3, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(2.1, ()->{
-                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
+                .addTemporalMarker(2.2, ()->{
+                    robot.slides.runToPosition(-330);
                 })
                 .addTemporalMarker(2.25, ()->{
-                    robot.slides.runToPosition(-330);
+                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
                 })
                 .addTemporalMarker(2.3, ()->{
                     robot.autoDeposit(true);
                 })
-                .waitSeconds(1.1)
+                .waitSeconds(0.8)
                 .build();
 
         TrajectorySequence poleToStackTrajectory1 = drive.trajectorySequenceBuilder(preloadTrajectory.end())
@@ -110,16 +110,16 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(1.7, ()->{
-                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
+                .addTemporalMarker(1.75, ()->{
+                    robot.slides.runToPosition(-220);
                 })
                 .addTemporalMarker(1.8, ()->{
-                    robot.slides.runToPosition(-220);
+                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
                 })
                 .addTemporalMarker(1.8, ()->{
                     robot.autoDeposit(true);
                 })
-                .waitSeconds(0.9)
+                .waitSeconds(0.6)
                 .build();
 
         TrajectorySequence poleToStackTrajectory2 = drive.trajectorySequenceBuilder(stackToHighTrajectory1.end())
@@ -145,16 +145,16 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(1.7, ()->{
-                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
+                .addTemporalMarker(1.75, ()->{
+                    robot.slides.runToPosition(-140);
                 })
                 .addTemporalMarker(1.8, ()->{
-                    robot.slides.runToPosition(-140);
+                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
                 })
                 .addTemporalMarker(1.8, ()->{
                     robot.autoDeposit(true);
                 })
-                .waitSeconds(0.9)
+                .waitSeconds(0.6)
                 .build();
 
         TrajectorySequence poleToStackTrajectory3 = drive.trajectorySequenceBuilder(stackToHighTrajectory2.end())
@@ -180,16 +180,16 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(1.7, ()->{
-                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
+                .addTemporalMarker(1.75, ()->{
+                    robot.slides.runToPosition(-50);
                 })
                 .addTemporalMarker(1.8, ()->{
-                    robot.slides.runToPosition(-50);
+                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
                 })
                 .addTemporalMarker(1.8, ()->{
                     robot.autoDeposit(true);
                 })
-                .waitSeconds(0.9)
+                .waitSeconds(0.6)
                 .build();
 
         TrajectorySequence poleToStackTrajectory4 = drive.trajectorySequenceBuilder(stackToHighTrajectory3.end())
@@ -215,16 +215,16 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(1.7, ()->{
-                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
+                .addTemporalMarker(1.75, ()->{
+                    robot.slides.runToPosition(-10);
                 })
                 .addTemporalMarker(1.8, ()->{
-                    robot.slides.runToPosition(-10);
+                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
                 })
                 .addTemporalMarker(1.8, ()->{
                     robot.autoDeposit(true);
                 })
-                .waitSeconds(0.9)
+                .waitSeconds(0.6)
                 .build();
 
         TrajectorySequence poleToStackTrajectory5 = drive.trajectorySequenceBuilder(stackToHighTrajectory4.end())
@@ -250,16 +250,16 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(1.7, ()->{
-                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
+                .addTemporalMarker(1.75, ()->{
+                    robot.slides.runToPosition(-10);
                 })
                 .addTemporalMarker(1.8, ()->{
-                    robot.slides.runToPosition(-10);
+                    robot.v4b.runToPreset(Levels.AUTODEPOSIT);
                 })
                 .addTemporalMarker(1.8, ()->{
                     robot.autoDeposit(true);
                 })
-                .waitSeconds(0.9)
+                .waitSeconds(0.6)
                 .build();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
@@ -377,7 +377,6 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         drive.followTrajectorySequence(stackToHighTrajectory4);
         drive.followTrajectorySequence(poleToStackTrajectory5);
         drive.followTrajectorySequence(stackToHighTrajectory5);
-        robot.groundPreset(true);
 
         TrajectorySequence parkTrajectory = null;
         /* Actually do something useful */
@@ -405,7 +404,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     .build();
         }
 
-        drive.followTrajectorySequence(parkTrajectory);
+//        drive.followTrajectorySequence(parkTrajectory);
 
         robot.slides.destroyThreads(telemetry);
         while (!isStopRequested() && opModeIsActive()) ;

@@ -27,7 +27,7 @@ public class Slides {
     public MotionState curState;
     private ElapsedTime timer;
     double maxvel = 7900;
-    double maxaccel = 7900;
+    double maxaccel = 8000;
 
     public double p = 0.0135, i = 0.00, d = 0.0001;
     public double f = 0;
