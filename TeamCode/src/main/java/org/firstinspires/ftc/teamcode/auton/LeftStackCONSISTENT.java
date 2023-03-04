@@ -261,13 +261,18 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1.7, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(2, ()->{
+                .waitSeconds(0.7)
+                .build();
+
+        TrajectorySequence testTraj = drive.trajectorySequenceBuilder(poleToStackTrajectory5.end())
+                .setReversed(true)
+                .splineTo(new Vector2d(30,6), Math.toRadians(227))
+                .addTemporalMarker(1, ()->{
                     robot.autoInit(true);
                 })
-                .addTemporalMarker(2.2, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.groundPreset(true);
                 })
-                .waitSeconds(0.7)
                 .build();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
@@ -385,6 +390,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         drive.followTrajectorySequence(stackToHighTrajectory4);
         drive.followTrajectorySequence(poleToStackTrajectory5);
         drive.followTrajectorySequence(stackToHighTrajectory5);
+        drive.followTrajectorySequence(testTraj);
 
         TrajectorySequence parkTrajectory = null;
         /* Actually do something useful */
