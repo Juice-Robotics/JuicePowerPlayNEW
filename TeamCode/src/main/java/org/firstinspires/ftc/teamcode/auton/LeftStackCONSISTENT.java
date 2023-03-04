@@ -219,16 +219,16 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.9, ()->{
                     robot.v4b.runToPreset(Levels.AUTODEPOSIT);
                 })
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.9, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(1.9, ()->{
+                .addTemporalMarker(2.1, ()->{
                     robot.slides.runToPosition(-10);
                 })
-                .waitSeconds(0.6)
+                .waitSeconds(0.8)
                 .build();
 
         TrajectorySequence poleToStackTrajectory5 = drive.trajectorySequenceBuilder(stackToHighTrajectory4.end())
@@ -255,19 +255,19 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.9, ()->{
                     robot.v4b.runToPreset(Levels.AUTODEPOSIT);
                 })
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.9, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(1.9, ()->{
+                .addTemporalMarker(2.1, ()->{
                     robot.slides.runToPosition(-10);
                 })
-                .addTemporalMarker(2.4, ()->{
+                .addTemporalMarker(2.8, ()->{
                     robot.groundPreset(true);
                 })
-                .waitSeconds(0.7)
+                .waitSeconds(0.9)
                 .build();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
