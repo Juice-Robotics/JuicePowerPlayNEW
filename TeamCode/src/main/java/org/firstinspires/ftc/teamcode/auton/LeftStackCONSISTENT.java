@@ -69,22 +69,20 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .setReversed(true)
                 .back(50)
                 .splineTo(new Vector2d(30,5.5), Math.toRadians(226))
-                .addTemporalMarker(0.5,()->{
-                    robot.claw.setYRotation(142);
-                })
-                .addTemporalMarker(1.3, ()->{
+                .waitSeconds(0.3)
+                .addTemporalMarker(1.7, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(2.1, ()->{
+                .addTemporalMarker(2.3, ()->{
                     robot.v4b.runToPreset(Levels.AUTODEPOSIT);
                 })
-                .addTemporalMarker(2.1, ()->{
+                .addTemporalMarker(2.3, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(2.3, ()->{
+                .addTemporalMarker(2.5, ()->{
                     robot.slides.runToPosition(-330);
                 })
-                .waitSeconds(0.8)
+                .waitSeconds(1.2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory1 = drive.trajectorySequenceBuilder(preloadTrajectory.end())
