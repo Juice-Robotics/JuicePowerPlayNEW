@@ -380,8 +380,8 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         drive.followTrajectorySequence(stackToHighTrajectory3);
         drive.followTrajectorySequence(poleToStackTrajectory4);
         drive.followTrajectorySequence(stackToHighTrajectory4);
-        drive.followTrajectorySequence(poleToStackTrajectory5);
-        drive.followTrajectorySequence(stackToHighTrajectory5);
+//        drive.followTrajectorySequence(poleToStackTrajectory5);
+//        drive.followTrajectorySequence(stackToHighTrajectory5);
 
         TrajectorySequence parkTrajectory = null;
         /* Actually do something useful */
@@ -408,6 +408,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         } else if (tagOfInterest.id == RIGHT) {
             // insert trajectory code
             parkTrajectory = robot.drive.trajectorySequenceBuilder(stackToHighTrajectory5.end())
+                    .waitSeconds(0.2)
                     .setReversed(false)
                     .splineTo(new Vector2d(35,13), 0)
                     .back(22)
