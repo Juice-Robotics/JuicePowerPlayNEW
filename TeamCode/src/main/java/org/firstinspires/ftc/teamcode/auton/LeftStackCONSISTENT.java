@@ -187,7 +187,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     robot.autoDeposit(true);
                 })
                 .addTemporalMarker(1.9, ()->{
-                    robot.slides.runToPosition(-50);
+                    robot.slides.runToPosition(-40);
                 })
                 .waitSeconds(0.6)
                 .build();
@@ -237,7 +237,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 })
                 .setReversed(false)
                 .splineTo(new Vector2d(58,11), Math.toRadians(0))
-                .addTemporalMarker(1.2, ()->{
+                .addTemporalMarker(1.25, ()->{
                     robot.claw.setClawClose();
                 })
                 .addTemporalMarker(2, ()->{
@@ -252,19 +252,19 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(2, ()->{
+                .addTemporalMarker(2.05, ()->{
                     robot.v4b.runToPreset(Levels.AUTODEPOSIT);
                 })
-                .addTemporalMarker(2, ()->{
+                .addTemporalMarker(2.05, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(2.2, ()->{
+                .addTemporalMarker(2.25, ()->{
                     robot.slides.runToPosition(-10);
                 })
-                .addTemporalMarker(2.9, ()->{
+                .addTemporalMarker(2.95, ()->{
                     robot.groundPreset(true);
                 })
-                .waitSeconds(1.3)
+                .waitSeconds(1.35)
                 .build();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
