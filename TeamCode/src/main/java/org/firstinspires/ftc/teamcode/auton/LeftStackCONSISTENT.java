@@ -59,7 +59,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         Pose2d startPose = new Pose2d(in(92), in(165), rad(90));
         drive.setPoseEstimate(startPose);
         PhotonCore.enable();
-        robot.autoInit(true);
+        robot.autoInitTrue(true);
         robot.claw.setPositionClaw(0.5);
         robot.claw.setYRotation(142);
 //        robot.autoInit(true);
@@ -140,7 +140,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
 
         TrajectorySequence stackToHighTrajectory2 = drive.trajectorySequenceBuilder(poleToStackTrajectory2.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(32,5), Math.toRadians(226))
+                .splineTo(new Vector2d(32,5), Math.toRadians(227))
                 .addTemporalMarker(1, ()->{
                     robot.highPreset(true);
                 })

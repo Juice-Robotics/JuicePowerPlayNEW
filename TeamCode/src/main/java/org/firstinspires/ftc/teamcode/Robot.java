@@ -238,6 +238,11 @@ public class Robot {
         this.claw.setYRotation(2);
     }
 
+    public void autoInitTrue(boolean pad_left) {
+        this.v4b.runToPreset(Levels.AUTOINITTRUE);
+        this.claw.setYRotation(2);
+    }
+
 
 //    public void robotOff(boolean pad_left, int ticks) {
 //        this.slides.runToPosition(ticks);
