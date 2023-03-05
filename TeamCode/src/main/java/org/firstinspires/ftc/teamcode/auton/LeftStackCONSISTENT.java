@@ -67,7 +67,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
 
         TrajectorySequence preloadTrajectory = drive.trajectorySequenceBuilder(startPose)
                 .setReversed(true)
-                .back(48)
+                .back(47)
                 .splineTo(new Vector2d(30,5.5), Math.toRadians(226))
                 .addTemporalMarker(1.7, ()->{
                     robot.highPreset(true);
