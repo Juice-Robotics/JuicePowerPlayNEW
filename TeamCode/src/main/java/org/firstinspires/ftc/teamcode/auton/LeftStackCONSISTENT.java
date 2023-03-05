@@ -85,7 +85,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .build();
 
         TrajectorySequence poleToStackTrajectory1 = drive.trajectorySequenceBuilder(preloadTrajectory.end())
-                .addTemporalMarker(0.3,()->{
+                .addTemporalMarker(0.25,()->{
                     robot.claw.setClawClose();
                 })
                 .addTemporalMarker(0.5, ()->{
@@ -121,7 +121,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .build();
 
         TrajectorySequence poleToStackTrajectory2 = drive.trajectorySequenceBuilder(stackToHighTrajectory1.end())
-                .addTemporalMarker(0.3,()->{
+                .addTemporalMarker(0.25,()->{
                     robot.claw.setClawClose();
                 })
                 .addTemporalMarker(0.5, ()->{
@@ -157,7 +157,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .build();
 
         TrajectorySequence poleToStackTrajectory3 = drive.trajectorySequenceBuilder(stackToHighTrajectory2.end())
-                .addTemporalMarker(0.3,()->{
+                .addTemporalMarker(0.25,()->{
                     robot.claw.setClawClose();
                 })
                 .addTemporalMarker(0.5, ()->{
@@ -193,7 +193,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .build();
 
         TrajectorySequence poleToStackTrajectory4 = drive.trajectorySequenceBuilder(stackToHighTrajectory3.end())
-                .addTemporalMarker(0.3,()->{
+                .addTemporalMarker(0.25,()->{
                     robot.claw.setClawClose();
                 })
                 .addTemporalMarker(0.5, ()->{
@@ -212,7 +212,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
 
         TrajectorySequence stackToHighTrajectory4 = drive.trajectorySequenceBuilder(poleToStackTrajectory4.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(32,5), Math.toRadians(227))
+                .splineTo(new Vector2d(31,5), Math.toRadians(227))
                 .addTemporalMarker(1, ()->{
                     robot.highPreset(true);
                 })
@@ -229,14 +229,14 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .build();
 
         TrajectorySequence poleToStackTrajectory5 = drive.trajectorySequenceBuilder(stackToHighTrajectory4.end())
-                .addTemporalMarker(0.3,()->{
+                .addTemporalMarker(0.25,()->{
                     robot.claw.setClawClose();
                 })
                 .addTemporalMarker(0.5, ()->{
                     robot.autoLow(true);
                 })
                 .setReversed(false)
-                .splineTo(new Vector2d(58,11), Math.toRadians(0))
+                .splineTo(new Vector2d(58.5,11), Math.toRadians(0))
                 .addTemporalMarker(1.25, ()->{
                     robot.claw.setClawClose();
                 })
@@ -248,7 +248,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
 
         TrajectorySequence stackToHighTrajectory5 = drive.trajectorySequenceBuilder(poleToStackTrajectory5.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(31,7.5), Math.toRadians(226))
+                .splineTo(new Vector2d(31,5.5), Math.toRadians(227))
                 .addTemporalMarker(1, ()->{
                     robot.highPreset(true);
                 })
@@ -264,7 +264,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(2.95, ()->{
                     robot.groundPreset(true);
                 })
-                .waitSeconds(1.35)
+                .waitSeconds(1.3)
                 .build();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
@@ -388,7 +388,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         if (tagOfInterest == null || tagOfInterest.id == LEFT) {
             // insert trajectory code
             parkTrajectory = robot.drive.trajectorySequenceBuilder(stackToHighTrajectory5.end())
-                    .waitSeconds(0.5)
+                    .waitSeconds(0.2)
                     .setReversed(false)
                     .splineTo(new Vector2d(60,9), 0)
                     .addTemporalMarker(1, ()->{
@@ -398,7 +398,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         } else if (tagOfInterest.id == MIDDLE) {
             // insert trajectory code
             parkTrajectory = robot.drive.trajectorySequenceBuilder(stackToHighTrajectory5.end())
-                    .waitSeconds(0.5)
+                    .waitSeconds(0.2)
                     .setReversed(false)
                     .splineTo(new Vector2d(36,12), 0)
                     .addTemporalMarker(1, ()->{
@@ -408,7 +408,6 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         } else if (tagOfInterest.id == RIGHT) {
             // insert trajectory code
             parkTrajectory = robot.drive.trajectorySequenceBuilder(stackToHighTrajectory5.end())
-                    .waitSeconds(0.5)
                     .setReversed(false)
                     .splineTo(new Vector2d(35,13), 0)
                     .back(22)

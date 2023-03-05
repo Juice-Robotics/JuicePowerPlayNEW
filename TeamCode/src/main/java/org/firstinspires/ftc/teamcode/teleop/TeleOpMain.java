@@ -121,6 +121,12 @@ public class TeleOpMain extends LinearOpMode {
 //                robot.resetAllServos();
 //            }
 
+            if (gamepad2.left_trigger > 0.1) {
+                robot.slides.runToPosition((int) (robot.slides.slides1.motor.getCurrentPosition() + (50 * gamepad2.left_trigger)));
+            } else if (gamepad2.right_trigger > 0.1) {
+                robot.slides.runToPosition((int) (robot.slides.slides1.motor.getCurrentPosition() - (50 * gamepad2.left_trigger)));
+            }
+
             if (gamepad2.right_stick_x > 0.2) {
                 robot.startClawY(true);
             } else if (gamepad2.right_stick_x < -0.2) {
