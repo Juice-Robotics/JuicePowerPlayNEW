@@ -92,7 +92,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     robot.autoLow(true);
                 })
                 .setReversed(false)
-                .splineTo(new Vector2d(57.5,10.5), Math.toRadians(0))
+                .splineTo(new Vector2d(58,10.5), Math.toRadians(0))
                 .addTemporalMarker(1.2, ()->{
                     robot.claw.setClawClose();
                 })
@@ -128,7 +128,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     robot.autoLow(true);
                 })
                 .setReversed(false)
-                .splineTo(new Vector2d(57.5,10.5), Math.toRadians(0))
+                .splineTo(new Vector2d(58,10.5), Math.toRadians(0))
                 .addTemporalMarker(1.2, ()->{
                     robot.claw.setClawClose();
                 })
@@ -164,7 +164,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     robot.autoLow(true);
                 })
                 .setReversed(false)
-                .splineTo(new Vector2d(57.5,10.5), Math.toRadians(0))
+                .splineTo(new Vector2d(58,10.5), Math.toRadians(0))
                 .addTemporalMarker(1.2, ()->{
                     robot.claw.setClawClose();
                 })
@@ -200,7 +200,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     robot.autoLow(true);
                 })
                 .setReversed(false)
-                .splineTo(new Vector2d(57.5,11), Math.toRadians(0))
+                .splineTo(new Vector2d(58,11), Math.toRadians(0))
                 .addTemporalMarker(1.2, ()->{
                     robot.claw.setClawClose();
                 })
@@ -236,7 +236,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     robot.autoLow(true);
                 })
                 .setReversed(false)
-                .splineTo(new Vector2d(57.5,11), Math.toRadians(0))
+                .splineTo(new Vector2d(58,11), Math.toRadians(0))
                 .addTemporalMarker(1.2, ()->{
                     robot.claw.setClawClose();
                 })
