@@ -19,7 +19,7 @@ public class V4B {
     public double autoInit = 160;
     public double autoDeposit = 220;
     public double teleDeposit = 220;
-    public double autoInitTrue = 220;
+    public double autoInitTrue = 140;
 
     public V4B(StepperServo servo1, StepperServo servo2) {
         this.v4b1 = servo1;
