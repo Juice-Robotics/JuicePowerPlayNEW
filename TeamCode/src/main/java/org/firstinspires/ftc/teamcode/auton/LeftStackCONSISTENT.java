@@ -248,20 +248,20 @@ public class LeftStackCONSISTENT extends LinearOpMode {
 
         TrajectorySequence stackToHighTrajectory5 = drive.trajectorySequenceBuilder(poleToStackTrajectory5.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(31,6), Math.toRadians(227))
+                .splineTo(new Vector2d(31,7.5), Math.toRadians(226))
                 .addTemporalMarker(1, ()->{
                     robot.highPreset(true);
                 })
-                .addTemporalMarker(1.9, ()->{
+                .addTemporalMarker(2, ()->{
                     robot.v4b.runToPreset(Levels.AUTODEPOSIT);
                 })
-                .addTemporalMarker(1.9, ()->{
+                .addTemporalMarker(2, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(2.1, ()->{
+                .addTemporalMarker(2.2, ()->{
                     robot.slides.runToPosition(-10);
                 })
-                .addTemporalMarker(2.8, ()->{
+                .addTemporalMarker(2.9, ()->{
                     robot.groundPreset(true);
                 })
                 .waitSeconds(1.3)
@@ -391,6 +391,9 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     .waitSeconds(0.5)
                     .setReversed(false)
                     .splineTo(new Vector2d(60,9), 0)
+                    .addTemporalMarker(1, ()->{
+                        robot.autoInit(true);
+                    })
                     .build();
         } else if (tagOfInterest.id == MIDDLE) {
             // insert trajectory code
@@ -398,6 +401,9 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     .waitSeconds(0.5)
                     .setReversed(false)
                     .splineTo(new Vector2d(36,12), 0)
+                    .addTemporalMarker(1, ()->{
+                        robot.autoInit(true);
+                    })
                     .build();
         } else if (tagOfInterest.id == RIGHT) {
             // insert trajectory code
@@ -406,6 +412,9 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     .setReversed(false)
                     .splineTo(new Vector2d(35,13), 0)
                     .back(22)
+                    .addTemporalMarker(1, ()->{
+                        robot.autoInit(true);
+                    })
                     .build();
         }
 
