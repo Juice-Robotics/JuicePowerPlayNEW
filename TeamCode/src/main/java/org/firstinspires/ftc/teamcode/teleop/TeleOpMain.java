@@ -122,9 +122,9 @@ public class TeleOpMain extends LinearOpMode {
 //            }
 
             if (gamepad2.left_trigger > 0.1) {
-                robot.slides.runToPosition((int) (robot.slides.slides1.motor.getCurrentPosition() + (50 * gamepad2.left_trigger)));
+                robot.slides.runToPosition((int) (robot.slides.slides1.motor.getCurrentPosition() + 70));
             } else if (gamepad2.right_trigger > 0.1) {
-                robot.slides.runToPosition((int) (robot.slides.slides1.motor.getCurrentPosition() - (50 * gamepad2.left_trigger)));
+                robot.slides.runToPosition((int) (robot.slides.slides1.motor.getCurrentPosition() - 70));
             }
 
             if (gamepad2.right_stick_x > 0.2) {
