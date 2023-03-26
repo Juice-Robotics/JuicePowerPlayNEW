@@ -4,6 +4,7 @@ import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.lib.*;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.VoltageSensor;
+import org.firstinspires.ftc.teamcode.subsystems.vision.CVMaster;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -22,6 +23,7 @@ public class Robot {
     public Slides slides;
     public V4B v4b;
     public retractOdo retractodo;
+    public CVMaster cv;
 
     // STATE VARS
     // example: clawToggled = false;
@@ -52,6 +54,8 @@ public class Robot {
         this.auton = auton;
 
         this.drive = new SampleMecanumDrive(map);
+
+        this.cv = new CVMaster();
 
         this.components = new Component[]{
                 new Motor(3, "leftRear", map, true),          //0 left odometer
