@@ -1,6 +1,9 @@
 package org.firstinspires.ftc.teamcode.subsystems.vision;
 
+import com.qualcomm.robotcore.hardware.HardwareMap;
+
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.teamcode.Robot;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
@@ -8,14 +11,15 @@ import org.openftc.easyopencv.OpenCvWebcam;
 
 public class CVMaster {
     private OpenCvWebcam webcam;
+    private Robot robot;
     private StickObserverPipeline opencv = null;
     private ConeObserverPipeline cone = null;
 
     private boolean isStreaming = false;
 
-    public CVMaster(){
-        int cameraMonitorViewId = op.hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", op.hardwareMap.appContext.getPackageName());
-        webcam = OpenCvCameraFactory.getInstance().createWebcam(op.hardwareMap.get(WebcamName.class, "webcam"));
+    public CVMaster(HardwareMap hardwareMap){
+        int cameraMonitorViewId = robot.hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", robot.hardwareMap.appContext.getPackageName());
+        webcam = OpenCvCameraFactory.getInstance().createWebcam(robot.hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
     }
 
     public boolean isStreaming(){
@@ -121,6 +125,7 @@ public class CVMaster {
 
     public void stopCamera(){
         webcam.stopRecordingPipeline();
+        webcam.stopStreaming();
         webcam.stopStreaming();
     }
 
