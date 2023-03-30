@@ -25,6 +25,7 @@ public class Robot {
     public retractOdo retractodo;
     public CVMaster cv;
     public HardwareMap hardwareMap;
+    public Field field;
 
     // STATE VARS
     // example: clawToggled = false;
@@ -85,6 +86,7 @@ public class Robot {
         this.v4b = new V4B((StepperServo) components[6], (StepperServo) components[7]);
         this.retractodo = new retractOdo((StepperServo) components[10]);
         this.hardwareMap = map;
+        this.field = new Field(drive, cv);
     }
 
 
@@ -266,6 +268,8 @@ public class Robot {
         this.claw.clawY.servo.setPosition(0);
         this.retractodo.setRetractServoRotation(0);
     }
+
+    //VISION
 
 
     //DRIVE
