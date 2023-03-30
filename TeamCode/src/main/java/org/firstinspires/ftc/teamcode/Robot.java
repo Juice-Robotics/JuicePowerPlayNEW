@@ -1,6 +1,9 @@
 package org.firstinspires.ftc.teamcode;
 
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
+import com.acmerobotics.roadrunner.geometry.Pose2d;
+import com.acmerobotics.roadrunner.geometry.Vector2d;
+import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import org.firstinspires.ftc.teamcode.lib.*;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.VoltageSensor;
@@ -13,6 +16,7 @@ import org.firstinspires.ftc.teamcode.subsystems.claw.Claw;
 import org.firstinspires.ftc.teamcode.subsystems.retractOdo.retractOdo;
 import org.firstinspires.ftc.teamcode.subsystems.slides.Slides;
 import org.firstinspires.ftc.teamcode.subsystems.v4b.V4B;
+import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
 
 public class Robot {
@@ -270,7 +274,22 @@ public class Robot {
     }
 
     //VISION
-
+    public void updateTrajectoryWithCam() {
+        if (field.isDoneLookin() == true) {
+            if (field.lookingAtPole()) {
+                Pose2d target = field.polePos();
+                TrajectorySequence trajectory = drive.getCurrentTraj();
+                drive.changeTrajectorySequence(drive.trajectorySequenceBuilder(trajectory.start())
+                        .setReversed(true)
+//                                .splineTo(target.vec(), target.getHeading())
+                        .splineTo(target.vec(), target.getHeading())
+//                        .addTemporalMarker(this::done)
+                        .build());
+//                field.setDoneLookin(true);
+            }
+            field.setDoneLookin(false);
+        }
+    }
 
     //DRIVE
     public void setDrivePower(double x, double y, double rx) {
