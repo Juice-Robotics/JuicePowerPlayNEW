@@ -9,6 +9,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.Robot;
+import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
+
 @Autonomous(name = "StickObserverTest")
 
 public class StickObserverTest extends LinearOpMode {
@@ -27,24 +29,21 @@ public class StickObserverTest extends LinearOpMode {
 
         while(opModeIsActive()) {
 
-//                if(robot.field.lookingAtPole()){
             robot.field.lookingAtPole();
             Pose2d target = robot.field.polePos();
-//                TrajectorySequence trajectory = roadrun.getCurrentTraj();
-//                roadrun.changeTrajectorySequence(roadrun.trajectorySequenceBuilder(trajectory.start())
-//                                .setReversed(true)
-//                        .splineTo(target.vec(), target.getHeading()).build());
-////                field.setDoneLookin(true);
+            TrajectorySequence trajectory = robot.drive.getCurrentTraj();
+            robot.drive.changeTrajectorySequence(robot.drive.trajectorySequenceBuilder(trajectory.start())
+                    .setReversed(true)
+                    .splineTo(target.vec(), target.getHeading()).build());
             telemetry.addData("polePos", target);
             telemetry.addData("curPos",robot.drive.getPoseEstimate());
             telemetry.addData("coords0",robot.cv.rotatedPolarCoord()[0]);
             telemetry.addData("coords1",robot.cv.rotatedPolarCoord()[1]);
 
             telemetry.update();
-//                }
+            }
             robot.drive.update();
 
-        }
     }
 }
 
