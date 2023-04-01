@@ -61,7 +61,7 @@ public class Robot {
 
         this.drive = new SampleMecanumDrive(map);
 
-        this.cv = new CVMaster(hardwareMap);
+        this.cv = new CVMaster(map);
 
         this.components = new Component[]{
                 new Motor(3, "leftRear", map, true),          //0 left odometer
