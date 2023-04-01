@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.subsystems.vision;
 
+import com.acmerobotics.dashboard.FtcDashboard;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
@@ -52,9 +53,9 @@ public class CVMaster {
                  * away from the user.
                  */
                 webcam.setPipeline(opencv);
-//                webcam.startStreaming(640, 480, OpenCvCameraRotation.UPRIGHT);
+                webcam.startStreaming(640, 480, OpenCvCameraRotation.UPRIGHT);
 
-//                dashboard.startCameraStream(webcam, 10);
+                FtcDashboard.getInstance().startCameraStream(webcam,10);
 
             }
 

@@ -28,6 +28,7 @@ public class StickObserverTest extends LinearOpMode {
         while(opModeIsActive()) {
 
 //                if(robot.field.lookingAtPole()){
+            robot.field.lookingAtPole();
             Pose2d target = robot.field.polePos();
 //                TrajectorySequence trajectory = roadrun.getCurrentTraj();
 //                roadrun.changeTrajectorySequence(roadrun.trajectorySequenceBuilder(trajectory.start())
