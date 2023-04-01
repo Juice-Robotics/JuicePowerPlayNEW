@@ -16,9 +16,9 @@ import kotlin.math.abs
  * @param clock clock
  */
 abstract class RFTrajectoryFollower @JvmOverloads constructor(
-        private val admissibleError: Pose2d = Pose2d(),
-        private val timeout: Double = 0.0,
-        protected val clock: NanoClock = NanoClock.system()
+    private val admissibleError: Pose2d = Pose2d(),
+    private val timeout: Double = 0.0,
+    protected val clock: NanoClock = NanoClock.system()
 ) {
     private var startTimestamp: Double = 0.0
     private var admissible = false

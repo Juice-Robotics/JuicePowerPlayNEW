@@ -21,12 +21,12 @@ import com.acmerobotics.roadrunner.util.NanoClock
  * @param clock clock
  */
 class RFHolonomicPIDVAFollower @JvmOverloads constructor(
-        axialCoeffs: PIDCoefficients,
-        lateralCoeffs: PIDCoefficients,
-        headingCoeffs: PIDCoefficients,
-        admissibleError: Pose2d = Pose2d(),
-        timeout: Double = 0.0,
-        clock: NanoClock = NanoClock.system()
+    axialCoeffs: PIDCoefficients,
+    lateralCoeffs: PIDCoefficients,
+    headingCoeffs: PIDCoefficients,
+    admissibleError: Pose2d = Pose2d(),
+    timeout: Double = 0.0,
+    clock: NanoClock = NanoClock.system()
 ) : RFTrajectoryFollower(admissibleError, timeout, clock) {
     private val axialController = PIDFController(axialCoeffs)
     private val lateralController = PIDFController(lateralCoeffs)
@@ -74,9 +74,9 @@ class RFHolonomicPIDVAFollower @JvmOverloads constructor(
         val headingCorrection = headingController.update(0.0, currentRobotVel?.heading)
 
         val correctedVelocity = targetRobotVel + Pose2d(
-                axialCorrection,
-                lateralCorrection,
-                headingCorrection
+            axialCorrection,
+            lateralCorrection,
+            headingCorrection
         )
 
         lastError = poseError
