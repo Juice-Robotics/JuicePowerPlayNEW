@@ -91,18 +91,23 @@ public class Field {
     public boolean lookingAtPole() {
         double[] coords = cv.rotatedPolarCoord();
 //        coords[1]+=5;
-        coords[1] -=1;
+        coords[1] -= 0;
+        double rad =8;
         Pose2d pos = roadrun.getPoseEstimate();
-        pos = new Pose2d(pos.getX(),pos.getY(),pos.getHeading()+coords[0]*PI/180+PI);
-        polePos = new Pose2d(pos.getX()+cos(pos.getHeading())*coords[1]+sin(pos.getHeading()),pos.getY()+sin(pos.getHeading())*coords[1]+cos(pos.getHeading()),pos.getHeading());
-        if(abs(coords[1])<5&&abs(coords[1])>0){
+        double oldHead = pos.getHeading()+PI;
+        double newHead = pos.getHeading()+PI+ coords[0] * PI / 180 ;
+
+        pos = new Pose2d(pos.getX(), pos.getY(), pos.getHeading()+ coords[0] * PI / 180 + PI);
+        polePos = new Pose2d(pos.getX() + cos(pos.getHeading()) * coords[1] + 0*sin(pos.getHeading()), pos.getY() + sin(pos.getHeading()) * coords[1] - 0*cos(pos.getHeading()), pos.getHeading());
+        polePos = new Pose2d(polePos.getX()+(cos(oldHead)-cos(newHead))*rad, polePos.getY()+(sin(oldHead)-sin(newHead))*rad,pos.getHeading());
+        if (abs(coords[1]) < 5 && abs(coords[1]) > 0) {
             setDoneLookin(true);
         }
 //        if(abs(pos.vec().distTo(roadrun.getCurrentTraj().end().vec()))<2){
 //            setDoneLookin(true);
 //        }
 
-        if(abs(pos.vec().distTo(roadrun.getCurrentTraj().end().vec()))<10&&abs(coords[1])<18&&coords[1]>3&&(roadrun.getCurrentTraj()==null||abs(polePos.vec().distTo(roadrun.getCurrentTraj().end().vec()))<2.8)){
+        if (abs(coords[1]) < 30 && coords[1] > 2) {
             return true;
         }
         return false;
