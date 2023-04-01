@@ -19,7 +19,7 @@ public class StickObserverTest extends LinearOpMode {
         FtcDashboard dashboard = FtcDashboard.getInstance();
         telemetry = new MultipleTelemetry(telemetry, dashboard.getTelemetry());
         sleep(500);
-        Pose2d startPose = new Pose2d(-29.6, 62.25, toRadians(90));
+        Pose2d startPose = new Pose2d(36.2205, 64.9606, toRadians(90));
         robot.drive.setPoseEstimate(startPose);
         waitForStart();
         double[] loopStart={0,0};
@@ -35,20 +35,15 @@ public class StickObserverTest extends LinearOpMode {
 //                        .splineTo(target.vec(), target.getHeading()).build());
 ////                field.setDoneLookin(true);
             telemetry.addData("polePos", target);
-            telemetry.addData("curPos",robot.roadrun.getPoseEstimate());
+            telemetry.addData("curPos",robot.drive.getPoseEstimate());
             telemetry.addData("coords0",robot.cv.rotatedPolarCoord()[0]);
             telemetry.addData("coords1",robot.cv.rotatedPolarCoord()[1]);
 
             telemetry.update();
-            logger.log("/RobotLogs/GeneralRobot", "mr.obama"+target+"im pole"+robot.roadrun.getPoseEstimate());
-            logger.log("/RobotLogs/GeneralRobot", "coords"+robot.cv.rotatedPolarCoord()[0]+","+robot.cv.rotatedPolarCoord()[1]);
-
 //                }
-            robot.roadrun.update();
+            robot.drive.update();
 
-            robot.setFirstLoop(false);
         }
-        robot.stop();
     }
 }
 
