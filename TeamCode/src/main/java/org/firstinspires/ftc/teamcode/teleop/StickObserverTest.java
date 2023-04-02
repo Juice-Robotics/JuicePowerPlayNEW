@@ -31,19 +31,26 @@ public class StickObserverTest extends LinearOpMode {
 
             robot.field.lookingAtPole();
             Pose2d target = robot.field.polePos();
-            TrajectorySequence trajectory = robot.drive.getCurrentTraj();
-            robot.drive.changeTrajectorySequence(robot.drive.trajectorySequenceBuilder(trajectory.start())
-                    .setReversed(true)
-                    .splineTo(target.vec(), target.getHeading()).build());
+            if (!robot.drive.isBusy()) {
+                robot.drive.followTrajectorySequence(robot.drive.trajectorySequenceBuilder(robot.drive.getPoseEstimate())
+                        .setReversed(true)
+                        .splineTo(target.vec(), target.getHeading()).build());
+            } else {
+
+                TrajectorySequence trajectory = robot.drive.getCurrentTraj();
+                robot.drive.changeTrajectorySequence(robot.drive.trajectorySequenceBuilder(trajectory.start())
+                        .setReversed(true)
+                        .splineTo(target.vec(), target.getHeading()).build());
+            }
+
             telemetry.addData("polePos", target);
             telemetry.addData("curPos",robot.drive.getPoseEstimate());
             telemetry.addData("coords0",robot.cv.rotatedPolarCoord()[0]);
             telemetry.addData("coords1",robot.cv.rotatedPolarCoord()[1]);
 
             telemetry.update();
-            }
+        }
             robot.drive.update();
-
     }
 }
 
