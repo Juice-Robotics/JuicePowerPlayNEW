@@ -9,25 +9,60 @@ import com.noahbres.meepmeep.roadrunner.entity.RoadRunnerBotEntity;
 public class MeepMeepTesting {
     public static void main(String[] args) {
         MeepMeep meepMeep = new MeepMeep(1000);
-        Pose2d startPose = new Pose2d(57.5, 10.5, rad(0));
+        Pose2d startPose = new Pose2d(in(92), in(165), rad(90));
+        double x = 0.5;
+        double y = 0.3;
         RoadRunnerBotEntity myBot = new DefaultBotBuilder(meepMeep)
                 .setDimensions(15.5,14)
                 // Set bot constraints: maxVel, maxAccel, maxAngVel, maxAngAccel, track width
-                .setConstraints(55, 55, Math.toRadians(313.20662941325884) , Math.toRadians(313.20662941325884), 11.6)
+                .setConstraints(65, 65, Math.toRadians(313.20662941325884) , Math.toRadians(313.20662941325884), 11.63)
 
                 .followTrajectorySequence(drive ->
                         drive.trajectorySequenceBuilder(startPose)
                                 .setReversed(true)
-                                .addTemporalMarker(0.6, ()->{
-                                })
-                                .addTemporalMarker(1.3, ()->{
-                                })
-                                .addTemporalMarker(1.45, ()->{
-                                })
-                                .addTemporalMarker(1.7,()->{
-                                })
-                                .splineTo(new Vector2d(31,6.5), Math.toRadians(225))
-                                .waitSeconds(0.5)
+                                .back(42)
+                                .splineTo(new Vector2d(7,17), Math.toRadians(135))
+                                .waitSeconds(x)
+                                .setReversed(false)
+                                .splineTo(new Vector2d(23,10.5), Math.toRadians(0))
+                                .forward(35)
+                                .waitSeconds(y)
+                                .setReversed(true)
+                                .back(35)
+                                .splineTo(new Vector2d(7,17), Math.toRadians(135))
+                                .waitSeconds(x)
+                                .setReversed(false)
+                                .splineTo(new Vector2d(23,10.5), Math.toRadians(0))
+                                .forward(35)
+                                .waitSeconds(y)
+                                .setReversed(true)
+                                .back(35)
+                                .splineTo(new Vector2d(7,17), Math.toRadians(135))
+                                .waitSeconds(x)
+                                .setReversed(false)
+                                .splineTo(new Vector2d(23,10.5), Math.toRadians(0))
+                                .forward(35)
+                                .waitSeconds(y)
+                                .setReversed(true)
+                                .back(35)
+                                .splineTo(new Vector2d(7,17), Math.toRadians(135))
+                                .waitSeconds(x)
+                                .setReversed(false)
+                                .splineTo(new Vector2d(23,10.5), Math.toRadians(0))
+                                .forward(35)
+                                .waitSeconds(y)
+                                .setReversed(true)
+                                .back(35)
+                                .splineTo(new Vector2d(7,17), Math.toRadians(135))
+                                .waitSeconds(x)
+                                .setReversed(false)
+                                .splineTo(new Vector2d(23,10.5), Math.toRadians(0))
+                                .forward(35)
+                                .waitSeconds(y)
+                                .setReversed(true)
+                                .back(35)
+                                .splineTo(new Vector2d(7,17), Math.toRadians(135))
+                                .waitSeconds(x)
                                 .build()
                 );
 
