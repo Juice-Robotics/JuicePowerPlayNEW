@@ -24,8 +24,8 @@ public class SlidesPIDFTuning extends OpMode {
     private MotionProfile profile;
     public MotionState curState;
 
-    public static double maxvel = 6000;
-    public static double maxaccel = 6000;
+    public static double maxvel = 2000;
+    public static double maxaccel = 2000;
     private ElapsedTime timer;
 
     public static double p = 0, i = 0, d = 0;

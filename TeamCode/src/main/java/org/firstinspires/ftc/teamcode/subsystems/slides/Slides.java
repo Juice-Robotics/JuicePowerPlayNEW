@@ -26,11 +26,11 @@ public class Slides {
     private MotionProfile profile;
     public MotionState curState;
     private ElapsedTime timer;
-    double maxvel = 7900;
-    double maxaccel = 8000;
+    double maxvel = 2000;
+    double maxaccel = 2000;
 
-    public double p = 0.0135, i = 0.00, d = 0.0001;
-    public double f = 0;
+    public double p = 0.005, i = 0.00, d = 0.0001;
+    public double f = -0.001;
     double voltageCompensation;
 
     public double target = 0;
