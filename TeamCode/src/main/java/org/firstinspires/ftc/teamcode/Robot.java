@@ -212,6 +212,9 @@ public class Robot {
 
     public void highPreset(boolean pad_up) {
         this.slides.runToPreset(Levels.HIGH);
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {}
         this.v4b.runToPreset(Levels.HIGH);
         try {
             Thread.sleep(300);
