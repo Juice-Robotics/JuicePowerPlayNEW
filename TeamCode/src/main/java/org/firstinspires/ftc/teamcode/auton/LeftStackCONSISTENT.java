@@ -280,7 +280,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
             @Override
             public void onOpened()
             {
-                camera.startStreaming(1280,720, OpenCvCameraRotation.SIDEWAYS_RIGHT);
+                camera.startStreaming(1280,720, OpenCvCameraRotation.UPRIGHT);
             }
 
             @Override
@@ -383,8 +383,8 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         drive.followTrajectorySequence(stackToHighTrajectory3);
         drive.followTrajectorySequence(poleToStackTrajectory4);
         drive.followTrajectorySequence(stackToHighTrajectory4);
-//        drive.followTrajectorySequence(poleToStackTrajectory5);
-//        drive.followTrajectorySequence(stackToHighTrajectory5);
+        drive.followTrajectorySequence(poleToStackTrajectory5);
+        drive.followTrajectorySequence(stackToHighTrajectory5);
 
         TrajectorySequence parkTrajectory = null;
         /* Actually do something useful */
