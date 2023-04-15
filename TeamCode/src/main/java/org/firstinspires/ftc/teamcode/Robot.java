@@ -105,49 +105,21 @@ public class Robot {
     public void advancedToggleClaw() {
         if (currentPosition == Levels.GROUND) {
             this.claw.toggle();
-        } else if (currentPosition == Levels.LOW){
+        } else {
+            this.slides.runToPreset(Levels.GROUND);
             this.v4b.runToPreset(Levels.TELEDEPOSIT);
             this.claw.toggle();
-//            try {
-//                this.slides.launchAsThreadBasic();
-//                Thread.sleep(400);
-//                this.slides.destroyThreadsBasic();
-//            } catch (Exception e) {}
-//            autoLow(true);
             Thread thread = new Thread(new Runnable() {
                 public void run() {
                     try {
-                        Thread.sleep(500);
+                        Thread.sleep(200);
                     } catch (Exception e) {
                     }
-                    claw.setClawClose();
-                    try {
-                        Thread.sleep(300);
-                    } catch (Exception e) {
-                    }
-                    groundtelePreset(true);
+                    claw.setYRotation(2);
+                    v4b.runToPreset(Levels.GROUND);
                 }});
             thread.start();
-
-        }
-        else {
-            this.v4b.runToPreset(Levels.TELEDEPOSIT);
-            this.claw.toggle();
-//            try {
-//                this.slides.launchAsThreadBasic();
-//                Thread.sleep(400);
-//                this.slides.destroyThreadsBasic();
-//            } catch (Exception e) {}
-//            autoLow(true);
-            Thread thread = new Thread(new Runnable() {
-                public void run() {
-                    try {
-                        Thread.sleep(300);
-                    } catch (Exception e) {
-                    }
-                    groundtelePreset(true);
-                }});
-            thread.start();
+            currentPosition = Levels.GROUND;
         }
     }
 
@@ -164,23 +136,7 @@ public class Robot {
     }
 
     // SLIDES + V4B + CLAW PRESETS
-    public void groundtelePreset(boolean pad_down) {
-        this.slides.runToPreset(Levels.GROUND);
-        try {
-            Thread.sleep(300);
-        } catch (Exception e) {}
-        this.claw.setClawClose();
-        this.v4b.runToPreset(Levels.GROUND);
-        this.claw.setYRotation(2);
-        try {
-            Thread.sleep(200);
-        } catch (Exception e) {}
-        this.claw.setClawOpen();
-        currentPosition = Levels.GROUND;
-    }
-
     public void groundPreset(boolean pad_down) {
-        this.claw.setClawClose();
         this.slides.runToPreset(Levels.GROUND);
         this.v4b.runToPreset(Levels.GROUND);
         try {
@@ -212,14 +168,20 @@ public class Robot {
 
     public void highPreset(boolean pad_up) {
         this.slides.runToPreset(Levels.HIGH);
-        try {
-            Thread.sleep(1000);
-        } catch (Exception e) {}
-        this.v4b.runToPreset(Levels.HIGH);
-        try {
-            Thread.sleep(300);
-        } catch (Exception e) {}
-        this.claw.setYRotation(142);
+        Thread thread = new Thread(new Runnable() {
+            public void run() {
+                try {
+                    Thread.sleep(100);
+                } catch (Exception e) {
+                }
+                v4b.runToPreset(Levels.HIGH);
+                try {
+                    Thread.sleep(300);
+                } catch (Exception e) {
+                }
+                claw.setYRotation(142);
+            }});
+        thread.start();
         currentPosition = Levels.HIGH;
     }
 

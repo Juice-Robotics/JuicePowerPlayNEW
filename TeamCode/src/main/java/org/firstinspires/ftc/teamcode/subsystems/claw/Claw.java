@@ -17,8 +17,8 @@ public class Claw {
     public boolean isOpen = false; // if open, true
 
     // CONSTANTS
-    public double clawOpen = 0.1;
-    public double clawClose = 0.6;
+    public double clawOpen = 0.05;
+    public double clawClose = 0.4;
     public float clawYReset = 0;
     public double clawYStep = 0.1;
 

@@ -29,7 +29,7 @@ public class Slides {
     double maxvel = 6000;
     double maxaccel = 6000;
 
-    public double p = 0.005, i = 0.00, d = 0.0001;
+    public double p = 0.006, i = 0.00, d = 0.0001;
     public double f = -0.001;
     double voltageCompensation;
 
@@ -45,11 +45,11 @@ public class Slides {
 
     // TARGETS IN NEGATIVE
     public int zeroTarget = -10;
-    public int groundTarget = -10;
+    public int groundTarget = 0;
     public int lowTarget = -400;
     public int midTarget = -1000;
-    public int highTarget = -1560;
-    public int highAuto = -1540;
+    public int highTarget = -1400;
+    public int highAuto = -1400;
     public int starterStack1 = -400;
 
     private boolean threadState = false;
