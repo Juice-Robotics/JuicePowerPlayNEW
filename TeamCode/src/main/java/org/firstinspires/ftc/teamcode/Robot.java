@@ -122,10 +122,6 @@ public class Robot {
                         } catch (Exception e) {
                         }
                         v4b.runToPreset(Levels.GROUND);
-                        try {
-                            Thread.sleep(300);
-                        } catch (Exception e) {
-                        }
                     }});
                 thread.start();
             } else if (currentPosition == Levels.MEDIUM) {
@@ -144,10 +140,6 @@ public class Robot {
                        } catch (Exception e) {
                        }
                        v4b.runToPreset(Levels.GROUND);
-                       try {
-                           Thread.sleep(300);
-                       } catch (Exception e) {
-                       }
                    }});
                thread.start();
            } else if (currentPosition == Levels.LOW) {
@@ -167,10 +159,6 @@ public class Robot {
                        }
                        v4b.runToPreset(Levels.GROUND);
                        slides.runToPreset(Levels.GROUND);
-                       try {
-                           Thread.sleep(300);
-                       } catch (Exception e) {
-                       }
                    }});
                thread.start();
            }
