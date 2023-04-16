@@ -113,19 +113,27 @@ public class Field {
         return false;
     }
     public boolean lookingAtCone() {
-        double[] coords = cv.rotatedConarCoord();
+        double[] coords = cv.rotatedPolarCoord();
 //        coords[1]+=5;
-        coords[1] -=2;
+        coords[1] -= 0;
+        double rad =8;
+        double radFromCam = 10; //cam is 8 in from center
         Pose2d pos = roadrun.getPoseEstimate();
-        pos = new Pose2d(pos.getX(),pos.getY(),pos.getHeading()+coords[0]*PI/180);
-        conePos = new Pose2d(pos.getX()+cos(pos.getHeading())*coords[1],pos.getY()+sin(pos.getHeading())*coords[1]+1,pos.getHeading());
-        if(abs(coords[1])<5&&abs(coords[1])>-1){
+        double oldHead = pos.getHeading()+PI;
+        double newHead = pos.getHeading()+PI+ coords[0] * PI / 180 ;
+
+        pos = new Pose2d(pos.getX(), pos.getY(), pos.getHeading()+ coords[0] * PI / 180 + PI);
+        polePos = new Pose2d(pos.getX() + cos(pos.getHeading()) * coords[1] + 0*sin(pos.getHeading()), pos.getY() + sin(pos.getHeading()) * coords[1] - 0*cos(pos.getHeading()), pos.getHeading());
+        polePos = new Pose2d(polePos.getX()+(cos(oldHead)-cos(newHead))*rad - cos(newHead)*radFromCam, polePos.getY()+(sin(oldHead)-sin(newHead))*rad-sin(newHead)*radFromCam,pos.getHeading());
+        if (abs(coords[1]) < 5 && abs(coords[1]) > 0) {
             setDoneLookin(true);
         }
-        if(abs(coords[0])<20&&abs(coords[1])>4&&abs(coords[1])<15&&abs(abs(pos.getHeading()-coords[0]*PI/180)-PI)<20*PI/180){
-            if(roadrun.getCurrentTraj()==null|| abs(conePos.vec().distTo(roadrun.getCurrentTraj().end().vec()))<10&&abs(conePos().getX())>60) {
-                return true;
-            }
+//        if(abs(pos.vec().distTo(roadrun.getCurrentTraj().end().vec()))<2){
+//            setDoneLookin(true);
+//        }
+
+        if (abs(coords[1]) < 30 && coords[1] > 2) {
+            return true;
         }
         return false;
     }

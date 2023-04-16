@@ -301,7 +301,6 @@ public class Robot {
 
     //VISION
     public void updateTrajectoryWithCam() {
-        if (field.isDoneLookin() == true) {
             if (field.lookingAtPole()) {
                 Pose2d target = field.polePos();
                 TrajectorySequence trajectory = drive.getCurrentTraj();
@@ -313,9 +312,7 @@ public class Robot {
                         .build());
 //                field.setDoneLookin(true);
             }
-            field.setDoneLookin(false);
         }
-    }
 
     //DRIVE
     public void setDrivePower(double x, double y, double rx) {
