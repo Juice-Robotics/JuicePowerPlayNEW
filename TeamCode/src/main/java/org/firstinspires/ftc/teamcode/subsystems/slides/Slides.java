@@ -47,8 +47,8 @@ public class Slides {
     public int zeroTarget = -10;
     public int groundTarget = 0;
     public int lowTarget = -400;
-    public int midTarget = -1000;
-    public int highTarget = -1400;
+    public int midTarget = -875;
+    public int highTarget = -1450;
     public int highAuto = -1400;
     public int starterStack1 = -400;
 

@@ -10,16 +10,16 @@ public class V4B {
     public double currentAngle;
 
     // TARGETS
-    public double zeroTarget = 23;
-    public double groundTarget = 23;
-    public double lowTarget = 133;
-    public double midTarget = 133;
-    public double highTarget = 133; //145 auton
-    public double autoHigh = 128; //everything including this and below not updated
-    public double autoInit = 88;
-    public double autoDeposit = 148;
-    public double teleDeposit = 148;
-    public double autoInitTrue = 82;
+    public double zeroTarget = 27; //+5 test
+    public double groundTarget = 27;
+    public double lowTarget = 142;
+    public double midTarget = 144;
+    public double highTarget = 138; //145 auton
+    public double autoHigh = 133; //everything including this and below not updated
+    public double autoInit = 92;
+    public double autoDeposit = 153;
+    public double teleDeposit = 153;
+    public double autoInitTrue = 87;
 
     public V4B(StepperServo servo1, StepperServo servo2) {
         this.v4b1 = servo1;
