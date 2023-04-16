@@ -122,6 +122,10 @@ public class Robot {
                         } catch (Exception e) {
                         }
                         v4b.runToPreset(Levels.GROUND);
+                        try {
+                            Thread.sleep(300);
+                        } catch (Exception e) {
+                        }
                     }});
                 thread.start();
             } else if (currentPosition == Levels.MEDIUM) {
@@ -140,12 +144,16 @@ public class Robot {
                        } catch (Exception e) {
                        }
                        v4b.runToPreset(Levels.GROUND);
+                       try {
+                           Thread.sleep(300);
+                       } catch (Exception e) {
+                       }
                    }});
                thread.start();
            } else if (currentPosition == Levels.LOW) {
                this.claw.toggle();
                v4b.runToPreset(Levels.TELEDEPOSIT);
-               slides.runToPosition(-500);
+               slides.runToPosition(-600);
                Thread thread = new Thread(new Runnable() {
                    public void run() {
                        try {
@@ -159,6 +167,10 @@ public class Robot {
                        }
                        v4b.runToPreset(Levels.GROUND);
                        slides.runToPreset(Levels.GROUND);
+                       try {
+                           Thread.sleep(300);
+                       } catch (Exception e) {
+                       }
                    }});
                thread.start();
            }
@@ -199,7 +211,7 @@ public class Robot {
                 }
                 v4b.runToPreset(Levels.LOW);
                 try {
-                    Thread.sleep(200);
+                    Thread.sleep(400);
                 } catch (Exception e) {
                 }
                 claw.setYRotation(142);
@@ -218,7 +230,7 @@ public class Robot {
                 }
                 v4b.runToPreset(Levels.MEDIUM);
                 try {
-                    Thread.sleep(200);
+                    Thread.sleep(400);
                 } catch (Exception e) {
                 }
                 claw.setYRotation(142);
@@ -237,7 +249,7 @@ public class Robot {
                 }
                 v4b.runToPreset(Levels.HIGH);
                 try {
-                    Thread.sleep(200);
+                    Thread.sleep(400);
                 } catch (Exception e) {
                 }
                 claw.setYRotation(142);
