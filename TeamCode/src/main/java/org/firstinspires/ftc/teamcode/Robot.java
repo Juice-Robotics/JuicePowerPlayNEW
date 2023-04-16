@@ -148,21 +148,39 @@ public class Robot {
 
     public void lowPreset(boolean pad_left) {
         this.slides.runToPreset(Levels.LOW);
-        this.v4b.runToPreset(Levels.LOW);
-        try {
-            Thread.sleep(300);
-        } catch (Exception e) {}
-        this.claw.setYRotation(142);
+        Thread thread = new Thread(new Runnable() {
+            public void run() {
+                try {
+                    Thread.sleep(100);
+                } catch (Exception e) {
+                }
+                v4b.runToPreset(Levels.LOW);
+                try {
+                    Thread.sleep(300);
+                } catch (Exception e) {
+                }
+                claw.setYRotation(142);
+            }});
+        thread.start();
         currentPosition = Levels.LOW;
     }
 
     public void mediumPreset(boolean pad_right) {
         this.slides.runToPreset(Levels.MEDIUM);
-        this.v4b.runToPreset(Levels.MEDIUM);
-        try {
-            Thread.sleep(300);
-        } catch (Exception e) {}
-        this.claw.setYRotation(142);
+        Thread thread = new Thread(new Runnable() {
+            public void run() {
+                try {
+                    Thread.sleep(100);
+                } catch (Exception e) {
+                }
+                v4b.runToPreset(Levels.MEDIUM);
+                try {
+                    Thread.sleep(300);
+                } catch (Exception e) {
+                }
+                claw.setYRotation(142);
+            }});
+        thread.start();
         currentPosition = Levels.MEDIUM;
     }
 
