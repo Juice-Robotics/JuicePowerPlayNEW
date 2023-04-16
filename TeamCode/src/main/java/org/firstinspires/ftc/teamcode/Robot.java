@@ -106,19 +106,54 @@ public class Robot {
         if (currentPosition == Levels.GROUND) {
             this.claw.toggle();
         } else {
-            this.slides.runToPreset(Levels.GROUND);
-            this.v4b.runToPreset(Levels.TELEDEPOSIT);
-            this.claw.toggle();
-            Thread thread = new Thread(new Runnable() {
-                public void run() {
-                    try {
-                        Thread.sleep(200);
-                    } catch (Exception e) {
-                    }
-                    claw.setYRotation(2);
-                    v4b.runToPreset(Levels.GROUND);
-                }});
-            thread.start();
+           if (currentPosition == Levels.HIGH) {
+                this.slides.runToPreset(Levels.GROUND);
+                this.v4b.runToPreset(Levels.TELEDEPOSIT);
+                this.claw.toggle();
+                Thread thread = new Thread(new Runnable() {
+                    public void run() {
+                        try {
+                            Thread.sleep(200);
+                        } catch (Exception e) {
+                        }
+                        claw.setYRotation(2);
+                        v4b.runToPreset(Levels.GROUND);
+                    }});
+                thread.start();
+            } else if (currentPosition == Levels.MEDIUM) {
+               this.slides.runToPreset(Levels.GROUND);
+               this.v4b.runToPreset(Levels.TELEDEPOSIT);
+               this.claw.toggle();
+               Thread thread = new Thread(new Runnable() {
+                   public void run() {
+                       try {
+                           Thread.sleep(400);
+                       } catch (Exception e) {
+                       }
+                       claw.setYRotation(2);
+                       v4b.runToPreset(Levels.GROUND);
+                   }});
+               thread.start();
+           } else if (currentPosition == Levels.LOW) {
+               this.claw.toggle();
+               v4b.runToPreset(Levels.TELEDEPOSIT);
+               slides.runToPosition(-600);
+               Thread thread = new Thread(new Runnable() {
+                   public void run() {
+                       try {
+                           Thread.sleep(400);
+                       } catch (Exception e) {
+                       }
+                       claw.setYRotation(2);
+                       try {
+                           Thread.sleep(10);
+                       } catch (Exception e) {
+                       }
+                       v4b.runToPreset(Levels.GROUND);
+                       slides.runToPreset(Levels.GROUND);
+                   }});
+               thread.start();
+           }
             currentPosition = Levels.GROUND;
         }
     }
