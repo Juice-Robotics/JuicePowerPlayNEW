@@ -145,11 +145,11 @@ public class Robot {
            } else if (currentPosition == Levels.LOW) {
                this.claw.toggle();
                v4b.runToPreset(Levels.TELEDEPOSIT);
-               slides.runToPosition(-600);
+               slides.runToPosition(-500);
                Thread thread = new Thread(new Runnable() {
                    public void run() {
                        try {
-                           Thread.sleep(200);
+                           Thread.sleep(700);
                        } catch (Exception e) {
                        }
                        claw.setYRotation(2);
