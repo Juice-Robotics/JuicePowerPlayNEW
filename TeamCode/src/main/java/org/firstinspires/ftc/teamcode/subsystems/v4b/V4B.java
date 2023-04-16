@@ -10,12 +10,12 @@ public class V4B {
     public double currentAngle;
 
     // TARGETS
-    public double zeroTarget = 29; //+5 test
+    public double zeroTarget = 29;
     public double groundTarget = 29;
-    public double lowTarget = 138;
-    public double midTarget = 138;
-    public double highTarget = 138; //145 auton
-    public double autoHigh = 133; //everything including this and below not updated
+    public double lowTarget = 143; //+5 guide test
+    public double midTarget = 143;
+    public double highTarget = 143;
+    public double autoHigh = highTarget;
     public double autoInit = 92;
     public double autoDeposit = 153;
     public double teleDeposit = 153;
