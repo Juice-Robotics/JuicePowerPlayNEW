@@ -258,7 +258,15 @@ public class Robot {
 
     public void autoHigh(boolean pad_up) {
         this.slides.runToPreset(Levels.HIGH);
-        v4b.runToPreset(Levels.HIGH);
+        Thread thread = new Thread(new Runnable() {
+            public void run() {
+                try {
+                    Thread.sleep(200);
+                } catch (Exception e) {
+                }
+                v4b.runToPreset(Levels.HIGH);
+            }});
+        thread.start();
         currentPosition = Levels.HIGH;
     }
 
