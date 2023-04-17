@@ -257,23 +257,41 @@ public class Robot {
     }
 
     public void autoHigh(boolean pad_up) {
-        this.v4b.runToPreset(Levels.AUTOHIGH);
-        this.claw.setYRotation(142);
+        this.slides.runToPreset(Levels.HIGH);
+        v4b.runToPreset(Levels.HIGH);
+        currentPosition = Levels.HIGH;
     }
 
     public void autoDeposit (boolean pad_down) {
+        this.v4b.runToPreset(Levels.AUTODEPOSIT);
         this.claw.setClawOpen();
     }
 
     public void autoLow(boolean pad_down) {
-        this.v4b.runToPreset(Levels.GROUND);
-        this.claw.setYRotation(2);
-        this.claw.setClawOpen();
+        Thread thread = new Thread(new Runnable() {
+            public void run() {
+                claw.setYRotation(2);
+                try {
+                    Thread.sleep(1);
+                } catch (Exception e) {
+                }
+                v4b.runToPreset(Levels.GROUND);
+            }});
+        thread.start();
     }
 
     public void autoInit(boolean pad_left) {
         this.v4b.runToPreset(Levels.AUTOINIT);
-        this.claw.setYRotation(2);
+        Thread thread = new Thread(new Runnable() {
+            public void run() {
+                try {
+                    Thread.sleep(400);
+                } catch (Exception e) {
+                }
+                claw.setYRotation(142);
+            }});
+        thread.start();
+
     }
 
     public void autoInitTrue(boolean pad_left) {
