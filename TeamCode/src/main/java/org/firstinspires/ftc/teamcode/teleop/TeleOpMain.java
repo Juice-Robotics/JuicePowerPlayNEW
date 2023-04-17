@@ -43,6 +43,9 @@ public class TeleOpMain extends LinearOpMode {
         boolean previousClawState = false;
         boolean previousRetractState = false;
 
+        int stackPos = -220;
+        boolean stackDeposit = false;
+
         telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
 
         waitForStart();
@@ -77,7 +80,7 @@ public class TeleOpMain extends LinearOpMode {
             if (gamepad1.left_bumper)
                 robot.highPreset(gamepad1.left_bumper);
             if (gamepad1.dpad_down)
-                robot.sidewaysPickup(gamepad1.dpad_down);
+                robot.v4b.setAngle(robot.v4b.currentAngle + 1.5);
 
             //CLAW
             if (gamepad1.circle && !autoClosePreviousState) {
@@ -116,10 +119,16 @@ public class TeleOpMain extends LinearOpMode {
             if (previousClawSensorState && !robot.claw.sensor.conePresent() && clawSensorTimeout.milliseconds() >= 50) {
                 clawSensorTimeout.reset();
             }
-//
-//            if (gamepad1.circle) {
-//                robot.resetAllServos();
-//            }
+
+            if (gamepad1.left_trigger > 0.5) {
+                robot.slides.runToPosition(stackPos);
+                stackDeposit = true;
+            }
+
+            if (isPressed && stackDeposit && !robot.claw.isOpen) {
+                stackDeposit = false;
+                stackPos += 80;
+            }
 
             if (gamepad2.left_trigger > 0.1) {
                 robot.slides.runToPosition((int) (robot.slides.slides1.motor.getCurrentPosition() + 70));
