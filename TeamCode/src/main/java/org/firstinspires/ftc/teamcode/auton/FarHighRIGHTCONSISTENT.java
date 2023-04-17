@@ -4,27 +4,20 @@ import com.acmerobotics.dashboard.config.Config;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.geometry.Vector2d;
 import com.outoftheboxrobotics.photoncore.PhotonCore;
-import com.qualcomm.hardware.lynx.LynxModule;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.teamcode.Robot;
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
-import org.firstinspires.ftc.teamcode.lib.Levels;
-import org.firstinspires.ftc.teamcode.subsystems.vision.AprilTagDetectionPipeline;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 import org.openftc.apriltag.AprilTagDetection;
-import org.openftc.easyopencv.OpenCvCamera;
-import org.openftc.easyopencv.OpenCvCameraFactory;
-import org.openftc.easyopencv.OpenCvCameraRotation;
 
 import java.util.ArrayList;
 
 @Config
 @Autonomous(group = "drive")
 
-public class FarHighCONSISTENT extends LinearOpMode {
+public class FarHighRIGHTCONSISTENT extends LinearOpMode {
 
     Robot robot;
 
@@ -42,7 +35,7 @@ public class FarHighCONSISTENT extends LinearOpMode {
 
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
         robot = new Robot(hardwareMap, true);
-        Pose2d startPose = new Pose2d(in(92), in(165), rad(90));
+        Pose2d startPose = new Pose2d(-in(92), in(165), rad(90));
         drive.setPoseEstimate(startPose);
         PhotonCore.enable();
         robot.autoInitTrue(true);
@@ -54,7 +47,7 @@ public class FarHighCONSISTENT extends LinearOpMode {
         TrajectorySequence preloadTrajectory = drive.trajectorySequenceBuilder(startPose)
                 .setReversed(true)
                 .back(42)
-                .splineTo(new Vector2d(6,17), Math.toRadians(135))
+                .splineTo(new Vector2d(-6,17), Math.toRadians(45))
                 .addTemporalMarker(2, ()->{
                     robot.highPreset(true);
                 })
@@ -69,7 +62,7 @@ public class FarHighCONSISTENT extends LinearOpMode {
 
         TrajectorySequence poleToStackTrajectory1 = drive.trajectorySequenceBuilder(preloadTrajectory.end())
                 .setReversed(false)
-                .splineTo(new Vector2d(23,9.25), Math.toRadians(2))
+                .splineTo(new Vector2d(-23,9.25), Math.toRadians(178))
                 .forward(34.7)
                 .addTemporalMarker(0.5, ()->{
                     robot.autoLow(true);
@@ -86,7 +79,7 @@ public class FarHighCONSISTENT extends LinearOpMode {
         TrajectorySequence stackToHighTrajectory1 = drive.trajectorySequenceBuilder(poleToStackTrajectory1.end())
                 .setReversed(true)
                 .back(35)
-                .splineTo(new Vector2d(6,17), Math.toRadians(135))
+                .splineTo(new Vector2d(-6,17), Math.toRadians(45))
                 .addTemporalMarker(1.4, ()->{
                     robot.autoHigh(true);
                 })
@@ -101,7 +94,7 @@ public class FarHighCONSISTENT extends LinearOpMode {
 
         TrajectorySequence poleToStackTrajectory2 = drive.trajectorySequenceBuilder(stackToHighTrajectory1.end())
                 .setReversed(false)
-                .splineTo(new Vector2d(23,9.25), Math.toRadians(2))
+                .splineTo(new Vector2d(-23,9.25), Math.toRadians(178))
                 .forward(34.7)
                 .addTemporalMarker(0.5, ()->{
                     robot.autoLow(true);
@@ -118,7 +111,7 @@ public class FarHighCONSISTENT extends LinearOpMode {
         TrajectorySequence stackToHighTrajectory2 = drive.trajectorySequenceBuilder(poleToStackTrajectory2.end())
                 .setReversed(true)
                 .back(35)
-                .splineTo(new Vector2d(6,17), Math.toRadians(135))
+                .splineTo(new Vector2d(-6,17), Math.toRadians(45))
                 .addTemporalMarker(1.4, ()->{
                     robot.autoHigh(true);
                 })
@@ -133,7 +126,7 @@ public class FarHighCONSISTENT extends LinearOpMode {
 
         TrajectorySequence poleToStackTrajectory3 = drive.trajectorySequenceBuilder(stackToHighTrajectory2.end())
                 .setReversed(false)
-                .splineTo(new Vector2d(23,9.25), Math.toRadians(2))
+                .splineTo(new Vector2d(-23,9.25), Math.toRadians(178))
                 .forward(34.7)
                 .addTemporalMarker(0.5, ()->{
                     robot.autoLow(true);
@@ -150,7 +143,7 @@ public class FarHighCONSISTENT extends LinearOpMode {
         TrajectorySequence stackToHighTrajectory3 = drive.trajectorySequenceBuilder(poleToStackTrajectory3.end())
                 .setReversed(true)
                 .back(35)
-                .splineTo(new Vector2d(6,17), Math.toRadians(135))
+                .splineTo(new Vector2d(-6,17), Math.toRadians(45))
                 .addTemporalMarker(1.4, ()->{
                     robot.autoHigh(true);
                 })
@@ -165,7 +158,7 @@ public class FarHighCONSISTENT extends LinearOpMode {
 
         TrajectorySequence poleToStackTrajectory4 = drive.trajectorySequenceBuilder(stackToHighTrajectory3.end())
                 .setReversed(false)
-                .splineTo(new Vector2d(23,9.25), Math.toRadians(2))
+                .splineTo(new Vector2d(-23,9.25), Math.toRadians(178))
                 .forward(34.7)
                 .addTemporalMarker(0.5, ()->{
                     robot.autoLow(true);
@@ -182,7 +175,7 @@ public class FarHighCONSISTENT extends LinearOpMode {
         TrajectorySequence stackToHighTrajectory4 = drive.trajectorySequenceBuilder(poleToStackTrajectory4.end())
                 .setReversed(true)
                 .back(35)
-                .splineTo(new Vector2d(6,17), Math.toRadians(135))
+                .splineTo(new Vector2d(-6,17), Math.toRadians(45))
                 .addTemporalMarker(1.4, ()->{
                     robot.autoHigh(true);
                 })
@@ -197,7 +190,7 @@ public class FarHighCONSISTENT extends LinearOpMode {
 
         TrajectorySequence poleToStackTrajectory5 = drive.trajectorySequenceBuilder(stackToHighTrajectory4.end())
                 .setReversed(false)
-                .splineTo(new Vector2d(23,9.25), Math.toRadians(2))
+                .splineTo(new Vector2d(-23,9.25), Math.toRadians(178))
                 .forward(34.7)
                 .addTemporalMarker(0.5, ()->{
                     robot.autoLow(true);
@@ -214,7 +207,7 @@ public class FarHighCONSISTENT extends LinearOpMode {
         TrajectorySequence stackToHighTrajectory5 = drive.trajectorySequenceBuilder(poleToStackTrajectory5.end())
                 .setReversed(true)
                 .back(35)
-                .splineTo(new Vector2d(6,17), Math.toRadians(135))
+                .splineTo(new Vector2d(-6,17), Math.toRadians(45))
                 .addTemporalMarker(1.4, ()->{
                     robot.autoHigh(true);
                 })
