@@ -222,7 +222,7 @@ public class FarHighCONSISTENT extends LinearOpMode {
                     robot.autoDeposit(true);
                 })
                 .addTemporalMarker(2.8, ()->{
-                    robot.slides.runToPosition(-210);
+                    robot.slides.runToPosition(0);
                 })
                 .addTemporalMarker(3, ()->{
                     robot.autoLow(true);
