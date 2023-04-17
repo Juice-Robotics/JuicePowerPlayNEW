@@ -69,8 +69,8 @@ public class FarHighCONSISTENT extends LinearOpMode {
 
         TrajectorySequence poleToStackTrajectory1 = drive.trajectorySequenceBuilder(preloadTrajectory.end())
                 .setReversed(false)
-                .splineTo(new Vector2d(24,10.5), Math.toRadians(-2))
-                .forward(35)
+                .splineTo(new Vector2d(23,9.3), Math.toRadians(2))
+                .forward(34)
                 .addTemporalMarker(0.5, ()->{
                     robot.autoLow(true);
                 })
@@ -90,10 +90,10 @@ public class FarHighCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(1.4, ()->{
                     robot.autoHigh(true);
                 })
-                .addTemporalMarker(2.6, ()->{
+                .addTemporalMarker(2.5, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(2.9, ()->{
+                .addTemporalMarker(2.8, ()->{
                     robot.slides.runToPosition(-210);
                 })
                 .waitSeconds(WAIT_2)
@@ -101,8 +101,8 @@ public class FarHighCONSISTENT extends LinearOpMode {
 
         TrajectorySequence poleToStackTrajectory2 = drive.trajectorySequenceBuilder(stackToHighTrajectory1.end())
                 .setReversed(false)
-                .splineTo(new Vector2d(23,10.5), Math.toRadians(0))
-                .forward(35)
+                .splineTo(new Vector2d(23,9.25), Math.toRadians(2))
+                .forward(34)
                 .addTemporalMarker(0.5, ()->{
                     robot.autoLow(true);
                 })
@@ -119,13 +119,31 @@ public class FarHighCONSISTENT extends LinearOpMode {
                 .setReversed(true)
                 .back(35)
                 .splineTo(new Vector2d(6,17), Math.toRadians(135))
+                .addTemporalMarker(1.4, ()->{
+                    robot.autoHigh(true);
+                })
+                .addTemporalMarker(2.5, ()->{
+                    robot.autoDeposit(true);
+                })
+                .addTemporalMarker(2.8, ()->{
+                    robot.slides.runToPosition(-160);
+                })
                 .waitSeconds(WAIT_2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory3 = drive.trajectorySequenceBuilder(stackToHighTrajectory2.end())
                 .setReversed(false)
-                .splineTo(new Vector2d(23,10.5), Math.toRadians(0))
-                .forward(35)
+                .splineTo(new Vector2d(23,9.25), Math.toRadians(2))
+                .forward(34)
+                .addTemporalMarker(0.5, ()->{
+                    robot.autoLow(true);
+                })
+                .addTemporalMarker(1.6, ()->{
+                    robot.claw.setClawClose();
+                })
+                .addTemporalMarker(2, ()->{ //+0.4
+                    robot.autoInit(true);
+                })
                 .waitSeconds(WAIT_1)
                 .build();
 
@@ -133,13 +151,31 @@ public class FarHighCONSISTENT extends LinearOpMode {
                 .setReversed(true)
                 .back(35)
                 .splineTo(new Vector2d(6,17), Math.toRadians(135))
+                .addTemporalMarker(1.4, ()->{
+                    robot.autoHigh(true);
+                })
+                .addTemporalMarker(2.5, ()->{
+                    robot.autoDeposit(true);
+                })
+                .addTemporalMarker(2.8, ()->{
+                    robot.slides.runToPosition(-35);
+                })
                 .waitSeconds(WAIT_2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory4 = drive.trajectorySequenceBuilder(stackToHighTrajectory3.end())
                 .setReversed(false)
-                .splineTo(new Vector2d(23,10.5), Math.toRadians(0))
-                .forward(35)
+                .splineTo(new Vector2d(23,9.25), Math.toRadians(2))
+                .forward(34)
+                .addTemporalMarker(0.5, ()->{
+                    robot.autoLow(true);
+                })
+                .addTemporalMarker(1.6, ()->{
+                    robot.claw.setClawClose();
+                })
+                .addTemporalMarker(2, ()->{ //+0.4
+                    robot.autoInit(true);
+                })
                 .waitSeconds(WAIT_1)
                 .build();
 
@@ -147,13 +183,31 @@ public class FarHighCONSISTENT extends LinearOpMode {
                 .setReversed(true)
                 .back(35)
                 .splineTo(new Vector2d(6,17), Math.toRadians(135))
+                .addTemporalMarker(1.4, ()->{
+                    robot.autoHigh(true);
+                })
+                .addTemporalMarker(2.5, ()->{
+                    robot.autoDeposit(true);
+                })
+                .addTemporalMarker(2.8, ()->{
+                    robot.slides.runToPosition(0);
+                })
                 .waitSeconds(WAIT_2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory5 = drive.trajectorySequenceBuilder(stackToHighTrajectory4.end())
                 .setReversed(false)
-                .splineTo(new Vector2d(23,10.5), Math.toRadians(0))
-                .forward(35)
+                .splineTo(new Vector2d(23,9.25), Math.toRadians(2))
+                .forward(34)
+                .addTemporalMarker(0.5, ()->{
+                    robot.autoLow(true);
+                })
+                .addTemporalMarker(1.6, ()->{
+                    robot.claw.setClawClose();
+                })
+                .addTemporalMarker(2, ()->{ //+0.4
+                    robot.autoInit(true);
+                })
                 .waitSeconds(WAIT_1)
                 .build();
 
@@ -161,6 +215,18 @@ public class FarHighCONSISTENT extends LinearOpMode {
                 .setReversed(true)
                 .back(35)
                 .splineTo(new Vector2d(6,17), Math.toRadians(135))
+                .addTemporalMarker(1.4, ()->{
+                    robot.autoHigh(true);
+                })
+                .addTemporalMarker(2.5, ()->{
+                    robot.autoDeposit(true);
+                })
+                .addTemporalMarker(2.8, ()->{
+                    robot.slides.runToPosition(-210);
+                })
+                .addTemporalMarker(3, ()->{
+                    robot.autoLow(true);
+                })
                 .waitSeconds(WAIT_2)
                 .build();
 
