@@ -43,7 +43,7 @@ public class TeleOpMain extends LinearOpMode {
         boolean previousClawState = false;
         boolean previousRetractState = false;
 
-        int stackPos = -220;
+        int stackPos = -270;
         boolean stackDeposit = false;
 
         telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
@@ -127,7 +127,7 @@ public class TeleOpMain extends LinearOpMode {
 
             if (isPressed && stackDeposit && !robot.claw.isOpen) {
                 stackDeposit = false;
-                stackPos += 80;
+                stackPos += 70;
             }
 
             if (gamepad2.left_trigger > 0.1) {
