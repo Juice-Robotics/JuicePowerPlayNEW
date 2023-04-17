@@ -285,13 +285,12 @@ public class Robot {
         Thread thread = new Thread(new Runnable() {
             public void run() {
                 try {
-                    Thread.sleep(400);
+                    Thread.sleep(200);
                 } catch (Exception e) {
                 }
                 claw.setYRotation(142);
             }});
         thread.start();
-
     }
 
     public void autoInitTrue(boolean pad_left) {
