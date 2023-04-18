@@ -53,7 +53,21 @@ public class RightPreloadPark extends LinearOpMode {
                 .setReversed(true)
                 .strafeRight(23)
                 .setReversed(true)
-                .splineTo(new Vector2d(-8,31), Math.toRadians(315))
+                .splineTo(new Vector2d(-6,30), Math.toRadians(315))
+                .addTemporalMarker(1.8, ()->{
+                    robot.highPreset(true);
+                })
+                .addTemporalMarker(2.9, ()->{
+                    robot.autoDeposit(true);
+                })
+
+                .addTemporalMarker(3.1, ()->{
+                    robot.slides.runToPosition(0);
+                })
+                .addTemporalMarker(3.5, ()->{
+                    robot.autoLow(true);
+                })
+                .waitSeconds(1.5)
                 .waitSeconds(WAIT_1)
                 .build();
 
@@ -151,7 +165,7 @@ public class RightPreloadPark extends LinearOpMode {
             parkTrajectory = robot.drive.trajectorySequenceBuilder(preloadTrajectory.end())
                     .waitSeconds(0.2)
                     .setReversed(false)
-                    .splineTo(new Vector2d(12,35), Math.toRadians(90))
+                    .splineTo(new Vector2d(-12,35), Math.toRadians(90))
                     .addTemporalMarker(0.8, ()->{
                         robot.autoInit(true);
                     })
@@ -163,7 +177,7 @@ public class RightPreloadPark extends LinearOpMode {
                     .setReversed(false)
                     .splineTo(new Vector2d(-14,35), Math.toRadians(180))
                     .forward(22)
-                    .turn(Math.toRadians(-90))
+                    .turn(Math.toRadians(-100))
                     .addTemporalMarker(0.8, ()->{
                         robot.autoInit(true);
                     })
@@ -175,7 +189,7 @@ public class RightPreloadPark extends LinearOpMode {
                     .setReversed(false)
                     .splineTo(new Vector2d(-14,35), Math.toRadians(180))
                     .forward(45)
-                    .turn(Math.toRadians(-90))
+                    .turn(Math.toRadians(-100))
                     .addTemporalMarker(0.8, ()->{
                         robot.autoInit(true);
                     })
