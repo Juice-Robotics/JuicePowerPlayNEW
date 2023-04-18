@@ -13,6 +13,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.Robot;
 import org.firstinspires.ftc.teamcode.lib.AllianceColor;
 
+import java.util.concurrent.TimeUnit;
+
 @TeleOp(group = "competition")
 public class TeleOpMain extends LinearOpMode {
     @Override
@@ -36,7 +38,10 @@ public class TeleOpMain extends LinearOpMode {
         PhotonCore.enable();
 
         ElapsedTime timer;
+        ElapsedTime matchTimer;
         timer = new ElapsedTime();
+
+        int buzzers = 0;
 
         boolean autoCloseEnabled = true;
         boolean autoClosePreviousState = false;
@@ -50,6 +55,7 @@ public class TeleOpMain extends LinearOpMode {
 
         waitForStart();
         if (isStopRequested()) return;
+        matchTimer = new ElapsedTime();
 
         while (opModeIsActive() && !isStopRequested()) {
 
@@ -148,18 +154,27 @@ public class TeleOpMain extends LinearOpMode {
             }
             previousRetractState = isPressed2;
 
+            //TIME ALERTS
+            if (buzzers == 0 && matchTimer.time(TimeUnit.SECONDS) >= 75) {
+                gamepad1.rumble(500);
+                gamepad2.rumble(500);
+                buzzers = 1;
+            } else if (buzzers == 1 && matchTimer.time(TimeUnit.SECONDS) >= 90) {
+                gamepad1.rumble(800);
+                gamepad2.rumble(800);
+                buzzers = 2;
+            }
+
             previousClawSensorState = robot.claw.sensor.conePresent();
             autoClosePreviousState = gamepad1.circle;
             robot.slides.update();
-            telemetry.addData("claw sensor: ", robot.claw.sensor.getRange());
-            telemetry.addData("v4b position target: ", robot.v4b.getAngle());
-            telemetry.addData("v4b1 position: ", (robot.v4b.v4b1.servo.getPosition()*180));
-            telemetry.addData("slides target: ", robot.slides.target);
-            telemetry.addData("slides pos: ", robot.slides.slides1.motor.getCurrentPosition());
-            telemetry.addData("slides power", robot.slides.power1);
-            telemetry.addData("slides level: ", robot.slides.currentLevel);
-            telemetry.addData("voltage: ", robot.slides.voltageSensor.getVoltage());
-            telemetry.addData("retractpos", robot.retractodo.state);
+            telemetry.addData("TIME LEFT: ", ((120-matchTimer.time(TimeUnit.SECONDS))));
+            telemetry.addData("CLAW POSITION: ", (robot.claw.claw.servo.getPosition()));
+            telemetry.addData("ARM TARGET: ", (robot.v4b.v4b1.servo.getPosition()*180));
+            telemetry.addData("ARM POSITION: ", robot.v4b.getAngle());
+            telemetry.addData("SLIDES TARGET: ", robot.slides.target);
+            telemetry.addData("SLIDES POSITION: ", robot.slides.slides1.motor.getCurrentPosition());
+            telemetry.addData("LEVEL: ", robot.slides.currentLevel);
             telemetry.update();
 
             PhotonCore.CONTROL_HUB.clearBulkCache();

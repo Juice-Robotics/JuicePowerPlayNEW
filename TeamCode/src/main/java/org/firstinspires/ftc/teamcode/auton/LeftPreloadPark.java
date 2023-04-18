@@ -53,8 +53,21 @@ public class LeftPreloadPark extends LinearOpMode {
                 .setReversed(true)
                 .strafeLeft(23)
                 .setReversed(true)
-                .splineTo(new Vector2d(8,31), Math.toRadians(225))
-                .waitSeconds(WAIT_1)
+                .splineTo(new Vector2d(6,30), Math.toRadians(225))
+                .addTemporalMarker(1.8, ()->{
+                    robot.highPreset(true);
+                })
+                .addTemporalMarker(2.9, ()->{
+                    robot.autoDeposit(true);
+                })
+
+                .addTemporalMarker(3.1, ()->{
+                    robot.slides.runToPosition(0);
+                })
+                .addTemporalMarker(3.5, ()->{
+                    robot.autoLow(true);
+                })
+                .waitSeconds(1.5)
                 .build();
 
         robot.cv.observeSleeve();
@@ -153,7 +166,7 @@ public class LeftPreloadPark extends LinearOpMode {
                     .setReversed(false)
                     .splineTo(new Vector2d(14,35), Math.toRadians(0))
                     .forward(45)
-                    .turn(Math.toRadians(90))
+                    .turn(Math.toRadians(100))
                     .addTemporalMarker(0.8, ()->{
                         robot.autoInit(true);
                     })
@@ -165,7 +178,7 @@ public class LeftPreloadPark extends LinearOpMode {
                     .setReversed(false)
                     .splineTo(new Vector2d(14,35), Math.toRadians(0))
                     .forward(22)
-                    .turn(Math.toRadians(90))
+                    .turn(Math.toRadians(100))
                     .addTemporalMarker(0.8, ()->{
                         robot.autoInit(true);
                     })
