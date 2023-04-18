@@ -48,7 +48,7 @@ public class TeleOpMain extends LinearOpMode {
         boolean previousClawState = false;
         boolean previousRetractState = false;
 
-        int stackPos = -270;
+        int stackPos = -285;
         boolean stackDeposit = false;
 
         telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
@@ -86,7 +86,7 @@ public class TeleOpMain extends LinearOpMode {
             if (gamepad1.left_bumper)
                 robot.highPreset(gamepad1.left_bumper);
             if (gamepad1.dpad_down)
-                robot.v4b.setAngle(robot.v4b.currentAngle + 1.5);
+                robot.v4b.setAngle(robot.v4b.currentAngle + 1);
 
             //CLAW
             if (gamepad1.circle && !autoClosePreviousState) {
