@@ -90,10 +90,10 @@ public class LeftStackDELAYED extends LinearOpMode {
                 .addTemporalMarker(0.4, ()->{
                     robot.autoHigh(true);
                 })
-                .addTemporalMarker(1.6, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(1.9, ()->{
+                .addTemporalMarker(1.8, ()->{
                     robot.slides.runToPosition(-210);
                 })
                 .build();
@@ -119,10 +119,10 @@ public class LeftStackDELAYED extends LinearOpMode {
                 .addTemporalMarker(0.4, ()->{
                     robot.autoHigh(true);
                 })
-                .addTemporalMarker(1.6, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(1.9, ()->{
+                .addTemporalMarker(1.8, ()->{
                     robot.slides.runToPosition(-160);
                 })
                 .build();
@@ -148,11 +148,11 @@ public class LeftStackDELAYED extends LinearOpMode {
                 .addTemporalMarker(0.4, ()->{
                     robot.autoHigh(true);
                 })
-                .addTemporalMarker(1.6, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(1.9, ()->{
-                    robot.slides.runToPosition(-35);
+                .addTemporalMarker(1.8, ()->{
+                    robot.slides.runToPosition(-65);
                 })
                 .build();
 
@@ -177,11 +177,11 @@ public class LeftStackDELAYED extends LinearOpMode {
                 .addTemporalMarker(0.4, ()->{
                     robot.autoHigh(true);
                 })
-                .addTemporalMarker(1.6, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(1.9, ()->{
-                    robot.slides.runToPosition(0);
+                .addTemporalMarker(1.8, ()->{
+                    robot.slides.runToPosition(-15);
                 })
                 .build();
 
@@ -206,15 +206,16 @@ public class LeftStackDELAYED extends LinearOpMode {
                 .addTemporalMarker(0.4, ()->{
                     robot.autoHigh(true);
                 })
-                .addTemporalMarker(1.6, ()->{
+                .addTemporalMarker(1.4, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.slides.runToPosition(0);
                 })
-                .addTemporalMarker(1.9, ()->{
+                .addTemporalMarker(2.1, ()->{
                     robot.autoLow(true);
                 })
+                .waitSeconds(WAIT_2)
                 .build();
 
         robot.cv.observeSleeve();
