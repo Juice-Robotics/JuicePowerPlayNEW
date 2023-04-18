@@ -56,7 +56,7 @@ public class RightStackDELAYED extends LinearOpMode {
         TrajectorySequence preloadTrajectory = drive.trajectorySequenceBuilder(startPose)
                 .setReversed(true)
                 .back(48)
-                .splineTo(new Vector2d(-30,5.5), Math.toRadians(316))
+                .splineTo(new Vector2d(-29.5,7), Math.toRadians(316))
                 .addTemporalMarker(1.3, ()->{
                     robot.highPreset(true);
                 })
@@ -74,7 +74,7 @@ public class RightStackDELAYED extends LinearOpMode {
                     robot.autoLow(true);
                 })
                 .setReversed(false)
-                .splineTo(new Vector2d(-58,10.5), Math.toRadians(180))
+                .splineTo(new Vector2d(-55,11), Math.toRadians(180))
                 .addTemporalMarker(1.2, ()->{
                     robot.claw.setClawClose();
                 })
@@ -86,17 +86,16 @@ public class RightStackDELAYED extends LinearOpMode {
 
         TrajectorySequence stackToHighTrajectory1 = drive.trajectorySequenceBuilder(poleToStackTrajectory1.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(-32,5), Math.toRadians(316))
+                .splineTo(new Vector2d(-30,6), Math.toRadians(316))
                 .addTemporalMarker(0.4, ()->{
                     robot.autoHigh(true);
                 })
-                .addTemporalMarker(1.6, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(1.9, ()->{
+                .addTemporalMarker(1.8, ()->{
                     robot.slides.runToPosition(-210);
                 })
-                .waitSeconds(WAIT_2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory2 = drive.trajectorySequenceBuilder(stackToHighTrajectory1.end())
@@ -104,7 +103,7 @@ public class RightStackDELAYED extends LinearOpMode {
                     robot.autoLow(true);
                 })
                 .setReversed(false)
-                .splineTo(new Vector2d(-58,10.5), Math.toRadians(1800))
+                .splineTo(new Vector2d(-55,11), Math.toRadians(180))
                 .addTemporalMarker(1.2, ()->{
                     robot.claw.setClawClose();
                 })
@@ -116,17 +115,16 @@ public class RightStackDELAYED extends LinearOpMode {
 
         TrajectorySequence stackToHighTrajectory2 = drive.trajectorySequenceBuilder(poleToStackTrajectory2.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(-32,5), Math.toRadians(316))
+                .splineTo(new Vector2d(-30,6), Math.toRadians(316))
                 .addTemporalMarker(0.4, ()->{
                     robot.autoHigh(true);
                 })
-                .addTemporalMarker(1.6, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(1.9, ()->{
+                .addTemporalMarker(1.8, ()->{
                     robot.slides.runToPosition(-160);
                 })
-                .waitSeconds(WAIT_2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory3 = drive.trajectorySequenceBuilder(stackToHighTrajectory2.end())
@@ -134,7 +132,7 @@ public class RightStackDELAYED extends LinearOpMode {
                     robot.autoLow(true);
                 })
                 .setReversed(false)
-                .splineTo(new Vector2d(-58,10.5), Math.toRadians(180))
+                .splineTo(new Vector2d(-55,11), Math.toRadians(180))
                 .addTemporalMarker(1.2, ()->{
                     robot.claw.setClawClose();
                 })
@@ -146,17 +144,16 @@ public class RightStackDELAYED extends LinearOpMode {
 
         TrajectorySequence stackToHighTrajectory3 = drive.trajectorySequenceBuilder(poleToStackTrajectory3.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(-32,5), Math.toRadians(316))
+                .splineTo(new Vector2d(-29.5,6.5), Math.toRadians(316))
                 .addTemporalMarker(0.4, ()->{
                     robot.autoHigh(true);
                 })
-                .addTemporalMarker(1.6, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(1.9, ()->{
-                    robot.slides.runToPosition(-35);
+                .addTemporalMarker(1.8, ()->{
+                    robot.slides.runToPosition(-65);
                 })
-                .waitSeconds(WAIT_2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory4 = drive.trajectorySequenceBuilder(stackToHighTrajectory3.end())
@@ -164,7 +161,7 @@ public class RightStackDELAYED extends LinearOpMode {
                     robot.autoLow(true);
                 })
                 .setReversed(false)
-                .splineTo(new Vector2d(-58,10.5), Math.toRadians(180))
+                .splineTo(new Vector2d(-55,11.5), Math.toRadians(180))
                 .addTemporalMarker(1.2, ()->{
                     robot.claw.setClawClose();
                 })
@@ -176,17 +173,16 @@ public class RightStackDELAYED extends LinearOpMode {
 
         TrajectorySequence stackToHighTrajectory4 = drive.trajectorySequenceBuilder(poleToStackTrajectory4.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(-32,5), Math.toRadians(316))
+                .splineTo(new Vector2d(-30,6), Math.toRadians(316))
                 .addTemporalMarker(0.4, ()->{
                     robot.autoHigh(true);
                 })
-                .addTemporalMarker(1.6, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(1.9, ()->{
-                    robot.slides.runToPosition(0);
+                .addTemporalMarker(1.8, ()->{
+                    robot.slides.runToPosition(-15);
                 })
-                .waitSeconds(WAIT_2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory5 = drive.trajectorySequenceBuilder(stackToHighTrajectory4.end())
@@ -194,7 +190,7 @@ public class RightStackDELAYED extends LinearOpMode {
                     robot.autoLow(true);
                 })
                 .setReversed(false)
-                .splineTo(new Vector2d(-58,11), Math.toRadians(180))
+                .splineTo(new Vector2d(-55,11.5), Math.toRadians(180))
                 .addTemporalMarker(1.2, ()->{
                     robot.claw.setClawClose();
                 })
@@ -206,17 +202,17 @@ public class RightStackDELAYED extends LinearOpMode {
 
         TrajectorySequence stackToHighTrajectory5 = drive.trajectorySequenceBuilder(poleToStackTrajectory5.end())
                 .setReversed(true)
-                .splineTo(new Vector2d(-32,5), Math.toRadians(316))
+                .splineTo(new Vector2d(-30,6), Math.toRadians(316))
                 .addTemporalMarker(0.4, ()->{
                     robot.autoHigh(true);
                 })
-                .addTemporalMarker(1.6, ()->{
+                .addTemporalMarker(1.4, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(1.7, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.slides.runToPosition(0);
                 })
-                .addTemporalMarker(1.9, ()->{
+                .addTemporalMarker(2.1, ()->{
                     robot.autoLow(true);
                 })
                 .waitSeconds(WAIT_2)
@@ -307,6 +303,7 @@ public class RightStackDELAYED extends LinearOpMode {
         if (isStopRequested()) return;
 
         robot.slides.launchAsThread(telemetry);
+        drive.followTrajectorySequence(waitTrajectory);
         drive.followTrajectorySequence(preloadTrajectory);
         drive.followTrajectorySequence(poleToStackTrajectory1);
         drive.followTrajectorySequence(stackToHighTrajectory1);

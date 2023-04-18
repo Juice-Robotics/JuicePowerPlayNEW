@@ -150,7 +150,7 @@ public class RightStackCONSISTENT extends LinearOpMode {
                     robot.autoDeposit(true);
                 })
                 .addTemporalMarker(1.9, ()->{
-                    robot.slides.runToPosition(-55);
+                    robot.slides.runToPosition(-65);
                 })
                 .waitSeconds(WAIT_2)
                 .build();

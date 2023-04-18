@@ -96,7 +96,6 @@ public class LeftStackDELAYED extends LinearOpMode {
                 .addTemporalMarker(1.9, ()->{
                     robot.slides.runToPosition(-210);
                 })
-                .waitSeconds(WAIT_2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory2 = drive.trajectorySequenceBuilder(stackToHighTrajectory1.end())
@@ -126,7 +125,6 @@ public class LeftStackDELAYED extends LinearOpMode {
                 .addTemporalMarker(1.9, ()->{
                     robot.slides.runToPosition(-160);
                 })
-                .waitSeconds(WAIT_2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory3 = drive.trajectorySequenceBuilder(stackToHighTrajectory2.end())
@@ -156,7 +154,6 @@ public class LeftStackDELAYED extends LinearOpMode {
                 .addTemporalMarker(1.9, ()->{
                     robot.slides.runToPosition(-35);
                 })
-                .waitSeconds(WAIT_2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory4 = drive.trajectorySequenceBuilder(stackToHighTrajectory3.end())
@@ -186,7 +183,6 @@ public class LeftStackDELAYED extends LinearOpMode {
                 .addTemporalMarker(1.9, ()->{
                     robot.slides.runToPosition(0);
                 })
-                .waitSeconds(WAIT_2)
                 .build();
 
         TrajectorySequence poleToStackTrajectory5 = drive.trajectorySequenceBuilder(stackToHighTrajectory4.end())
@@ -219,7 +215,6 @@ public class LeftStackDELAYED extends LinearOpMode {
                 .addTemporalMarker(1.9, ()->{
                     robot.autoLow(true);
                 })
-                .waitSeconds(WAIT_2)
                 .build();
 
         robot.cv.observeSleeve();
