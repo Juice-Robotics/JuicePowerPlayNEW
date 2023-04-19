@@ -120,7 +120,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     robot.autoDeposit(true);
                 })
                 .addTemporalMarker(1.9, ()->{
-                    robot.slides.runToPosition(-160);
+                    robot.slides.runToPosition(-150);
                 })
                 .waitSeconds(WAIT_2)
                 .build();
@@ -150,7 +150,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     robot.autoDeposit(true);
                 })
                 .addTemporalMarker(1.9, ()->{
-                    robot.slides.runToPosition(-65);
+                    robot.slides.runToPosition(-55);
                 })
                 .waitSeconds(WAIT_2)
                 .build();
@@ -180,7 +180,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     robot.autoDeposit(true);
                 })
                 .addTemporalMarker(1.9, ()->{
-                    robot.slides.runToPosition(-15);
+                    robot.slides.runToPosition(0);
                 })
                 .waitSeconds(WAIT_2)
                 .build();
@@ -206,16 +206,16 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                 .addTemporalMarker(0.4, ()->{
                     robot.autoHigh(true);
                 })
-                .addTemporalMarker(1.4, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(1.5, ()->{
+                .addTemporalMarker(1.6, ()->{
                     robot.slides.runToPosition(0);
                 })
-                .addTemporalMarker(2.1, ()->{
+                .addTemporalMarker(2.2, ()->{
                     robot.autoLow(true);
                 })
-                .waitSeconds(WAIT_2)
+                .waitSeconds(WAIT_2 + 0.1)
                 .build();
 
        robot.cv.observeSleeve();

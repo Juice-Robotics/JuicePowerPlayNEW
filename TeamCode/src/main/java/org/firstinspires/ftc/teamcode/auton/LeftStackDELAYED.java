@@ -50,7 +50,7 @@ public class LeftStackDELAYED extends LinearOpMode {
         robot.claw.setYRotation(142);
 
         TrajectorySequence waitTrajectory = drive.trajectorySequenceBuilder(startPose)
-                .waitSeconds(2)
+                .waitSeconds(1.4)
                 .build();
 
         TrajectorySequence preloadTrajectory = drive.trajectorySequenceBuilder(startPose)
@@ -123,7 +123,7 @@ public class LeftStackDELAYED extends LinearOpMode {
                     robot.autoDeposit(true);
                 })
                 .addTemporalMarker(1.8, ()->{
-                    robot.slides.runToPosition(-160);
+                    robot.slides.runToPosition(-150);
                 })
                 .build();
 
@@ -152,7 +152,7 @@ public class LeftStackDELAYED extends LinearOpMode {
                     robot.autoDeposit(true);
                 })
                 .addTemporalMarker(1.8, ()->{
-                    robot.slides.runToPosition(-65);
+                    robot.slides.runToPosition(-55);
                 })
                 .build();
 
@@ -181,7 +181,7 @@ public class LeftStackDELAYED extends LinearOpMode {
                     robot.autoDeposit(true);
                 })
                 .addTemporalMarker(1.8, ()->{
-                    robot.slides.runToPosition(-15);
+                    robot.slides.runToPosition(0);
                 })
                 .build();
 
@@ -206,16 +206,16 @@ public class LeftStackDELAYED extends LinearOpMode {
                 .addTemporalMarker(0.4, ()->{
                     robot.autoHigh(true);
                 })
-                .addTemporalMarker(1.4, ()->{
+                .addTemporalMarker(1.5, ()->{
                     robot.autoDeposit(true);
                 })
-                .addTemporalMarker(1.5, ()->{
+                .addTemporalMarker(1.6, ()->{
                     robot.slides.runToPosition(0);
                 })
-                .addTemporalMarker(2.1, ()->{
+                .addTemporalMarker(2.2, ()->{
                     robot.autoLow(true);
                 })
-                .waitSeconds(WAIT_2)
+                .waitSeconds(WAIT_2 + 0.1)
                 .build();
 
         robot.cv.observeSleeve();
