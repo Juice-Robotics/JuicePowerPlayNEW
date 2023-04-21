@@ -326,7 +326,7 @@ public class RightStackCONSISTENT extends LinearOpMode {
                     .strafeRight(24)
                     .forward(20) //could be extra
                     .addTemporalMarker(0.8, ()->{
-                        robot.autoInit(true);
+                        robot.autoInitV4b(true);
                     })
                     .build();
         } else if (tagOfInterest.id == MIDDLE) {
@@ -336,7 +336,7 @@ public class RightStackCONSISTENT extends LinearOpMode {
                     .setReversed(false)
                     .splineTo(new Vector2d(-34,38), Math.toRadians(90))
                     .addTemporalMarker(0.8, ()->{
-                        robot.autoInit(true);
+                        robot.autoInitV4b(true);
                     })
                     .build();
         } else if (tagOfInterest.id == RIGHT) {
@@ -346,7 +346,7 @@ public class RightStackCONSISTENT extends LinearOpMode {
                     .setReversed(false)
                     .splineTo(new Vector2d(-58,11), Math.toRadians(180))
                     .addTemporalMarker(0.8, ()->{
-                        robot.autoInit(true);
+                        robot.autoInitV4b(true);
                     })
                     .build();
         }

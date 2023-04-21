@@ -52,7 +52,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
         TrajectorySequence preloadTrajectory = drive.trajectorySequenceBuilder(startPose)
                 .setReversed(true)
                 .back(48)
-                .splineTo(new Vector2d(30,5.5), Math.toRadians(226))
+                .splineTo(new Vector2d(30,7), Math.toRadians(226))
                 .addTemporalMarker(1.3, ()->{
                     robot.highPreset(true);
                 })
@@ -324,7 +324,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     .setReversed(false)
                     .splineTo(new Vector2d(58,11), Math.toRadians(0))
                     .addTemporalMarker(0.8, ()->{
-                        robot.autoInit(true);
+                        robot.autoInitV4b(true);
                     })
                     .build();
         } else if (tagOfInterest.id == MIDDLE) {
@@ -334,7 +334,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     .setReversed(false)
                     .splineTo(new Vector2d(34,38), Math.toRadians(90))
                     .addTemporalMarker(0.8, ()->{
-                        robot.autoInit(true);
+                        robot.autoInitV4b(true);
                     })
                     .build();
         } else if (tagOfInterest.id == RIGHT) {
@@ -346,7 +346,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     .strafeLeft(24)
                     .forward(20) //could be extra
                     .addTemporalMarker(0.8, ()->{
-                        robot.autoInit(true);
+                        robot.autoInitV4b(true);
                     })
                     .build();
         }

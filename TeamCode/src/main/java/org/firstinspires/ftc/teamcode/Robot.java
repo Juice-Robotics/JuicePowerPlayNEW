@@ -301,6 +301,10 @@ public class Robot {
         thread.start();
     }
 
+    public void autoInitV4b(boolean pad_left) {
+        this.v4b.runToPreset(Levels.AUTOINIT);
+    }
+
     public void autoInitTrue(boolean pad_left) {
         this.v4b.runToPreset(Levels.AUTOINITTRUE);
         this.claw.setYRotation(2);
