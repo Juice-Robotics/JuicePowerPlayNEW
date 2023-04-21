@@ -70,7 +70,7 @@ public class RightStackCONSISTENT extends LinearOpMode {
                     robot.autoLow(true);
                 })
                 .setReversed(false)
-                .splineTo(new Vector2d(-55,11), Math.toRadians(180))
+                .splineTo(new Vector2d(-56,11), Math.toRadians(180))
                 .addTemporalMarker(1.2, ()->{
                     robot.claw.setClawClose();
                 })
@@ -100,7 +100,7 @@ public class RightStackCONSISTENT extends LinearOpMode {
                     robot.autoLow(true);
                 })
                 .setReversed(false)
-                .splineTo(new Vector2d(-55,11), Math.toRadians(180))
+                .splineTo(new Vector2d(-56,11), Math.toRadians(180))
                 .addTemporalMarker(1.2, ()->{
                     robot.claw.setClawClose();
                 })
@@ -130,7 +130,7 @@ public class RightStackCONSISTENT extends LinearOpMode {
                     robot.autoLow(true);
                 })
                 .setReversed(false)
-                .splineTo(new Vector2d(-55,11), Math.toRadians(180))
+                .splineTo(new Vector2d(-56,11), Math.toRadians(180))
                 .addTemporalMarker(1.2, ()->{
                     robot.claw.setClawClose();
                 })
@@ -160,7 +160,7 @@ public class RightStackCONSISTENT extends LinearOpMode {
                     robot.autoLow(true);
                 })
                 .setReversed(false)
-                .splineTo(new Vector2d(-55,11.5), Math.toRadians(180))
+                .splineTo(new Vector2d(-56,11.5), Math.toRadians(180))
                 .addTemporalMarker(1.2, ()->{
                     robot.claw.setClawClose();
                 })
@@ -190,7 +190,7 @@ public class RightStackCONSISTENT extends LinearOpMode {
                     robot.autoLow(true);
                 })
                 .setReversed(false)
-                .splineTo(new Vector2d(-55,11.5), Math.toRadians(180))
+                .splineTo(new Vector2d(-56,11.5), Math.toRadians(180))
                 .addTemporalMarker(1.2, ()->{
                     robot.claw.setClawClose();
                 })
