@@ -50,7 +50,7 @@ public class LeftStackDELAYED extends LinearOpMode {
         robot.claw.setYRotation(142);
 
         TrajectorySequence waitTrajectory = drive.trajectorySequenceBuilder(startPose)
-                .waitSeconds(1.4)
+                .waitSeconds(0.8)
                 .build();
 
         TrajectorySequence preloadTrajectory = drive.trajectorySequenceBuilder(startPose)
@@ -303,6 +303,7 @@ public class LeftStackDELAYED extends LinearOpMode {
         if (isStopRequested()) return;
 
         robot.slides.launchAsThread(telemetry);
+        drive.followTrajectorySequence(waitTrajectory);
         drive.followTrajectorySequence(preloadTrajectory);
         drive.followTrajectorySequence(poleToStackTrajectory1);
         drive.followTrajectorySequence(stackToHighTrajectory1);

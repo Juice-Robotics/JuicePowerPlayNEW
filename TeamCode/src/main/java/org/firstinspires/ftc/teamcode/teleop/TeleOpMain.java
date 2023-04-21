@@ -87,6 +87,8 @@ public class TeleOpMain extends LinearOpMode {
                 robot.highPreset(gamepad1.left_bumper);
             if (gamepad1.dpad_down)
                 robot.v4b.setAngle(robot.v4b.currentAngle + 1);
+            if (gamepad1.square)
+                robot.autoInit(true);
 
             //CLAW
             if (gamepad1.circle && !autoClosePreviousState) {
@@ -149,9 +151,9 @@ public class TeleOpMain extends LinearOpMode {
             }
 
             boolean isPressed2 = gamepad1.square;
-            if (gamepad1.square && !previousRetractState) {
-                robot.toggleRetract();
-            }
+//            if (gamepad1.square && !previousRetractState) {
+//                robot.toggleRetract();
+//            }
             previousRetractState = isPressed2;
 
             //TIME ALERTS
