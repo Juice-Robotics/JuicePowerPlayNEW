@@ -88,7 +88,7 @@ public class TeleOpMain extends LinearOpMode {
             if (gamepad1.dpad_down)
                 robot.v4b.setAngle(robot.v4b.currentAngle + 0.8);
             if (gamepad1.square)
-                robot.autoInit(true);
+                robot.autoInitV4b(true);
 
             //CLAW
             if (gamepad1.circle && !autoClosePreviousState) {

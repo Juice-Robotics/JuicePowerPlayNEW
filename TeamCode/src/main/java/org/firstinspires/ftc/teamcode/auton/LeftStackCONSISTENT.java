@@ -32,7 +32,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
     int LEFT = 1;
     int MIDDLE = 2;
     int RIGHT = 3;
-    double WAIT_1 = 0.5;
+    double WAIT_1 = 0.4;
     double WAIT_2 = 0.5;
 
     AprilTagDetection tagOfInterest = null;
@@ -343,7 +343,7 @@ public class LeftStackCONSISTENT extends LinearOpMode {
                     .waitSeconds(0.2)
                     .setReversed(false)
                     .splineTo(new Vector2d(35,14), Math.toRadians(90))
-                    .strafeLeft(24)
+                    .strafeLeft(27)
                     .forward(20) //could be extra
                     .addTemporalMarker(0.8, ()->{
                         robot.autoInitV4b(true);
